@@ -64,6 +64,14 @@ class ComplexNumber:
         else:
             return "{} + {} * i".format(str(self._realPart), str(self._imaginaryPart))
 
+    def __eq__(self, o):
+        if type(o) is not ComplexNumber:
+            return False
+        elif(self._realPart == o.RealPart and self._imaginaryPart == o.ImaginaryPart):
+            return True
+        else:
+            return False
+
     def normSquared(self):
         return self._realPart * self._realPart + self._imaginaryPart * self._imaginaryPart
 
