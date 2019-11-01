@@ -3,12 +3,10 @@ import math
 import matplotlib.pyplot as plt
 import time
 import sys
-from Utils.Utils import ProgressBar, TrackExecutionTime, MultiThreadingProcessor
-import multiprocessing
+from generalutils.monitoring import TrackExecutionTime
 
 
 class SimulationConfig:
-
     @property
     def T(self):
         return self._T
@@ -179,20 +177,6 @@ class MultiDimensionItoProcess:
                 transformedS[:,simu,time] = transformation(self._S[:,simu,time])
 
         return None
-
-      
-
-mu = Mu([Const(0.01), Const(0.03)])
-cov = Cov([[Const(.1), Const(.0)], [Const(.0), Const(.35)]])
-S_0 = [.3, .7]
-
-simuConfig = SimulationConfig(1.0, 500, 500)
-process = MultiDimensionItoProcess(simuConfig, mu, cov, S_0)
-paths = process.generatePaths()
-#drift = process.calculateDrift()
-transformation =  Transformation([Identity(), Identity()])
-
-#transformedProcess = process.applyTransformation(transformation)
 
 
 

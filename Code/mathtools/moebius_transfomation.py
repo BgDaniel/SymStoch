@@ -103,7 +103,7 @@ class Line:
             self._center = None
             self._radius = float('inf')
 
-    UnitCircle = Line(ComplexNumber(-1.0, .0), ComplexNumber(+1.0, .0)) 
+UnitCircle = Line(ComplexNumber(- 1 / (math.sqrt(2)), 1 / (math.sqrt(2))), ComplexNumber(+ 1 / (math.sqrt(2)), 1 / (math.sqrt(2)))) 
 
 def moebFromTo(z_0, z_1):
     Re_z_0 = z_0.RealPart
