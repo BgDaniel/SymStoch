@@ -1,5 +1,5 @@
-from process_factory import MultiDimensionItoProcess, Cov
-from mathtools.math_utils import Const
+from symsprocesses.process_factory import MultiDimensionItoProcess, Cov
+from symsprocesses.mathtools.math_utils import Const
 
 class ProcessHPlus(MultiDimensionItoProcess):
     def __init__(self, simuConfig, S_0, sigma_0, mu, sigma_S, sigma_sigma, parallel=True):

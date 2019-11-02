@@ -3,7 +3,7 @@ import math
 import matplotlib.pyplot as plt
 import time
 import sys
-from generalutils.monitoring import *
+from symsprocesses.generalutils.monitoring import *
 import multiprocessing
 
 class SimulationConfig:
@@ -160,25 +160,30 @@ class MultiDimensionItoProcess:
        
         self._dW_t = np.random.normal(size =(self._dim, self._nbSimus, self._nbSteps)) * dt_sqrt
 
-    def calculateDrift(self, paths):
-        drift = np.zeros((self._dim, self._nbSteps))
+def calculateDrift(paths):
+    nb_dims = len(paths)
+    nb_steps = len(paths[0][0])
 
-        for dim in range(0, self._dim):
-            for time in range(0, self._nbSteps):
-                drift[dim,time] = np.mean(self._paths[dim,:,time])
+    drift = np.zeros((nb_dims, nb_steps))
 
-        return drift
+    for dim in range(0, nb_dims):
+        for time in range(0, nb_steps):
+            drift[dim,time] = np.mean(paths[dim,:,time])
 
-    def applyTransformation(self, transformation):
-        transformedProcess = MultiDimensionItoProcess(self._simuConfig, self._mu, self._cov, self._S0)
-        transformedS0 = transformation(self._S0)
-        transformedS = np.zeros((self._dim, self._simuConfig.NumberSimus, self._simuConfig.TimeSteps))
+    return drift
 
-        for simu in range(0, self._nbSimus):
-            for time in range(0, self._nbSteps):
-                transformedS[:,simu,time] = transformation(self._S[:,simu,time])
+def applyTransformation(paths, transformation):
+    nb_dims = len(paths)
+    nb_simus = len(paths[0])
+    nb_steps = len(paths[0][0])
 
-        return None
+    paths_transformed = np.zeros((nb_dims, nb_simus, nb_steps))
+    
+    for simu in range(0, nb_simus):
+        for time in range(0, nb_steps):
+            paths_transformed[:,simu,time] = transformation(paths[:,simu,time]).toVector()
+
+    return paths_transformed
 
 
 

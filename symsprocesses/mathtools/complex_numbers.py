@@ -5,13 +5,13 @@ import math
 
 def CheckType(operation):
     def _operation(instance, o):
-        assert type(o) is ComplexNumber or type(o) is float, "%s is not of type \"ComplexNumber\" or \"float\"!" % str(o)
+        assert type(o) is ComplexNumber or type(o) is np.float64 or type(o) is float, "%s is not of type \"ComplexNumber\" or \"float\"!" % str(o)
         return operation(instance, o)
     return _operation
 
 def MapFloat(operation):
     def _operation(instance, o):
-        if type(o) is float:
+        if type(o) is float or type(o) is np.float64:
             o = ComplexNumber(float(o), 0)
         return operation(instance, o)
     return _operation
@@ -46,6 +46,9 @@ class ComplexNumber:
     def __mul__(self, o):
         return ComplexNumber(self._realPart * o.RealPart - self._imaginaryPart * o.ImaginaryPart,
             self._realPart * o.ImaginaryPart + o.RealPart * self._imaginaryPart)
+
+    def __neg__(self):
+        return ComplexNumber(- self._realPart, - self._imaginaryPart)  
 
     @CheckType
     @MapFloat
@@ -82,7 +85,7 @@ class ComplexNumber:
         return ComplexNumber(self._realPart, - self._imaginaryPart)
 
     def inverse(self):
-        return self.conjugate / self.normSquared
+        return self.conjugate() / self.normSquared()
 
     def toVector(self):
         return np.array([self._realPart, self._imaginaryPart])

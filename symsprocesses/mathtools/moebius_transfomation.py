@@ -1,5 +1,5 @@
 import sys
-from complex_numbers import ComplexNumber, i
+from symsprocesses.mathtools.complex_numbers import ComplexNumber, i
 import math
 import numpy as np
 import enum
@@ -23,13 +23,21 @@ class Moeb:
         return self._d
 
     def __init__(self, a, b, c, d):
+        if type(a) is float:
+            a = ComplexNumber(a, .0)
+        if type(b) is float:
+            b = ComplexNumber(b, .0)
+        if type(c) is float:
+            c = ComplexNumber(c, .0)
+        if type(d) is float:
+            d = ComplexNumber(d, .0)
         self._a = a
         self._b = b
         self._c = c
         self._d = d
 
     def __call__(self, z):
-        if type(z) is np.array:
+        if type(z) is np.array or type(z) is np.ndarray:
             assert len(z) == 2, "z has wrong dimension!"
             z = ComplexNumber(z[0], z[1])
         elif type(z) is not ComplexNumber:
@@ -38,7 +46,7 @@ class Moeb:
         return (z * self._a + self._b) / (z * self._c + self._d)
 
     def __mul__(self, o):
-        assert type(o) is not Moeb, "%s is not of type \"Moeb\"!" % str(o)
+        assert type(o) is Moeb or type(o) is MoebConj, "%s is not of type \"Moeb\"!" % str(o)
 
         return Moeb(self._a * o.a + self._b * o.c, self._a * o.b + self._b * o.d, 
             self._c * o.a + self._d * o.c, self._c * o.b + self._d * o.d)
@@ -110,7 +118,7 @@ class Line:
             y0 = self._z0.ImaginaryPart
             x1 = self._z1.RealPart
             y1 = self._z1.ImaginaryPart
-            self._center = (1.0 / 2.0 * (y1 ** 2 - y0 ** 2 - x0 ** 2 + x1 ** 2) / (x1 - x0), .0)
+            self._center = 1.0 / 2.0 * (y1 ** 2 - y0 ** 2 - x0 ** 2 + x1 ** 2) / (x1 - x0)
             self._radius = 1.0 / ( 2.0 * (abs(x1 - x0))) * math.sqrt(((x1 - x0) ** 2 + (y1 - y0) ** 2) * ((x1 - x0) ** 2 + (y1 + y0) ** 2))
 
 UnitCircle = Line(ComplexNumber(- 1.0 / (math.sqrt(2.0)), 1.0 / (math.sqrt(2.0))), ComplexNumber(+ 1.0 / (math.sqrt(2.0)), 1.0 / (math.sqrt(2.0)))) 
@@ -147,7 +155,7 @@ def parabolic0(t):
 #reflection at half circle around (0,0) of radius r
 def reflection0(R):
     iR = ComplexNumber(.0, R)
-    return MoebConj(.0, iR, 1 / iR, .0)  
+    return MoebConj(.0, iR, iR.inverse(), .0)  
 
 #reflection at half circle around (u,0) of radius r
 def relfectionCirc(u, R):
@@ -191,10 +199,10 @@ def circleToCircle(circle0, circle1):
     c1 = circle1.Center
     r1 = circle1.Radius
     
-    return moebFromTo(ComplexNumber(c0, r0), ComplexNumber(c1, R1))
+    return moebFromTo(ComplexNumber(c0, r0), ComplexNumber(c1, r1))
 
 def reflection(line):
-    return reflection0(1.0).conjugate(lineToLine(line, Line.UnitCircle))
+    return reflection0(1.0).conjugate(lineToLine(line, UnitCircle))
 
 
 
