@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 class Const:
     def __init__(self, value):
@@ -38,7 +39,7 @@ class TwoDimLinearMesh:
         for y in ys:
             y_in_x_dir = []
             for x_l in line_x:
-                y_in_x_dir.append([y, x_l])
+                y_in_x_dir.append([x_l, y])
             self._Y.append(y_in_x_dir)
 
         return self._X, self._Y
@@ -62,11 +63,18 @@ class TwoDimLinearMesh:
         return X, Y
 
     def plot(X, Y):
-        return None
+        for x_in_y_dir in X:
+            x, y = [p[0] for p in x_in_y_dir], [p[1] for p in x_in_y_dir]
+            plt.plot(x, y, linewidth=1.0, color='blue')
+        for y_in_x_dir in Y:
+            x, y = [p[0] for p in y_in_x_dir], [p[1] for p in y_in_x_dir]
+            plt.plot(x, y, linewidth=1.0, color='blue')
+        plt.show()
+  
 
         
 
 
-linear_mesh = TwoDimLinearMesh(- .5, + .5, .5, 1.5, .2, .2, .005, .005)
+linear_mesh = TwoDimLinearMesh(- .5, + .5, .5, 1.5, .025, .025, .005, .005)
 X, Y = linear_mesh.create()
-plot(X, Y)
+TwoDimLinearMesh.plot(X, Y)
