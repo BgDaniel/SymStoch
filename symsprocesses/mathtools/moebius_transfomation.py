@@ -59,6 +59,9 @@ class Moeb:
     def inverse(self):
         return Moeb(self._d, - self._b, - self._c, self._a)
 
+    def plot(self, rectanlge):
+        return None
+
 class MoebConj(Moeb):
     def __init__(self, a, b, c, d):
         Moeb.__init__(self, a, b, c, d)
