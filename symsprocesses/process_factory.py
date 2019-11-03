@@ -3,7 +3,12 @@ import math
 import matplotlib.pyplot as plt
 import time
 import sys
-from symsprocesses.generalutils.monitoring import *
+
+if __name__ == "__main__":
+    from generalutils.monitoring import *
+else:
+    from symsprocesses.generalutils.monitoring import *
+
 import multiprocessing
 
 class SimulationConfig:
