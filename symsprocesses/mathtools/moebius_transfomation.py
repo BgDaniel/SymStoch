@@ -1,5 +1,5 @@
 import sys
-from symsprocesses.mathtools.complex_numbers import ComplexNumber, i
+from complex_numbers import ComplexNumber, i
 import math
 import numpy as np
 import enum
@@ -67,7 +67,30 @@ class MoebConj(Moeb):
         Moeb.__init__(self, a, b, c, d)
 
     def __call__(self, z):
+        if type(z) is np.array or type(z) is np.ndarray or type(z) is list:
+            assert len(z) == 2, "z has wrong dimension!"
+            z = ComplexNumber(z[0], z[1])
+        elif type(z) is not ComplexNumber:
+            raise Exception("Argument z is neither of type array nor type ComplexNumber!") 
         return Moeb.__call__(self, z.conjugate())
+
+class MoebCorr(Moeb):
+    def __init__(self, a, b, c, d, rho):
+        self._rho = rho
+        Moeb.__init__(self, a, b, c, d)
+
+    def __call__(self, z):
+        z_x = z.RealPart
+        z_y = z.ImaginaryPart
+        u = z_x / self._rho + math.sqrt(1.0 - self._rho * self._rho) / self._rho * z_y
+        v = z_y
+        z = ComplexNumber(u, v)
+        w = Moeb.__call__(self, z)
+        w_x = w.RealPart
+        w_y = w.ImaginaryPart
+        u = self._rho * w_x + math.sqrt(1.0 - self._rho * self._rho) * w_y
+        v = w_y
+        return ComplexNumber(u, v)
 
 class LineType(enum.Enum):
     CIRCLE = 1
