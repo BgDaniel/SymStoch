@@ -181,7 +181,8 @@ def parabolic0(t):
 #reflection at half circle around (0,0) of radius r
 def reflection0(R):
     iR = ComplexNumber(.0, R)
-    return MoebConj(.0, iR, iR.inverse(), .0)  
+    idivR = ComplexNumber(.0, 1.0 / R)
+    return MoebConj(.0, iR, idivR, .0)  
 
 #reflection at half circle around (u,0) of radius r
 def relfectionCirc(u, R):
