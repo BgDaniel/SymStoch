@@ -3,13 +3,14 @@ import math
 import matplotlib.pyplot as plt
 import time
 import sys
+import multiprocessing
 
 if __name__ == "__main__":
     from generalutils.monitoring import *
 else:
     from symsprocesses.generalutils.monitoring import *
 
-import multiprocessing
+
 
 
 class SimulationConfig:
@@ -59,7 +60,6 @@ class Mu:
         return ret
 
 class Cov:
-
     def __init__(self, cov):
         self._cov = cov
 
@@ -136,6 +136,12 @@ class MultiDimensionItoProcess:
     def Dt(self):
         return self._dt
 
+    def SetProgressBar(self, progress_bar):
+        self._progress_bar = progress_bar
+
+    def SetManager(self, manager):
+        self._manager = manager
+
     def __init__(self, simuConfig, mu, cov, S0, parallel=True):
         self._simuConfig = simuConfig      
         self._mu = mu
@@ -147,12 +153,13 @@ class MultiDimensionItoProcess:
         self._nbSimus = self._simuConfig.NumberSimus
         self._nbSteps = self._simuConfig.TimeSteps
         self._parallel = parallel
-        self._progressBar = None
+        self._manager = None
+        self._progress_bar = None
         self.initialize()
     
     @TrackExecutionTime
     def generatePaths(self):
-        self._progressBar = ProgressBar(50, "Generating paths ...", self._nbSimus)
+        self._progress_bar = ProgressBar(50, "Generating paths ...", self._nbSimus)
         return self.generatePathsChunked(range(0, self._nbSimus))
         
     def generatePathsChunked(self, range_simus):
@@ -167,8 +174,7 @@ class MultiDimensionItoProcess:
                 paths[:,simu,time] = paths[:,simu,time-1] + self._cov(paths[:,simu,time-1], self._dW_t[:,range_simus[simu],time-1])
                 paths[:,simu,time] = paths[:,simu,time] + self._mu(paths[:,simu,time-1]) * self._dt
 
-            #self._progressBar.updateAndShow(simu + 1)
-
+            self._progress_bar.updateAndShow(simu + 1)
         return paths
 
     def initialize(self):
@@ -195,6 +201,10 @@ class MultiDimensionItoProcess:
                 paths[:,k,:] = paths_chunk[:,j,:]
                 
         return paths
+
+    def organizeParallel(self): 
+        nb_cpu = multiprocessing.cpu_count()
+        return self.getZeroPaths(), nb_cpu, self.getSimulationChunks(nb_cpu)
 
 
 def calculateDrift(paths):
