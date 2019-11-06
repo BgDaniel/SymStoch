@@ -1,5 +1,5 @@
 import sys
-from complex_numbers import ComplexNumber, i
+from symsprocesses.mathtools.complex_numbers import ComplexNumber, i
 import math
 import numpy as np
 import enum

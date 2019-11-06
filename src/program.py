@@ -32,7 +32,7 @@ else:
     paths, nb_cpu, chunks = process.organizeParallel()
 
     if __name__ == '__main__':
-        process.SetManager(Manager())
+        #process.SetManager(Manager())
 
         #process.SetProgressBar(manager.ProgressBar(50, "Generating paths ...", simuConfig.NumberSimus))
         pool = multiprocessing.Pool(processes=nb_cpu)

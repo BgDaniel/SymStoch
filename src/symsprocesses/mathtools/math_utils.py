@@ -1,8 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-if __name__ == "__main__":
-    from moebius_transfomation import reflection0
+from symsprocesses.mathtools.moebius_transfomation import reflection0
 
 class Const:
     def __init__(self, value):
@@ -128,10 +126,3 @@ class LinearMesh2D:
         plt.gca().set_aspect('equal', adjustable='box')
         plt.plot(self._x0, self._y0)
         plt.show()
-  
-
-linear_mesh = LinearMesh2D(.0, 1.0, - .5, + .5, .5, 1.5, .025, .025, .005, .005)
-linear_mesh.create()
-#linear_mesh.plot()
-curved_mesh = linear_mesh.map(reflection0(1.0))
-curved_mesh.plot()
