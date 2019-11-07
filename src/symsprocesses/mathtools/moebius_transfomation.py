@@ -191,6 +191,22 @@ class Line:
             self._radius = 1.0 / ( 2.0 * (abs(x1 - x0))) * math.sqrt(((x1 - x0) ** 2 + (y1 - y0) ** 2) * ((x1 - x0) ** 2 + (y1 + y0) ** 2))
             self._levelFunction = lambda x, y: (x - self._center) * (x - self._center) + y * y - self._radius * self._radius
 
+    def getTrace(self, step_width, y_max):
+        trace = []
+        if self._type == LineType.VERTICAL:
+            i = 0
+            while i * step_width <= y_max:
+                trace.append([self._intersectionXaxis, i * step_width])
+                i += 1
+        else:
+            angles = np.arange(.0, math.pi * self._radius + step_width, step_width)
+            for phi in angles:
+                trace.append([math.sin(phi) * self._radius, math.cos(phi) * self._radius])
+
+        return trace
+
+
+
 UnitCircle = Line(ComplexNumber(- 1.0 / (math.sqrt(2.0)), 1.0 / (math.sqrt(2.0))), ComplexNumber(+ 1.0 / (math.sqrt(2.0)), 1.0 / (math.sqrt(2.0)))) 
 
 def moebFromTo(z_0, z_1):

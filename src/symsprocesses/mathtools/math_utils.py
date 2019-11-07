@@ -53,6 +53,7 @@ class CurvedMesh2D:
         plt.xlim(x_min - self._offset, x_max + self._offset)
         plt.ylim(y_min - self._offset, y_max + self._offset)
 
+    def show(self):
         plt.show()
 
 class LinearMesh2D:
@@ -125,4 +126,23 @@ class LinearMesh2D:
         plt.ylim(self._y0 - self._offset, self._y1 + self._offset)
         plt.gca().set_aspect('equal', adjustable='box')
         plt.plot(self._x0, self._y0)
+        plt.show()
+
+class ReflectionPlot:
+    def __init__(self, line, x, y, x0, x1, y0, y1, step_width_x, step_width_y, step_width_line_x, 
+        step_width_line_y, offset=0.25):
+        self._line = line
+        self._reflection = reflection(self._line)
+        self._linear_mesh = LinearMesh2D(x, y, x0, x1, y0, y1, step_width_x, step_width_y, step_width_line_x, step_width_line_y,
+            offset)
+        self._linear_mesh.create()
+        self._reflected_mesh = self._linear_mesh.map(self._reflection)
+
+    def plot(self):
+        self._reflected_mesh.plot()
+        trace = self._line.getTrace(.01, y1)
+        plt.plot(x, y, linewidth=.4, color='green')
+        plt.plot([x], [y], marker='o', markersize=3, color="red")
+
+    def show(self):
         plt.show()
