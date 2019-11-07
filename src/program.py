@@ -7,7 +7,7 @@ from symsprocesses.process_h_plus import *
 from symsprocesses.mathtools.moebius_transfomation import *
 
 
-simuConfig = SimulationConfig(2.0, 10, 50, True)
+simuConfig = SimulationConfig(2.0, 10, 50, False)
 
 S_0 = 1.0
 sigma_0 = 0.1
@@ -44,3 +44,5 @@ print(paths)
 #drift = calculateDrift(paths)
 
 #paths_transformed = applyTransformation(paths, reflection(UnitCircle))
+halfSpace = HalfSpace(UnitCircle)
+paths_reflected = process.reflectAtHalfSpace(paths, halfSpace)

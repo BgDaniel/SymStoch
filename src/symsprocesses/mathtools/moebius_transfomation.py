@@ -5,7 +5,6 @@ import numpy as np
 import enum
 
 class Moeb:
-
     @property
     def a(self):
         return self._a
@@ -96,8 +95,46 @@ class LineType(enum.Enum):
     CIRCLE = 1
     VERTICAL = 2
 
-class Line:
+class Position(enum.Enum):
+    IN = 1
+    OUT = 2
+    ON = 3
 
+def opposite(position):
+    if position == Position.IN:
+        return Position.OUT
+    elif position == Position.OUT:
+        return Position.IN
+    else:
+        return Position.ON
+
+class HalfSpace:
+    def __init__(self, line):
+        self._line = line
+        self._reflection = reflection(line)
+
+    def position(self, x):
+        if type(x) is np.array or type(x) is np.ndarray or type(x) is list:
+            assert len(x) == 2, "z has wrong dimension!"
+        elif type(x) is ComplexNumber:
+            x = x.ToVector()
+        else:
+            raise Exception("Argument z is neither of type array nor type ComplexNumber!") 
+
+        level = self._line.LevelFunction(x[0], x[1])
+
+        if level < .0:
+            return Position.IN
+        elif level == .0:
+            return Position.ON
+        else:
+            return Position.OUT
+
+    def reflect(self, x):
+        return self._reflection(x) 
+
+
+class Line:
     @property
     def Radius(self):       
         return self._radius
@@ -122,6 +159,10 @@ class Line:
     def z1(self):
         return self._z1
 
+    @property
+    def LevelFunction(self):
+        return self._levelFunction
+
     def __init__(self, z0, z1):
         assert type(z0) is ComplexNumber, "z0 is not of type \"ComplexNumber\"!"
         assert type(z1) is ComplexNumber, "z1 is not of type \"ComplexNumber\"!"
@@ -137,15 +178,18 @@ class Line:
             self._intersectionXaxis = self._z0.RealPart
             self._center = None
             self._radius = float('inf')
+            self._levelFunction = lambda x, y: y - self._intersectionXaxis
+
         else:
             self._type = LineType.CIRCLE
-            self._intersectionXaxis = []
+            self._intersectionXaxis = - float('inf')
             x0 = self._z0.RealPart
             y0 = self._z0.ImaginaryPart
             x1 = self._z1.RealPart
             y1 = self._z1.ImaginaryPart
             self._center = 1.0 / 2.0 * (y1 ** 2 - y0 ** 2 - x0 ** 2 + x1 ** 2) / (x1 - x0)
             self._radius = 1.0 / ( 2.0 * (abs(x1 - x0))) * math.sqrt(((x1 - x0) ** 2 + (y1 - y0) ** 2) * ((x1 - x0) ** 2 + (y1 + y0) ** 2))
+            self._levelFunction = lambda x, y: (x - self._center) * (x - self._center) + y * y - self._radius * self._radius
 
 UnitCircle = Line(ComplexNumber(- 1.0 / (math.sqrt(2.0)), 1.0 / (math.sqrt(2.0))), ComplexNumber(+ 1.0 / (math.sqrt(2.0)), 1.0 / (math.sqrt(2.0)))) 
 

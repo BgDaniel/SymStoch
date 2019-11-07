@@ -4,11 +4,7 @@ import matplotlib.pyplot as plt
 import time
 import sys
 import multiprocessing
-
-if __name__ == "__main__":
-    from generalutils.monitoring import *
-else:
-    from symsprocesses.generalutils.monitoring import *
+from symsprocesses.generalutils.monitoring import *
 
 
 
@@ -90,7 +86,6 @@ class Identity:
 class Transformation:
     def __init__(self, transformation):      
         self._transformation = transformation        
-
     
     def __call__(self, value):
         l = len(value)
