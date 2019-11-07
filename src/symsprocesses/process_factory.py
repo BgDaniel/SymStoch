@@ -6,9 +6,6 @@ import sys
 import multiprocessing
 from symsprocesses.generalutils.monitoring import *
 
-
-
-
 class SimulationConfig:
     @property
     def T(self):
@@ -169,7 +166,7 @@ class MultiDimensionItoProcess:
                 paths[:,simu,time] = paths[:,simu,time-1] + self._cov(paths[:,simu,time-1], self._dW_t[:,range_simus[simu],time-1])
                 paths[:,simu,time] = paths[:,simu,time] + self._mu(paths[:,simu,time-1]) * self._dt
 
-            #self._progress_bar.updateAndShow(simu + 1)
+            self._progress_bar.updateAndShow(simu + 1)
         return paths
 
     def initialize(self):

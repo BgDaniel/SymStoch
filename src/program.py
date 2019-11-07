@@ -7,7 +7,7 @@ from symsprocesses.process_h_plus import *
 from symsprocesses.mathtools.moebius_transfomation import *
 
 
-simuConfig = SimulationConfig(2.0, 10, 50, False)
+simuConfig = SimulationConfig(2.0, 100, 50, False)
 
 S_0 = 1.0
 sigma_0 = 0.1
@@ -25,7 +25,6 @@ sigma_sigma = 0.05
 
 process = ProcessHPlus(simuConfig, S_0, sigma_0, mu, sigma_S, sigma_sigma)
 
-
 if not(simuConfig.Parallel):
     paths = process.generatePaths()
 else:
@@ -40,9 +39,8 @@ else:
         paths = process.mergePathsChunks(paths, paths_chunks, chunks)
 
 
-print(paths)
 #drift = calculateDrift(paths)
 
 #paths_transformed = applyTransformation(paths, reflection(UnitCircle))
-halfSpace = HalfSpace(UnitCircle)
-paths_reflected = process.reflectAtHalfSpace(paths, halfSpace)
+#halfSpace = HalfSpace(UnitCircle)
+#paths_reflected = process.reflectAtHalfSpace(paths, halfSpace)
