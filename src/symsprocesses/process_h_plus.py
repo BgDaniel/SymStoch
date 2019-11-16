@@ -1,6 +1,6 @@
 from symsprocesses.process_factory import MultiDimensionItoProcess, Cov
-from symsprocesses.mathtools.math_utils import Const
-from symsprocesses.mathtools.moebius_transfomation import *
+from hypgeo.moebius import *
+from hypgeo.geometry import *
 
 class ProcessHPlus(MultiDimensionItoProcess):
     def _cov_11(self, x):
@@ -38,7 +38,7 @@ class ProcessHPlus(MultiDimensionItoProcess):
         for simu in range(0, nb_simus):
             for time in range(0, nb_steps):
                 if halfSpace.position(paths[:,simu,time]) == opposite_position:
-                    paths_reflected[:,simu,time] = halfSpace.reflect(paths[:,simu,time]).toVector()
+                    paths_reflected[:,simu,time] = halfSpace.refl(paths[:,simu,time]).toVector()
 
         return paths_reflected
     
