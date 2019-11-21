@@ -97,6 +97,79 @@ The \SmF\ provides the authors of its publications with \LaTeXe\ ``document clas
 This text contains a user's guide to these classes as well as some elementary typographical rules that the authors should read thoroughly before preparing their manuscript as a \LaTeXe\ file: sending a file prepared with the SMF classes following these rules will reduce the number of errors introduced by the editing process and will save the author proofreading time. This will hence minimize the time needed for the article to reach its printed form (and reduce the publishing costs).
 
 
+\section{Preserving the drift}
+Throughout this section we will fix a system of stochastic differential equations on the open subset $\U\subset \mathbb{R}^{n}$ as introduced above
+
+\begin{equation}
+\mathrm{d X^{i}_{t}= \sigma_{i,j}(\Z)dW^{j}_{t}+\mu_{i}(\Z)dt}
+\end{equation}
+
+Furthermore, let $\mathrm{phi}:\U\rightarrow V$ denote a diffeoemorphism into an open subset $V$ of $\mathbb{R}^{m}$. To be more specific, we are interested in $\mathrm{\phi}$ being a coordinate transfomation from 
+chart to chart. In this setting, the following question naturally arises: When do the coefficients $\mathrm{\mu_{i}}$ of the drift term in the above equation transforms like the coefficients of a  covariant tensor of rank one, i.e. under which assumptions do we have  
+
+\begin{equation}
+\mathrm{d Z^{\prime,j}_{t}=[\dots] +\mu^{\prime}_{j}(\Z)dt}
+\end{equation} where 
+\begin{equation}
+\mathrm{\mu^{\prime}_{j}=\frac{\partial x^{k}}{\partial x^{\prime , j}}\mu_{k}}
+\end{equation} 
+
+The following result specifies two conditions under which the transfomation law in fact holds:
+
+\begin{lemm} Equation transforms like a covariatn tensor of first degree if the following two conditions holds:
+\begin{enumerate}
+\item The local coordinates $\mathrm{x^{i}}$ are harmonic with respect to $\textrm{\g}$, i.e. $\mathrm{g^{ij}\Gamma^{k}_{ij}=0}$ for all $\mathrm{1 \leq i,j\leq n}$.
+\item The change of coordinates is harmonic, i.e. each component $x^{\prime,j}$ is again harmonic functions with respect to $\mathrm{\{x^{i}\}_{1\leq i\leq n}}$
+\end{enumerate}
+\end{lemm}
+\begin{proof} By applying the lemma of $\textsc{Itô}$, the drift term of the transformed process $Z^{\prime k}=\mathrm{\phi^{k}\left(\Z\right)}$ is given by the following formula
+\begin{equation}
+\mathrm{d\Z^{\prime k}_{t}= [\dots] + \frac{\partial x^{\prime k}}{\partial x^{l}}\mu^{l}+g^{ij}\frac{\partial^2 x^{\prime k}}{\partial x_{i}\partial x_j}}
+\end{equation} In particular, as the proof is completed  as soon as we have shown that the second term on the right hand side of the above equaiton vanishes, i.e.:
+\begin{equation}
+\mathrm{g^{ij}\frac{\partial^2 x^{\prime k}}{\partial x_{i}\partial x_j}= 0}
+\end{equation} for all $\mathrm{k}$.
+
+For this, recall that condition is equivalent to
+\begin{equation}
+\mathrm{\triangle x^{\prime,i}= 0}
+\end{equation} for all $\mathrm{1 \leq i\leq n}$, where $\mathrm{\triangle}$ denotes the Laplace-Beltrami operator associated to the metric $\mathrm{g}$ which $\mathrm{g}$ is locally given by 
+\begin{equation}
+\mathrm{\triangle = g^{ij}\left(\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}- \Gamma^{k}_{ij}\frac {\partial}{\partial x^{k}}\right)}
+\end{equation} As 1) is equivalent to $\mathrm{\mathrm{g^{ij}\Gamma^{k}_{ij}}=0}$ for all $\mathrm{1 \leq k \leq n}$, it follows from conditions 2) that
+\begin{equation}
+\mathrm{0 = g^{ij}\frac{\partial^{2}}{\partial x^{\prime i}\partial x^{j}}}
+\end{equation} for all $\mathrm{k}$ , which in conjunction with step yields the result.
+\end{proof}
+
+
+\begin{exem}[Standard complex space] Let $\mathrm{U\subset\mathbb{C}^{n}}$ and $\mathrm{\sigma^{ij}=\delta^{ij}}$ so that $\mathrm{g}$ is given by the flat Euclidean metric. By function theroy, it is known that the real part $\mathrm{x^{k}=\frak{Re} z^{k}}$ as well as the imaginary part $\mathrm{y^{k}=\frak{Im} z^{k}}$ of the complex standard coordinates f $\mathrm{z^{k}= x^{k}+\sqrt{-1}y^{k}}$ are harmonic function with respect to the standard metric structure. Furthermore, any holomorphic function $\mathrm{f}$ on $\mathrm{U}$ are harmonic. Hence by lemma, every
+
+Consider the system 
+\begin{equation}
+\begin{split}
+\mathrm{dU}&=\\
+\end{split}
+\end{equation}
+defined on 
+\end{exem}
+
+
+\begin{exem}[Local K\"ahlerain space] Let $\mathrm{U\subset\mathbb{C}^{n}}$ and  
+\end{exem}
+
+\section{Preserving the covariance}
+As in the section, we will consider a system of stochastic differential equations on the open subset $\U\subset \mathbb{R}^{n}$ as introduced above
+
+ In this setting, the following question naturally arises: When do the coefficients $\mathrm{\sigma_{ij}}$ defining the covariance structure transform like the coefficients of a  covariant tensor of rank two, i.e. under which assumptions do we have  
+\begin{equation}
+\mathrm{d X^{\prime i}_{t}= \sigma^{\prime}_{i,j}(\Z)dW^{j}_{t}+[\dots]dt}
+\end{equation} where
+\begin{equation}
+ \sigma^{\prime}_{k,l} = \frac{\partial x^{\prime i}}{\partial x^{k}} \frac{\partial x^{\prime j}}{\partial x^{l}} \sigma^{\prime}_{i,j}
+\end{equation}
+    
+
 \section{Symmetries of certain stochastic differential equations}
 In the sequel, let $(\M, g)$ be a Riemannain manifold with a smooth Lie group action $\phi\dbp\G\tim\M\arr\M$ which preserves the metric $g$ so that $\sigma^{*}g=g$ for all $\sigma\in \G$. For convenience, we will assume that $\M$ is given by an open subset $\U$ of $\Rm$ whit local coordinates $\mathrm{(x_1,\dots,x_m)}$. 
 

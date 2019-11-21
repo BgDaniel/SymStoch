@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (MiKTeX 2.9.6700 64-bit)  (format=lualatex 2018.6.22)  16 NOV 2019 16:35
+This is LuaTeX, Version 1.07.0 (MiKTeX 2.9.6700 64-bit)  (format=lualatex 2018.6.22)  21 NOV 2019 15:06
  restricted system commands enabled.
 **sym-stoch.tex
 (./sym-stoch.tex
@@ -33,7 +33,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 1.291 seconds
+luaotfload | main : initialization completed in 2.559 seconds
 (./smfart.cls
 Document Class: smfart 2015/09/02 v1.5c Classe LaTeX pour les articles publies p
 ar la SMF
@@ -458,30 +458,31 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
 [1
 
 {C:/Users/bergerd/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+euf on input line 111.
+[2]
 
+Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inste
+ad on input line 146.
+
+LaTeX Font Info:    Try loading font information for U+euf on input line 146.
 ("C:/Users/bergerd/AppData/Local/Programs/MiKTeX 2.9/tex/latex/amsfonts/ueuf.fd
 "
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [2] [3] [4] [5] [6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-Underfull \hbox (badness 2772) in paragraph at lines 426--426
+) [3] [4] [5] [6] [7] [8] [9]
+Underfull \hbox (badness 2772) in paragraph at lines 499--499
 [][]\T1/lmtt/m/n/10.95 \altkeywords{$\OMS/cmsy/m/n/10.95 h$\T1/lmr/m/it/10.95 M
 ots-clefs in the other lan-guage (French or
  []
 
-[8] [9] [10]
+[10] [11] [12]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 585.
- [11]
-Overfull \hbox (4.2844pt too wide) in paragraph at lines 677--678
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 658.
+ [13]
+Overfull \hbox (4.2844pt too wide) in paragraph at lines 750--751
 [][]\T1/lmtt/m/n/10.95 \newenvironment{scholie}{\begin{enonce}{Scholie}}{\end{e
 nonce}} 
  []
 
-[12]
+[14]
 luaotfload | cache : Lookup cache loaded from C:/Users/bergerd/AppData/Local/MiK
 TeX/2.9/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
 luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: "Font rsfs7 n
@@ -489,14 +490,14 @@ ot found.".
 luaotfload | resolve : sequence of 3 lookups yielded nothing appropriate.
 luaotfload | resolve : sequence of 3 lookups yielded nothing appropriate.(load l
 uc: C:/Users/bergerd/AppData/Local/MiKTeX/2.9/luatex-cache/generic/fonts/one/rsf
-s7.luc) [13]
-Underfull \hbox (badness 3229) in paragraph at lines 766--769
+s7.luc) [15]
+Underfull \hbox (badness 3229) in paragraph at lines 839--842
 []\T1/lmr/m/it/10 The \T1/lmtt/m/it/10 epsfig \T1/lmr/m/it/10 pack-age, \T1/lmr
 /m/sc/10 S. Rahtz, $\T1/lmtt/m/n/10 http://www.loria.fr/tex/ctan-[]doc/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 781--783
+Underfull \hbox (badness 10000) in paragraph at lines 854--856
 []\T1/lmr/m/it/10 Hy-pa-tia's Guide to Bib-TeX, $\T1/lmtt/m/n/10 http://hypatia
 .dcs.qmw.ac.uk/html/
  []
@@ -504,16 +505,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 781--783
 \tf@toc=\write3
 
 \openout3 = sym-stoch.toc
-[14] (./sym-stoch.aux))
+[16] (./sym-stoch.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+)
 
 Here is how much of LuaTeX's memory you used:
  3766 strings out of 494412
- 244172,154059 words of node,token memory allocated
- 178840 words of node memory still in use:
+ 244213,154059 words of node,token memory allocated
+ 196564 words of node memory still in use:
    89 hlist, 10 vlist, 7 rule, 8 math, 34 glue, 17 kern, 1 penalty, 29 sub_mlist
-, 21461 glyph, 11497 attribute, 60 glue_spec, 1917 attribute_list, 1 write nodes
+, 23787 glyph, 12115 attribute, 60 glue_spec, 2020 attribute_list, 1 write nodes
 
-   avail lists: 1:1,2:670,3:164,4:33,5:153,6:37,7:1860,8:95,9:505,10:19,11:174
+   avail lists: 1:3,2:670,3:164,4:32,5:160,6:38,7:1860,8:95,9:533,10:19,11:168
  7666 multiletter control sequences out of 65536+200000
  125 fonts using 8103567 bytes
  30i,20n,32p,674b,489s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -559,9 +564,9 @@ fonts/type1/public/lm/lmtt9.pfb><C:/Users/bergerd/AppData/Local/Programs/MiKTeX
 2.9/fonts/type1/public/lm/lmtti10.pfb><C:/Users/bergerd/AppData/Local/Programs/M
 iKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/bergerd/AppDa
 ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on sym-stoch.pdf (14 pages, 611843 bytes).
+Output written on sym-stoch.pdf (16 pages, 630548 bytes).
 
-PDF statistics: 193 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 199 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

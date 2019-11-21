@@ -4,32 +4,34 @@
 \babel@toc {french}{}
 \babel@toc {english}{}
 \contentsline {section}{\tocsection {}{1}{Introduction}}{2}
-\contentsline {section}{\tocsection {}{2}{Symmetries of certain stochastic differential equations}}{2}
-\contentsline {subsection}{\tocsubsection {}{2.1}{Horizontal and vertical spacing}}{5}
-\contentsline {subsection}{\tocsubsection {}{2.2}{Punctuation marks}}{5}
-\contentsline {subsection}{\tocsubsection {}{2.3}{Titles}}{5}
-\contentsline {subsection}{\tocsubsection {}{2.4}{Language}}{6}
-\contentsline {subsection}{\tocsubsection {}{2.5}{Numbering}}{6}
-\contentsline {subsection}{\tocsubsection {}{2.6}{The mathematical mode}}{6}
-\contentsline {subsection}{\tocsubsection {}{2.7}{The bibliography}}{6}
-\contentsline {section}{\tocsection {}{3}{The environment}}{7}
-\contentsline {section}{\tocsection {}{4}{Structure of the document}}{8}
-\contentsline {subsection}{\tocsubsection {}{}{Remarks}}{9}
-\contentsline {section}{\tocsection {}{5}{Class options}}{9}
-\contentsline {subsection}{\tocsubsection {}{5.1}{Usual options}}{9}
-\contentsline {subsection}{\tocsubsection {}{5.2}{Language of the text}}{9}
-\contentsline {subsection}{\tocsubsection {}{5.3}{Remark}}{9}
-\contentsline {section}{\tocsection {}{6}{Sectioning commands}}{10}
-\contentsline {section}{\tocsection {}{7}{Presentation of theorems}}{10}
-\contentsline {subsection}{\tocsubsection {}{7.1}{Theorem styles}}{10}
-\contentsline {subsection}{\tocsubsection {}{7.2}{Proof environment}}{11}
-\contentsline {section}{\tocsection {}{8}{The \texttt {smfthm.sty} package}}{11}
-\contentsline {subsection}{\tocsubsection {}{8.1}{Theoremlike environments}}{11}
-\contentsline {subsection}{\tocsubsection {}{8.2}{Fixing the choice of the numbering}}{12}
-\contentsline {subsection}{\tocsubsection {}{8.3}{Generic statement}}{12}
-\contentsline {subsection}{\tocsubsection {}{8.4}{Other statements}}{12}
-\contentsline {section}{\tocsection {}{9}{Adapting a manuscript from another dialect}}{13}
-\contentsline {subsection}{\tocsubsection {}{9.1}{From another \LaTeXe \ class}}{13}
-\contentsline {subsection}{\tocsubsection {}{9.2}{From \LaTeX 2.09}}{13}
-\contentsline {subsection}{\tocsubsection {}{9.3}{From {P\smaller [3]LAIN} T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {}}}{13}
-\contentsline {section}{\tocsection {}{}{L\MakeLowercase {iterature and sources}}}{13}
+\contentsline {section}{\tocsection {}{2}{Preserving the drift}}{2}
+\contentsline {section}{\tocsection {}{3}{Preserving the covariance}}{4}
+\contentsline {section}{\tocsection {}{4}{Symmetries of certain stochastic differential equations}}{4}
+\contentsline {subsection}{\tocsubsection {}{4.1}{Horizontal and vertical spacing}}{6}
+\contentsline {subsection}{\tocsubsection {}{4.2}{Punctuation marks}}{7}
+\contentsline {subsection}{\tocsubsection {}{4.3}{Titles}}{7}
+\contentsline {subsection}{\tocsubsection {}{4.4}{Language}}{7}
+\contentsline {subsection}{\tocsubsection {}{4.5}{Numbering}}{8}
+\contentsline {subsection}{\tocsubsection {}{4.6}{The mathematical mode}}{8}
+\contentsline {subsection}{\tocsubsection {}{4.7}{The bibliography}}{8}
+\contentsline {section}{\tocsection {}{5}{The environment}}{8}
+\contentsline {section}{\tocsection {}{6}{Structure of the document}}{9}
+\contentsline {subsection}{\tocsubsection {}{}{Remarks}}{10}
+\contentsline {section}{\tocsection {}{7}{Class options}}{11}
+\contentsline {subsection}{\tocsubsection {}{7.1}{Usual options}}{11}
+\contentsline {subsection}{\tocsubsection {}{7.2}{Language of the text}}{11}
+\contentsline {subsection}{\tocsubsection {}{7.3}{Remark}}{11}
+\contentsline {section}{\tocsection {}{8}{Sectioning commands}}{11}
+\contentsline {section}{\tocsection {}{9}{Presentation of theorems}}{12}
+\contentsline {subsection}{\tocsubsection {}{9.1}{Theorem styles}}{12}
+\contentsline {subsection}{\tocsubsection {}{9.2}{Proof environment}}{13}
+\contentsline {section}{\tocsection {}{10}{The \texttt {smfthm.sty} package}}{13}
+\contentsline {subsection}{\tocsubsection {}{10.1}{Theoremlike environments}}{13}
+\contentsline {subsection}{\tocsubsection {}{10.2}{Fixing the choice of the numbering}}{14}
+\contentsline {subsection}{\tocsubsection {}{10.3}{Generic statement}}{14}
+\contentsline {subsection}{\tocsubsection {}{10.4}{Other statements}}{14}
+\contentsline {section}{\tocsection {}{11}{Adapting a manuscript from another dialect}}{15}
+\contentsline {subsection}{\tocsubsection {}{11.1}{From another \LaTeXe \ class}}{15}
+\contentsline {subsection}{\tocsubsection {}{11.2}{From \LaTeX 2.09}}{15}
+\contentsline {subsection}{\tocsubsection {}{11.3}{From {P\smaller [3]LAIN} T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {}}}{15}
+\contentsline {section}{\tocsection {}{}{L\MakeLowercase {iterature and sources}}}{15}
