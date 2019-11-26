@@ -1,4 +1,4 @@
-\documentclass[11pt,english]{smfart}
+\documentclass[10 pt,english]{smfart}
 
 \usepackage[T1]{fontenc}
 \usepackage[english,francais]{babel}
@@ -21,12 +21,12 @@
 \newcommand{\AMS}{$\mathcal{A}$\kern-.1667em\lower.5ex\hbox
         {$\mathcal{M}$}\kern-.125em$\mathcal{S}$}
 \newcommand{\resp}{\emph{resp}.\xspace}
-\newcommand{\M}{{\bf{M}}}
+
 \newcommand{\TM}{{\textrm{T}}{\bf{M}}}
 \newcommand{\G}{{\textrm{G}}}
-\newcommand{\U}{{\bf{U}}}
+
 \newcommand{\Rm}{{\mathbb{R}}^{m}}
-\newcommand{\sig}{{\bf{\sigma}}}
+\newcommand{\sig}{\textrm{{\bf{\sigma}}}}
 \newcommand{\sigij}{{\textrm{\sigma}_{\textrm{ij}}}}
 \newcommand{\dbp}{\!:\!}
 \newcommand{\arr}{\!\rightarrow\!}
@@ -57,9 +57,22 @@
 \newcommand{\dFietadt}{\frac{\textrm{d} \Phi_{\eta}}{\textrm{dt}}}
 \newcommand{\Hess}{{\bf{Hess}}}
 \newcommand{\Ad}{{\textrm{Ad}}}
-\newcommand{\g}{{\textrm{g}}}
 \newcommand{\Tra}{{\mathsf{T}}}
 \newcommand{\de}{{\textrm{d}}}
+
+\newcommand{\Xt}{\mathrm{\mathbf{X}}_{t}}
+\newcommand{\Yt}{\mathrm{\mathbf{Y}}_{t}}
+\newcommand{\R}{\mathrm{\mathbf{R}}}
+\newcommand{\Wt}{\mathrm{\mathbf{W}}_{t}}
+\newcommand{\mut}{\mathrm{\mathbf{\mu}}_{t}}
+\newcommand{\g}{\mathrm{\mathbf{g}}}
+\newcommand{\U}{{\bf{U}}}
+\newcommand{\V}{{\bf{V}}}
+\newcommand{\M}{{\bf{M}}}
+
+\newcommand{\yt}{\mathrm{\mathbf{y}}_{t}}
+\newcommand{\dd}{\mathrm{d}}
+
 
 \tolerance 400
 \pretolerance 200
@@ -79,67 +92,96 @@
 \def\smfbyname{}
 
 \begin{abstract}
-The classes \texttt{smfbook} and \texttt{smfart} are intended to help the preparation in \LaTeX\ of the monographs and articles to be published by the \SmF. They require \LaTeXe\ and the \AMS-\LaTeX\ packages.\par
-This paper exhibits the main features of these classes.
+The article sums up some results concerning the transformation and invariance properties of a local, stochastic differential equations of the form
+\begin{equation}\label{formula_in_abstract}
+\mathrm{d X^{i}_{t}= \sigma^{i}_{j}(\Z)dW^{j}_{t}+\mu^{i}(\Z)dt}
+\end{equation} 
+
+In general, the coefficients $\mathrm{\mu^{i}}$ of the drift in \ref{formula_in_abstract} do not share the transformation law of a contravariant tensor of rank one due to second order differentials arising from $\textsc{Ito}'s$ formula. We present conditions concerning the local coordinates and the transformation itself under which the usual transformation laws hold.
+
+Beside, we briefly examine invariance properties of differential system like under certain Lie groups $\mathrm{\G}$ preserving the covariance structure $\mathrm{\sigma_{i,j}}$. 
 \end{abstract}
 
-\begin{altabstract}
-Les classes \texttt{smfbook} et \texttt{smfart} sont destin\'ees \`a la composition en \LaTeX\ des monographies et articles \'edit\'es par la \SmF. Elles n\'ecessitent \LaTeXe\ ainsi que les macros \LaTeX\ de l'AMS.\par
-Ce document en pr\'esente l'utilisation.
-\end{altabstract}
+
 \maketitle
 
 \tableofcontents
 
-\section{Introduction}
-The \SmF\ provides the authors of its publications with \LaTeXe\ ``document classes'' (\texttt{smfbook} for monographs and \texttt{smfart} for articles). The authors should submit their articles as \LaTeXe\ files prepared using these classes or with the \AMS-\LaTeX\ classes (\texttt{amsbook} or \texttt{amsart}) provided by the AMS (see \T\ref{sec:compatible} for the compatibility between these classes).
-
-This text contains a user's guide to these classes as well as some elementary typographical rules that the authors should read thoroughly before preparing their manuscript as a \LaTeXe\ file: sending a file prepared with the SMF classes following these rules will reduce the number of errors introduced by the editing process and will save the author proofreading time. This will hence minimize the time needed for the article to reach its printed form (and reduce the publishing costs).
-
-
-\section{Preserving the drift}
-Throughout this section we will fix a system of stochastic differential equations on the open subset $\U\subset \mathbb{R}^{n}$ as introduced above
-
+\section{Introduction}\label{introduction}
+Throughout this article let $\mathrm{\U}$ be an open subset of $\mathrm{\mathbb{R}^{n}}$ with the standard coordinates $\mathrm{x^{i}}$, $\mathrm{1\leq i\leq n}$ induced by the ambiant space $\mathrm{\mathbb{R}^{n}}$ and consider an $\mathrm{n-}$dimensional stochastic process $\mathrm{\Xt}$ with components $\mathrm{x^{i}_{t}}$, $\mathrm{1\leq i\leq n}$ in $\mathrm{\U}$ for $\mathrm{t\in[0,S]}$ solving the following stochastic differential equation
+\begin{equation}\label{stochdiff}
+\mathrm{d\Xt=\sig\left(\Xt\right)d\Wt+\mu\left(\Xt\right)dt}
+\end{equation}
+Here, $\mathrm{\sig\in\mathscr{C}^{\infty}\left(\U,\mathbb{R}^{n}\times\mathbb{R}^{n}\right)}$ denotes a smooth, matrix-valued function on $\mathrm{\U}$ with coefficient functions $\mathrm{\sigma^{i}_{j}}$ i.e. $\mathrm{\sig =(\sig^{i}_{j})_{ij}}$. We further assume that $\sig(x)$ is invertible for all $x\in \U$. Besides, let $\mathrm{\mu\in \mathscr{C}^{\infty}\left(\U,\mathbb{R}^{n}\right)}$ be a smooth vector field on $\mathrm{\U}$ with components $\mathrm{\mu^{i}}$ so that $\mathrm{\mu=(\mu^{1},\dots, \mu^{n})}$. Instead of (\ref{stochdiff}), we will frequently use its index based version given by 
 \begin{equation}
-\mathrm{d X^{i}_{t}= \sigma_{i,j}(\Z)dW^{j}_{t}+\mu_{i}(\Z)dt}
+\mathrm{d X^{i}_t=\sig^{i}_{j}\left(\Xt\right)dW^{i}_{t}+\mu^{i}\left(\Xt\right)dt}
+\end{equation} where we agree to use the usual convention to perform summation over twice appearing indices.
+t
+\section{Contravariance of the drift}
+Let $\mathrm{\Xt}$ in $\mathrm{\U}$ be as defined in section (\ref{introduction}) and fix diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$. In this setting, $\textsc{Itô}$'s lemma states that the transformed process $\mathrm{\Yt:=\phi\circ\Xt}$ on $\U$ solves the following equation 
+\begin{equation}\label{transformedstochdiff}
+\mathrm{dY_{t}=\frac{d\phi}{dx}\left(\Xt\right)\left[\sig\left(\Xt\right)d\Wt+\mu\left(\Xt\right)dt\right]+\R\left(\phi, \sig\right)(\Xt)}
+\end{equation} with 
+\begin{equation}
+\mathrm{\frac{d\phi}{dx}\left(\Xt\right)=\left(\frac{\partial \phi^{i}}{\partial x^{j}}\left(\Xt\right)\right)_{ij}}
+\end{equation} and a smooth vector valued function $\mathrm{\R\left(\phi, \sig\right)\in \mathscr{C}^{\infty}(\U, \mathbb{R}^{n})}$ on $\mathrm{\U}$ with components
+\begin{equation}
+\mathrm{R^{i}\left(\phi, \sig\right)(\Xt)=\frac{1}{2}\frac{\partial^{2}\phi^{i}}{\partial x^{k}\partial x^{\ell}}(\Xt)\sig^{k}_{j}(\Xt)\sig^{\ell}_{j}(\Xt)}
 \end{equation}
 
-Furthermore, let $\mathrm{phi}:\U\rightarrow V$ denote a diffeoemorphism into an open subset $V$ of $\mathbb{R}^{m}$. To be more specific, we are interested in $\mathrm{\phi}$ being a coordinate transfomation from 
-chart to chart. In this setting, the following question naturally arises: When do the coefficients $\mathrm{\mu_{i}}$ of the drift term in the above equation transforms like the coefficients of a  covariant tensor of rank one, i.e. under which assumptions do we have  
+Note that the term $\mathrm{\R}$ in equation (\ref{transformedstochdiff}) is the obstruction for the coefficients of equation (\ref{stochdiff}) to transform contravariantly with respect to the change of coordinates $\mathrm{\phi}$ on $\mathrm{\U}$. To be more precise, if $\mathrm{\R\equiv 0}$ on $\U$ the following transformation law would hold:
+\begin{equation}\label{contravarianceofdrift}
+\mathrm{dY^{i}_{t}=\frac{\partial \phi^{i}}{\partial x^{j}}dX^{i}_{t}}
+\end{equation} Before we proceed to specify the conditions, which have to be imposed on the map $\mathrm{\phi}$ and the coordinates $\mathrm{x^{i}}$, $\mathrm{1 \leq i\leq n}$ on $\U$ so that the $\mathrm{dY^{i}_{t}}$ transform like the coefficients of a tensor of rank $\mathrm{1}$, we have to introduce and recall some definitions:
 
+\begin{defi}\label{definitionMetric} Let $\sig$ be a defined as above, i.e. $\mathrm{\sig\in \mathscr{C}^{\infty}\left(\U, \mathbb{R}^{n}\times \mathbb{R}^{n}\right)}$ with $\sig(x)$ invertible for all $\mathrm{x\in U}$, then define a Riemannian metric $\mathrm{\g}$ on $\mathrm{\U}$ by setting
 \begin{equation}
-\mathrm{d Z^{\prime,j}_{t}=[\dots] +\mu^{\prime}_{j}(\Z)dt}
-\end{equation} where 
+\g:= \left(\sigma^{\Tra}\right)^{-1}\sigma^{-1}
+\end{equation}
+\end{defi} Note that by assumption, $\mathrm{\sig}$ is invertible on $\mathrm{\U}$ and hence $\mathrm{\g}$ is well defined. 
+Now, recall the following definitions from Riemannian geometry.
+\begin{defi}[Christoffel symbols]\label{Christoffel symbols} Let $\mathrm{(\M,\g)}$ be a Riemannian manifold and $\varphi_{\V}\in \mathscr{C}^{\infty}(\V,\U)$ be a chart from the open subset $\mathrm{\V\subset \M}$ to $\mathrm{\U\subset \mathbb{R}^{n}}$ with local coordinates $\mathrm{x^{i}}$, $\mathrm{1 \leq i\leq n}$ on $\U$ then the Christoffel symbol $\mathrm{\Gamma^{k}_{ij}\in \mathscr{C}^{\infty}(\U)}$ of the second kind for $\mathrm{1 \leq k\leq n}$ is given by 
 \begin{equation}
-\mathrm{\mu^{\prime}_{j}=\frac{\partial x^{k}}{\partial x^{\prime , j}}\mu_{k}}
-\end{equation} 
+\mathrm{\Gamma^{k}_{ij}:=\frac{1}{2}g^{i\ell}\left(-\frac{\partial g_{ij}}{\partial x^{\ell}}+\frac{\partial g_{\ell j}}{\partial x^{i}}+\frac{\partial g_{i\ell}}{\partial x^{j}}\right)}
+\end{equation}
+\end{defi}
+\begin{defi}[Laplacian operator] Let $\mathrm{(\M, \g)}$, $\mathrm{\V \subset \M}$, $\mathrm{\U}$ and $\mathrm{\varphi_{\V}}$ be as in defintion \ref{Christoffel symbols}), then the second order partial derivate operator on $\mathrm{\U}$ given by 
+\begin{equation}
+\mathrm{\triangle^{\g}:=g^{ik}\left(\frac{\partial^2}{\partial x^{i}\partial x^{j}}-\Gamma^{j}_{ik}\frac{\partial}{\partial x^{k}}\right)}
+\end{equation} is called the Laplacian operator on $\mathrm{\U}$ with respect to $\mathrm{\g}$.
+\end{defi}
+\begin{defi}[Harmonic functions] Let $\mathrm{(\M,\g)}$ be a Riemannian manifold and $\mathrm{f\in \mathscr{C}^{\infty}(\V,\mathbb{R})}$ with $\V\subset \M$, then $\mathrm{f}$ is called harmonic on $\mathrm{\V}$ if locally with respect to the chart $\mathrm{\U}$ (as in defintion \ref{Christoffel symbols}), $\mathrm{f}$ solves
+\begin{equation}
+\mathrm{\triangle^{\g}f=0}
+\end{equation}
+\end{defi}
 
-The following result specifies two conditions under which the transfomation law in fact holds:
+We are now able to state the under which assumption we have $\mathrm{\R\equiv 0}$ on $\mathrm{\U}$ so that equation (\ref{contravarianceofdrift}) holds.
 
-\begin{lemm} Equation transforms like a covariatn tensor of first degree if the following two conditions holds:
+\begin{lemm}[Contravariance of drift]\label{lemmacontravariance} Let $\mathrm{\Xt}$ be a process in $\mathrm{\U}$ solving equation \ref{stochdiff}, then the image $\Yt =\phi\circ \Xt$ under a diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$ solves (\ref{contravarianceofdrift}) if the following two conditions hold:
 \begin{enumerate}
-\item The local coordinates $\mathrm{x^{i}}$ are harmonic with respect to $\textrm{\g}$, i.e. $\mathrm{g^{ij}\Gamma^{k}_{ij}=0}$ for all $\mathrm{1 \leq i,j\leq n}$.
-\item The change of coordinates is harmonic, i.e. each component $x^{\prime,j}$ is again harmonic functions with respect to $\mathrm{\{x^{i}\}_{1\leq i\leq n}}$
+\item The local coordinates $\mathrm{x^{i}}$ are harmonic with respect to $\mathrm{\g}$, i.e. $\mathrm{g^{ij}\Gamma^{k}_{ij}=0}$ for all $\mathrm{1 \leq i,j\leq n}$.
+\item The map $\mathrm{\phi}$ is harmonic, i.e. each component $\mathrm{\phi^{i}}$ is again a harmonic function with respect to $\mathrm{x^{i}}$, $\mathrm{1 \leq i\leq n}$.
 \end{enumerate}
 \end{lemm}
 \begin{proof} By applying the lemma of $\textsc{Itô}$, the drift term of the transformed process $Z^{\prime k}=\mathrm{\phi^{k}\left(\Z\right)}$ is given by the following formula
 \begin{equation}
-\mathrm{d\Z^{\prime k}_{t}= [\dots] + \frac{\partial x^{\prime k}}{\partial x^{l}}\mu^{l}+g^{ij}\frac{\partial^2 x^{\prime k}}{\partial x_{i}\partial x_j}}
+\mathrm{dZ^{\prime k}_{t}= \dots + \frac{\partial x^{\prime k}}{\partial x^{\ell}}\mu^{\ell}+g^{ij}\frac{\partial^2 x^{\prime k}}{\partial x^{i}\partial x^{j}}}
 \end{equation} In particular, as the proof is completed  as soon as we have shown that the second term on the right hand side of the above equaiton vanishes, i.e.:
 \begin{equation}
-\mathrm{g^{ij}\frac{\partial^2 x^{\prime k}}{\partial x_{i}\partial x_j}= 0}
+\mathrm{g^{ij}\frac{\partial^2 x^{\prime k}}{\partial x^{i}\partial x^{j}}= 0}
 \end{equation} for all $\mathrm{k}$.
 
 For this, recall that condition is equivalent to
 \begin{equation}
-\mathrm{\triangle x^{\prime,i}= 0}
+\mathrm{\triangle x^{\prime i}= 0}
 \end{equation} for all $\mathrm{1 \leq i\leq n}$, where $\mathrm{\triangle}$ denotes the Laplace-Beltrami operator associated to the metric $\mathrm{g}$ which $\mathrm{g}$ is locally given by 
 \begin{equation}
 \mathrm{\triangle = g^{ij}\left(\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}- \Gamma^{k}_{ij}\frac {\partial}{\partial x^{k}}\right)}
-\end{equation} As 1) is equivalent to $\mathrm{\mathrm{g^{ij}\Gamma^{k}_{ij}}=0}$ for all $\mathrm{1 \leq k \leq n}$, it follows from conditions 2) that
+\end{equation} As 1) is equivalent to $\mathrm{\mathrm{g^{ij}\Gamma^{k}_{ij}}=0}$ for all $\mathrm{1 \leq k \leq n}$, it follows from condition 2) that
 \begin{equation}
-\mathrm{0 = g^{ij}\frac{\partial^{2}}{\partial x^{\prime i}\partial x^{j}}}
-\end{equation} for all $\mathrm{k}$ , which in conjunction with step yields the result.
+\mathrm{0 = g^{ij}\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}}
+\end{equation} for all $\mathrm{k}$, which in conjunction with step yields the result.
 \end{proof}
 
 
@@ -158,17 +200,10 @@ defined on
 \begin{exem}[Local K\"ahlerain space] Let $\mathrm{U\subset\mathbb{C}^{n}}$ and  
 \end{exem}
 
-\section{Preserving the covariance}
-As in the section, we will consider a system of stochastic differential equations on the open subset $\U\subset \mathbb{R}^{n}$ as introduced above
 
- In this setting, the following question naturally arises: When do the coefficients $\mathrm{\sigma_{ij}}$ defining the covariance structure transform like the coefficients of a  covariant tensor of rank two, i.e. under which assumptions do we have  
-\begin{equation}
-\mathrm{d X^{\prime i}_{t}= \sigma^{\prime}_{i,j}(\Z)dW^{j}_{t}+[\dots]dt}
-\end{equation} where
-\begin{equation}
- \sigma^{\prime}_{k,l} = \frac{\partial x^{\prime i}}{\partial x^{k}} \frac{\partial x^{\prime j}}{\partial x^{l}} \sigma^{\prime}_{i,j}
-\end{equation}
-    
+
+
+
 
 \section{Symmetries of certain stochastic differential equations}
 In the sequel, let $(\M, g)$ be a Riemannain manifold with a smooth Lie group action $\phi\dbp\G\tim\M\arr\M$ which preserves the metric $g$ so that $\sigma^{*}g=g$ for all $\sigma\in \G$. For convenience, we will assume that $\M$ is given by an open subset $\U$ of $\Rm$ whit local coordinates $\mathrm{(x_1,\dots,x_m)}$. 
@@ -187,7 +222,29 @@ Recall that each vector $\ksi$ of the Lie algebra ${\mathrm{Lie}}(\G)=\mathfrak{
 \end{equation} which is a solution of the differential equation $\dot{\Phi}\textrm{(\te,\x)=}\Xksi\textrm{(\Phi(\te,\x))}$. Here, $\Xksi$ denotes the smooth vector field generated by the one-parameter flow $\Phi$. To abbreviate the notation, we will frequently just set $\Xksi = \Ksibf$.
 
 Recall that 
-\begin{lemm}\label{lemma0} Let $\Phi\dbp\M\arr\M$ be an isometry with respect to the metric $\g$ given by the local matrix representation $\g= \left(\sigma\sigma^{\Tra}\right)^{-1}$ and let $\Z$ be a solution of 
+
+\begin{lemm} Let $\mathrm{\phi: U\rightarrow U}$ be a local change of coordinates $\mathrm{x^{\prime k}=\phi^{k}\left(x\right)}$ where $\mathrm{x^{j}}$ and $\mathrm{\phi^{k}}$ are satisfying the conditions of lemma \cite{contravariance of drift}, then the transformation $\mathrm{Z^{\prime k}}$ under $\phi^{k}$ of any process solving 
+\begin{equation}
+\mathrm{dX^{i}_{t}= \sigma^{i}_{j}\left(\Z\right)dW^{j}_{t}}
+\end{equation} is again a solution of the original equation, i.e.
+\begin{equation}
+\mathrm{dX^{\prime k}_{t}= \sigma^{k}_{\ell}\left(\Z^{\prime}\right)dW^{\ell}_{t}}
+\end{equation} 
+\end{lemm}
+\begin{proof} As the starting process is driftless and the local coordintes as well as the change of local coordinates both meet the conditions of lemma, the transformed drift will have zero drift by the contravariance lemma. Hence,  the lemma is proven as soon as we can verify that the quadratic variation $d[\Z,\Z]$ of $\Z$  and the corresponding quadratic variation $d[\Ztil,\Ztil]$ of $\Ztil$ coincides. 
+
+Since $\phi$ is assumed to be an isometry with respect to $g_{ij}$, we have $\mathrm{g^{\prime}_{k\ell}=g_{k\ell}}$ or equivalently
+\begin{equation}
+\mathrm{g_{rs}\frac{\partial x^{\prime r}}{\partial x^{k}}\frac{\partial x^{s}}{\partial x^{\ell}}=g_{k\ell}}
+\end{equation} Using the definition of $\mathrm{g}$, we get 
+\begin{equation}
+\mathrm{\sigma^{i}_{r}\sigma^{i}_{s}\frac{\partial x^{\prime r}}{\partial x^{k}}\frac{\partial x^{\prime s}}{\partial x^{\ell}}=\sigma^{i}_{k}\sigma^{i}_{\ell}}
+\end{equation}
+which in turn by multiplying with $\mathrm{\frac{\partial x^{}}{}}$ and $\mathrm{}$
+
+\end{proof}
+
+\begin{lemm}\label{lemma0} Let $\phi\dbp\U\arr\U$ be an isometry with respect to the metric $\g$ given by the local matrix representation $\g= \left(\sigma\sigma^{\Tra}\right)^{-1}$ and let $\Z$ be a solution of 
 \begin{equation}\label{eq:0}\dZ = \sig(\Z) \dW,
 \end{equation} then $\Ztil\:=\Fi\circ \Z$ is again a solution of \ref{eq:0}, i.e.
 \begin{equation}\dZtil = \sig(\Ztil) \dW.
@@ -196,7 +253,7 @@ Recall that
 \begin{proof} Applying the lemma of $\textsc{Itô}$ directly yields 
 \begin{equation}
 \dZtil = {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\dW
-\end{equation} As booth processes $\Z$ as well as $\Ztil$ are drifless, the lemma is proven as soon as we can verify that the quadratic variation $d[\Z,\Z]$ of $\Z$  and the corresponding quadratic variation $d[\Ztil,\Ztil]$ of $\Ztil$ coincides. Here $d[\Z,\Z]$ and so $d[\Ztil,\Ztil]$ are understood to be matrices given by 
+\end{equation} As booth processes $\Z$ as well as $\Ztil$ are drifless, the lemma is proven Here $d[\Z,\Z]$ and so $d[\Ztil,\Ztil]$ are understood to be matrices given by 
 \begin{equation}
 \de[\Z,\Z] = \left([\textrm{dZ}_{i}, \textrm{dZ}_{j}]\right)_{\textrm{1\leq,i,j\leq m}}=\de\Z\cdot\de\Z^{\Tra}
 \end{equation} and analog for $\Ztil$. 
@@ -248,8 +305,13 @@ d[\Ztil,\Ztil] &= {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\dW \cdot  \dW^{\Tra}\s
 \begin{equation}\label{eq:2}
 \dZtil =\dFietadx(t, \Z)\left( \sig(\Z) \dW +\Ksibf(\Z) \right) +\eta(\te,\Ztil)\dt\\
 \end{equation}
-Now, recall from that 
-
+Now as $\mathrm{\Phi_{\eta}(t,\cdot)}$ is assumed to be a Riemannian isometry with respect to $\mathrm{g}$, it follows by lemma \ref{lemma0} that 
+\begin{equation}
+\dFietadx(t, \Z)\ \sig(\Z) \dW=\sigma(\Ztil)\dW
+\end{equation} and hence equation becomes 
+\begin{equation}\label{eq:2}
+\dZtil =\sigma(\Ztil)\dW+\Ksibf(\Z) \right) +\eta(\te,\Ztil)\dt
+\end{equation}
 
  the derivative of the flow $\textrm{\Phi}(t,\dot)$ with redspect to $\textrm{t}$, the above equations reduces to the following form:
 
