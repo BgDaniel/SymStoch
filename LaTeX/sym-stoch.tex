@@ -62,7 +62,9 @@
 
 \newcommand{\Xt}{\mathrm{\mathbf{X}}_{t}}
 \newcommand{\Yt}{\mathrm{\mathbf{Y}}_{t}}
+\newcommand{\Y}{\mathrm{\mathbf{Y}}}
 \newcommand{\R}{\mathrm{\mathbf{R}}}
+\newcommand{\orth}{\mathrm{\mathbf{o}}}
 \newcommand{\Wt}{\mathrm{\mathbf{W}}_{t}}
 \newcommand{\mut}{\mathrm{\mathbf{\mu}}_{t}}
 \newcommand{\g}{\mathrm{\mathbf{g}}}
@@ -117,10 +119,10 @@ Here, $\mathrm{\sig\in\mathscr{C}^{\infty}\left(\U,\mathbb{R}^{n}\times\mathbb{R
 \mathrm{d X^{i}_t=\sig^{i}_{j}\left(\Xt\right)dW^{i}_{t}+\mu^{i}\left(\Xt\right)dt}
 \end{equation} where we agree to use the usual convention to perform summation over twice appearing indices.
 t
-\section{Contravariance of the drift}
+\section{Contravariance of the drift}\label{contravariancedrift}
 Let $\mathrm{\Xt}$ in $\mathrm{\U}$ be as defined in section (\ref{introduction}) and fix diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$. In this setting, $\textsc{Itô}$'s lemma states that the transformed process $\mathrm{\Yt:=\phi\circ\Xt}$ on $\U$ solves the following equation 
 \begin{equation}\label{transformedstochdiff}
-\mathrm{dY_{t}=\frac{d\phi}{dx}\left(\Xt\right)\left[\sig\left(\Xt\right)d\Wt+\mu\left(\Xt\right)dt\right]+\R\left(\phi, \sig\right)(\Xt)}
+\mathrm{d\Yt=\frac{d\phi}{dx}\left(\Xt\right)\left[\sig\left(\Xt\right)d\Wt+\mu\left(\Xt\right)dt\right]+\R\left(\phi, \sig\right)(\Xt)dt}
 \end{equation} with 
 \begin{equation}
 \mathrm{\frac{d\phi}{dx}\left(\Xt\right)=\left(\frac{\partial \phi^{i}}{\partial x^{j}}\left(\Xt\right)\right)_{ij}}
@@ -148,7 +150,7 @@ Now, recall the following definitions from Riemannian geometry.
 \begin{defi}[Laplacian operator] Let $\mathrm{(\M, \g)}$, $\mathrm{\V \subset \M}$, $\mathrm{\U}$ and $\mathrm{\varphi_{\V}}$ be as in defintion \ref{Christoffel symbols}), then the second order partial derivate operator on $\mathrm{\U}$ given by 
 \begin{equation}
 \mathrm{\triangle^{\g}:=g^{ik}\left(\frac{\partial^2}{\partial x^{i}\partial x^{j}}-\Gamma^{j}_{ik}\frac{\partial}{\partial x^{k}}\right)}
-\end{equation} is called the Laplacian operator on $\mathrm{\U}$ with respect to $\mathrm{\g}$.
+\end{equation} is called the Laplacian operator on $\mathrm{\U}$ with respect to $\mathrm{\g}$. Here, $\mathrm{g^{ij}}$ are the coefficients of the inverse $\mathrm{\g^{-1}}$.
 \end{defi}
 \begin{defi}[Harmonic functions] Let $\mathrm{(\M,\g)}$ be a Riemannian manifold and $\mathrm{f\in \mathscr{C}^{\infty}(\V,\mathbb{R})}$ with $\V\subset \M$, then $\mathrm{f}$ is called harmonic on $\mathrm{\V}$ if locally with respect to the chart $\mathrm{\U}$ (as in defintion \ref{Christoffel symbols}), $\mathrm{f}$ solves
 \begin{equation}
@@ -158,31 +160,103 @@ Now, recall the following definitions from Riemannian geometry.
 
 We are now able to state the under which assumption we have $\mathrm{\R\equiv 0}$ on $\mathrm{\U}$ so that equation (\ref{contravarianceofdrift}) holds.
 
-\begin{lemm}[Contravariance of drift]\label{lemmacontravariance} Let $\mathrm{\Xt}$ be a process in $\mathrm{\U}$ solving equation \ref{stochdiff}, then the image $\Yt =\phi\circ \Xt$ under a diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$ solves (\ref{contravarianceofdrift}) if the following two conditions hold:
+\begin{lemm}[Contravariance of drift]\label{lemmacontravariance} Let $\mathrm{\Xt}$ be a process in $\mathrm{\U}$ solving equation (\ref{stochdiff}), then the image $\Yt =\phi\circ \Xt$ under a diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$ solves (\ref{contravarianceofdrift}) if the following two conditions hold:
 \begin{enumerate}
 \item The local coordinates $\mathrm{x^{i}}$ are harmonic with respect to $\mathrm{\g}$, i.e. $\mathrm{g^{ij}\Gamma^{k}_{ij}=0}$ for all $\mathrm{1 \leq i,j\leq n}$.
 \item The map $\mathrm{\phi}$ is harmonic, i.e. each component $\mathrm{\phi^{i}}$ is again a harmonic function with respect to $\mathrm{x^{i}}$, $\mathrm{1 \leq i\leq n}$.
 \end{enumerate}
 \end{lemm}
-\begin{proof} By applying the lemma of $\textsc{Itô}$, the drift term of the transformed process $Z^{\prime k}=\mathrm{\phi^{k}\left(\Z\right)}$ is given by the following formula
+\begin{proof} As the coordinates $\mathrm{x^{i}}$ are harmonic by assumption, we have
 \begin{equation}
-\mathrm{dZ^{\prime k}_{t}= \dots + \frac{\partial x^{\prime k}}{\partial x^{\ell}}\mu^{\ell}+g^{ij}\frac{\partial^2 x^{\prime k}}{\partial x^{i}\partial x^{j}}}
-\end{equation} In particular, as the proof is completed  as soon as we have shown that the second term on the right hand side of the above equaiton vanishes, i.e.:
+\mathrm{\triangle^{\g}f= g^{ik}\frac{\partial^2 f}{\partial x^{i}\partial x^{j}}}
+\end{equation} for arbitrary, smooth functions $\mathrm{f\in \mathscr{C}^{\infty}(\U,\mathbb{R})}$. In particular, using the second assumption, it then follows for $\mathrm{f=\phi^{k}}$, $\mathrm{1\leq k\leq n}$
 \begin{equation}
-\mathrm{g^{ij}\frac{\partial^2 x^{\prime k}}{\partial x^{i}\partial x^{j}}= 0}
-\end{equation} for all $\mathrm{k}$.
-
-For this, recall that condition is equivalent to
+\mathrm{\triangle^{\g}\phi^{k}= g^{ik}\frac{\partial^2 \phi^{k}}{\partial x^{i}\partial x^{j}}=0}
+\end{equation} Therefore, the claim of the lemma which is equivalent to
 \begin{equation}
-\mathrm{\triangle x^{\prime i}= 0}
-\end{equation} for all $\mathrm{1 \leq i\leq n}$, where $\mathrm{\triangle}$ denotes the Laplace-Beltrami operator associated to the metric $\mathrm{g}$ which $\mathrm{g}$ is locally given by 
-\begin{equation}
-\mathrm{\triangle = g^{ij}\left(\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}- \Gamma^{k}_{ij}\frac {\partial}{\partial x^{k}}\right)}
-\end{equation} As 1) is equivalent to $\mathrm{\mathrm{g^{ij}\Gamma^{k}_{ij}}=0}$ for all $\mathrm{1 \leq k \leq n}$, it follows from condition 2) that
-\begin{equation}
-\mathrm{0 = g^{ij}\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}}
-\end{equation} for all $\mathrm{k}$, which in conjunction with step yields the result.
+\mathrm{0=R^{i}\left(\phi, \sig\right)(x)=\frac{1}{2}\frac{\partial^{2}\phi^{i}}{\partial x^{k}\partial x^{\ell}}(x)\sig^{k}_{j}(x)\sig^{\ell}_{j}(x)}
+\end{equation} for all $\mathrm{x\in \U}$ is proven, as soon as we have shown that 
+\begin{equation}\label{vanishing}
+\mathrm{g^{ij}=\left(\sigma^{\Tra}\sigma\right)_{ij}}
+\end{equation} However, equation (\ref{vanishing}) is an immediate consequence of $\mathrm{g^{ij}=\left(\g^{-1}\right)_{ij}}$ and definition \ref{definitionMetric}.
 \end{proof}
+
+\section{Invariance of the volatility structure}
+As we have seen in the preceding section \ref{contravariancedrift}, the volatility structure $\mathrm{\sig}$ on $\mathrm{\U}$ gives rise to Riemannian metric $\mathrm{\g}$.
+In this section, we will find a necessary conditions for $\mathrm{\phi}$ in terms of $\mathrm{\g}$ so that the transformation $\mathrm{\Yt=\phi\circ \Xt}$ of $\mathrm{\Xt}$ solves the original equation (\ref{stochdiff}) modulo a drift term so that
+\begin{equation}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wt+\alpha(\Yt)dt}
+\end{equation}
+
+\begin{lemm} Let $\mathrm{\Xt}$ and $\mathrm{\Yt}$ be to stochastic processes on $\mathrm{\U}$ solving 
+\begin{equation}
+\mathrm{d\Xt =\sigma(\Xt)d\Wt}\,\,\,\,and\,\,\,\,\mathrm{d\Yt=\rho(\Yt)d\Wt}
+\end{equation} where $\mathrm{\sig, \rho\in\mathscr{C}^{\infty}\left(\U,\mathbb{R}^{n}\times\mathbb{R}^{n}\right)}$ are smooth, matrix valued functions on $\mathrm{U}$ with $\mathrm{\sigma(x}$ and $\mathrm{\rho(x)}$ invertible for all $\mathrm{x\in \U}$ and assume that 
+\begin{equation}\label{transposeequal}
+\mathrm{\sigma\sigma^{\Tra}=\rho\rho^{\Tra}}
+\end{equation} on $\mathrm{\U}$, then 
+\begin{equation}
+\mathrm{d\Xt =\rho(\Xt)d\Wt}\,\,\,\,and\,\,\,\,\mathrm{d\Yt=\sigma(\Yt)d\Wt}
+\end{equation}
+\end{lemm}
+\begin{proof} Observe that by (\ref{transposeequal}), we conclude
+\begin{equation}
+\mathrm{\rho^{-1}\sigma=\rho^{\Tra}\left(\sigma^{-1}\right)^{\Tra}\Leftrightarrow \left(\sigma^{-1}\rho\right)^{-1}=\left(\sigma^{-1}\rho\right)^{\Tra},}
+\end{equation} so $\mathrm{\sigma^{-1}\rho}$ is orthogonal. Hence, for each $\mathrm{x\in \U}$, there exists $\mathrm{\orth\in O\left(\mathbb{R}^{n}\right)}$ so that
+\begin{equation}
+\sigma(x)=\orth(x)\rho(x)
+\end{equation} Since $\mathrm{\orth(x)\Wt}$ and $\Wt$ share the same distribution, it follows that 
+\begin{equation}
+\mathrm{d\Xt =\sigma(\Xt)d\Wt=\rho(\Xt)\orth(\Xt)d\Wt=\rho(\Xt)d\Wt}
+\end{equation} and vice versa.
+\end{proof}
+
+\begin{lemm}[Invariance modulo drift]\label{lemmainvariance} Let $\mathrm{\Xt}$ be a process in $\mathrm{\U}$ solving equation (\ref{stochdiff}) and let $\mathrm{\Yt=\phi\circ\Xt}$ be its transformation under a diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$.
+If $\mathrm{\phi}$ is a metric map, i.e. 
+\begin{equation}\label{metric}
+\mathrm{\g_{\vert \phi(x)}\left(\frac{d\phi}{dx}(x)\mathfrak{v},\frac{d\phi}{dx}(x)\mathfrak{w}\right)=\g_{\vert x}\left(\mathfrak{v},\mathfrak{w}\right)}
+\end{equation} for all $\mathrm{x\in \U}$ and all $\mathrm{\mathfrak{v, w}\in T_{x}\U}$, then $\mathrm{\Yt}$ solves equation (\ref{stochdiff}) modulo a drift term:
+\begin{equation}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wt+\alpha(\Yt)dt}
+\end{equation}
+\end{lemm}
+\begin{proof} First of all note, that condition (\ref{metric}) is equivalent to the matrix equation 
+\begin{equation}
+\mathrm{\frac{d\phi}{dx}^{\Tra}(x)\cdot \g_{\vert \phi(x)}\cdot\frac{d\phi}{dx}(x)=\g_{\vert x}}
+\end{equation} which, using the definition of $\mathrm{\g}$, translate immediately to 
+\begin{equation}\label{matrixequation}
+\mathrm{\frac{d\phi}{dx}^{\Tra}(x)\cdot\left(\sigma(\phi(x))\sigma^{\Tra}(\phi(x))\right)^{-1}\cdot\frac{d\phi}{dx}(x)=\left(\sigma(x)\sigma^{\Tra}(x)\right)^{-1}}
+\end{equation} By multiplying (\ref{matrixequation}) from the left with the inverse of $\mathrm{\frac{d\phi}{dx}^{\Tra}(x)}$ and from the right with the inverse of $\mathrm{\frac{d\phi}{dx}(x)}$  respectively, we infer 
+\begin{equation}
+\mathrm{\left(\sigma(\phi(x))\sigma^{\Tra}(\phi(x))\right)^{-1}=\left(\frac{d\phi}{dx}^{\Tra}(x)\right)^{-1}\left(\sigma(x)\sigma^{\Tra}(x)\right)^{-1}\left(\frac{d\phi}{dx}(x)\right)^{-1}}
+\end{equation} which in turn by inversion is equivalent to 
+\begin{equation}
+\mathrm{\sigma(\phi(x))\sigma^{\Tra}(\phi(x))=\frac{d\phi}{dx}(x)\sigma(x)\sigma^{\Tra}(x)\frac{d\phi}{dx}^{\Tra}(x)}
+\end{equation}
+Now, as 
+\begin{equation}\label{transformedstochdiff}
+\mathrm{d\Yt=\frac{d\phi}{dx}\left(\Xt\right)\sig\left(\Xt\right)d\Wt+\alpha(\Xt)dt}
+\end{equation} by equation (\ref{transformedstochdiff}), the proof is complete as soon as we have shown that the quadratic variation $\mathrm{[\Y]=[\Yt,\Yt]}$ of $\mathrm{\Yt}$ given by
+\begin{equation}
+\end{equation}
+
+
+
+Using this equality and the property $d[\W,\W]=\left(\delta_{ij}\right)_{\textrm{1\leq,i,j\leq m}}\dt$, we compute
+\begin{equation}
+\begin{split}
+d[\Ztil,\Ztil] &= {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\dW \cdot  \dW^{\Tra}\sig(\Z)^{\Tra}{\textrm{d\Phi}}\left(\Z\right)^{\Tra}\\
+&= {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\sig(\Z)^{\Tra}{\textrm{d\Phi}}\left(\Z\right)^{\Tra}\dt\\
+&=\sigma(\Phi\left(\Z\right))\sigma^{\Tra}(\Phi\left(\Z\right))\dt\\
+&=\sig(\Ztil) \sig^{\Tra}(\Ztil)\dt\\
+\end{split}
+\end{equation} where we have used the equation \ref{eq:0c} in the third step.
+
+\end{proof}
+
+
+
+
 
 
 \begin{exem}[Standard complex space] Let $\mathrm{U\subset\mathbb{C}^{n}}$ and $\mathrm{\sigma^{ij}=\delta^{ij}}$ so that $\mathrm{g}$ is given by the flat Euclidean metric. By function theroy, it is known that the real part $\mathrm{x^{k}=\frak{Re} z^{k}}$ as well as the imaginary part $\mathrm{y^{k}=\frak{Im} z^{k}}$ of the complex standard coordinates f $\mathrm{z^{k}= x^{k}+\sqrt{-1}y^{k}}$ are harmonic function with respect to the standard metric structure. Furthermore, any holomorphic function $\mathrm{f}$ on $\mathrm{U}$ are harmonic. Hence by lemma, every
@@ -205,83 +279,16 @@ defined on
 
 
 
-\section{Symmetries of certain stochastic differential equations}
+\section{Symmetries under group actions}
 In the sequel, let $(\M, g)$ be a Riemannain manifold with a smooth Lie group action $\phi\dbp\G\tim\M\arr\M$ which preserves the metric $g$ so that $\sigma^{*}g=g$ for all $\sigma\in \G$. For convenience, we will assume that $\M$ is given by an open subset $\U$ of $\Rm$ whit local coordinates $\mathrm{(x_1,\dots,x_m)}$. 
 
-Furthermore, we will fix a system of stochastic differential of the following form: 
-
-\begin{equation}
-\dZ = \sig(\Z) \dW +\vc(\Z) \dt
-\end{equation}
-
-Here $\sig$ denotes $\textrm{m\times m}$ matrix with entries $\sigij, \textrm{1 \leq i,j\leq m}$ in the set $\mathscr{C}^{\infty}(\U)$ of smooth, $\mathbb{R}$-valued functions on $\U$ and $\W=(\Ws, \dots, \We)$ is a random vector of standard, uncorrelated Brownian motions with respect to a probability space ${\textrm{(\sigma,}} \mathscr{A}, \mathbb{P})$. The drift term is supposed to be given by a smooth vector field $\vc\dbp\M\arr\TM$ whose locally trivialization in the aforementioned coordinates is represented by the smooth vector $(\vs,\dots,\ve)$. 
 
 Recall that each vector $\ksi$ of the Lie algebra ${\mathrm{Lie}}(\G)=\mathfrak{g}$ generates a smooth flow $\Fi_{\xi}\dbp \mathbb{R}\tim\M\arr\M$ given by 
 \begin{equation}
 \Fi_{\xi}\textrm{(\te, \x)=\eksp(\te \ksi).\x}
 \end{equation} which is a solution of the differential equation $\dot{\Phi}\textrm{(\te,\x)=}\Xksi\textrm{(\Phi(\te,\x))}$. Here, $\Xksi$ denotes the smooth vector field generated by the one-parameter flow $\Phi$. To abbreviate the notation, we will frequently just set $\Xksi = \Ksibf$.
 
-Recall that 
 
-\begin{lemm} Let $\mathrm{\phi: U\rightarrow U}$ be a local change of coordinates $\mathrm{x^{\prime k}=\phi^{k}\left(x\right)}$ where $\mathrm{x^{j}}$ and $\mathrm{\phi^{k}}$ are satisfying the conditions of lemma \cite{contravariance of drift}, then the transformation $\mathrm{Z^{\prime k}}$ under $\phi^{k}$ of any process solving 
-\begin{equation}
-\mathrm{dX^{i}_{t}= \sigma^{i}_{j}\left(\Z\right)dW^{j}_{t}}
-\end{equation} is again a solution of the original equation, i.e.
-\begin{equation}
-\mathrm{dX^{\prime k}_{t}= \sigma^{k}_{\ell}\left(\Z^{\prime}\right)dW^{\ell}_{t}}
-\end{equation} 
-\end{lemm}
-\begin{proof} As the starting process is driftless and the local coordintes as well as the change of local coordinates both meet the conditions of lemma, the transformed drift will have zero drift by the contravariance lemma. Hence,  the lemma is proven as soon as we can verify that the quadratic variation $d[\Z,\Z]$ of $\Z$  and the corresponding quadratic variation $d[\Ztil,\Ztil]$ of $\Ztil$ coincides. 
-
-Since $\phi$ is assumed to be an isometry with respect to $g_{ij}$, we have $\mathrm{g^{\prime}_{k\ell}=g_{k\ell}}$ or equivalently
-\begin{equation}
-\mathrm{g_{rs}\frac{\partial x^{\prime r}}{\partial x^{k}}\frac{\partial x^{s}}{\partial x^{\ell}}=g_{k\ell}}
-\end{equation} Using the definition of $\mathrm{g}$, we get 
-\begin{equation}
-\mathrm{\sigma^{i}_{r}\sigma^{i}_{s}\frac{\partial x^{\prime r}}{\partial x^{k}}\frac{\partial x^{\prime s}}{\partial x^{\ell}}=\sigma^{i}_{k}\sigma^{i}_{\ell}}
-\end{equation}
-which in turn by multiplying with $\mathrm{\frac{\partial x^{}}{}}$ and $\mathrm{}$
-
-\end{proof}
-
-\begin{lemm}\label{lemma0} Let $\phi\dbp\U\arr\U$ be an isometry with respect to the metric $\g$ given by the local matrix representation $\g= \left(\sigma\sigma^{\Tra}\right)^{-1}$ and let $\Z$ be a solution of 
-\begin{equation}\label{eq:0}\dZ = \sig(\Z) \dW,
-\end{equation} then $\Ztil\:=\Fi\circ \Z$ is again a solution of \ref{eq:0}, i.e.
-\begin{equation}\dZtil = \sig(\Ztil) \dW.
-\end{equation}
-\end{lemm} 
-\begin{proof} Applying the lemma of $\textsc{Itô}$ directly yields 
-\begin{equation}
-\dZtil = {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\dW
-\end{equation} As booth processes $\Z$ as well as $\Ztil$ are drifless, the lemma is proven Here $d[\Z,\Z]$ and so $d[\Ztil,\Ztil]$ are understood to be matrices given by 
-\begin{equation}
-\de[\Z,\Z] = \left([\textrm{dZ}_{i}, \textrm{dZ}_{j}]\right)_{\textrm{1\leq,i,j\leq m}}=\de\Z\cdot\de\Z^{\Tra}
-\end{equation} and analog for $\Ztil$. 
-
-Since $\Phi$ is an isometry with respect to $\g=\left(\sigma\sigma^{\Tra}\right)^{-1}$, it follows that
-\begin{equation}
-\g_{\Phi(z)} \left(\de\Phi(\textrm{z})\cdot, \de\Phi(\textrm{z})\cdot\right) = \g_{\textrm{z}}(\cdot,\cdot)
-\end{equation} for all $\textrm{z}$ in $\M$ or equivalently, written as matrix equation
-\begin{equation}\label{eq:0a}
-\de\Phi^{\Tra}(\textrm{z})\left( \sigma(\Phi\left(z\right))\sigma^{\Tra}(\Phi\left(z\right))\right)^{-1}\de\Phi(\textrm{z}) =\left( \sigma(\textrm{z})\sigma^{\Tra}(\textrm{z})\right)^{-1}
-\end{equation} From equation \ref{eq:0a} we infere by multiplying from the left with the inverse of $\de\Phi^{\Tra}(\textrm{z})$ and from the right with the inverse of $\de\Phi(\textrm{z})$  respectively the equation
-\begin{equation}\label{eq:0b}
-\left( \sigma(\Phi\left(z\right))\sigma^{\Tra}(\Phi\left(z\right))\right)^{-1}=\left(\de\Phi^{\Tra}(\textrm{z})\right)^{-1}\left( \sigma(\textrm{z})\sigma^{\Tra}(\textrm{z})\right)^{-1}\left(\de\Phi(\textrm{z})\right)^{-1}
-\end{equation} which is equivalent to 
-\begin{equation}\label{eq:0c}
-\sigma(\Phi\left(z\right))\sigma^{\Tra}(\Phi\left(z\right))=\de\Phi(\textrm{z}) \sigma(\textrm{z})\sigma^{\Tra}(\textrm{z})\de\Phi^{\Tra}(\textrm{z})
-\end{equation}
-
-Using this equality and the property $d[\W,\W]=\left(\delta_{ij}\right)_{\textrm{1\leq,i,j\leq m}}\dt$, we compute
-\begin{equation}
-\begin{split}
-d[\Ztil,\Ztil] &= {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\dW \cdot  \dW^{\Tra}\sig(\Z)^{\Tra}{\textrm{d\Phi}}\left(\Z\right)^{\Tra}\\
-&= {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\sig(\Z)^{\Tra}{\textrm{d\Phi}}\left(\Z\right)^{\Tra}\dt\\
-&=\sigma(\Phi\left(\Z\right))\sigma^{\Tra}(\Phi\left(\Z\right))\dt\\
-&=\sig(\Ztil) \sig^{\Tra}(\Ztil)\dt\\
-\end{split}
-\end{equation} where we have used the equation \ref{eq:0c} in the third step.
-\end{proof}
 
 \begin{theo}[Transfomration Law] Let $(\M, g)$ and $\G$ be as above and consider the following system of stochastic differnetial equations on $\M=\U$
 \begin{equation}
