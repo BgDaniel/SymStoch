@@ -61,6 +61,7 @@
 \newcommand{\de}{{\textrm{d}}}
 
 \newcommand{\Xt}{\mathrm{\mathbf{X}}_{t}}
+\newcommand{\Xtal}{\mathrm{\mathbf{X}}_{\alpha,t}}
 \newcommand{\Yt}{\mathrm{\mathbf{Y}}_{t}}
 \newcommand{\Y}{\mathrm{\mathbf{Y}}}
 \newcommand{\R}{\mathrm{\mathbf{R}}}
@@ -124,7 +125,8 @@ Here, $\mathrm{\sig\in\mathscr{C}^{\infty}\left(\U,\mathbb{R}^{n}\times\mathbb{R
 \begin{equation}
 \mathrm{d X^{i}_t=\sig^{i}_{j}\left(\Xt\right)dW^{i}_{t}+\mu^{i}\left(\Xt\right)dt}
 \end{equation} where we agree to use the usual convention to perform summation over twice appearing indices.
-t
+In the next sections, we will assume that the paths $\mathrm{\Xt}$ do not leave $\mathrm{\U}$ for all $\mathrm{t\geq 0}$.
+
 \section{Contravariance of the drift}\label{contravariancedrift}
 Let $\mathrm{\Xt}$ in $\mathrm{\U}$ be as defined in section (\ref{introduction}) and fix diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$. In this setting, $\textsc{Itô}$'s lemma states that the transformed process $\mathrm{\Yt:=\phi\circ\Xt}$ on $\U$ solves the following equation 
 \begin{equation}\label{transformedstochdiff}
@@ -262,6 +264,7 @@ Now, define
 \end{proof}
 
 \section{Local K\"ahler spaces and their transformation properties}
+\subsection{The transformation law}
 In this section, we will consider a special configuration of our starting data $\mathrm{(\U,\Xt,\phi)}$ so that the stochastic differential equation of the transformed process $\mathrm{\Yt=\phi\circ \Xt}$ automatically results in a very pleasant from where basically the vola structure is stabilized in the sense of section \ref{invofvolastructure} whereas the drift is transformed like a vectorfield as described in section \ref{lemmacontravariance}. 
 
 As a starting point for this, let now $\mathrm{\U \subset \mathbb{C}^{n}}$ with holomorphic standard coordinates $\mathrm{z^{k}=x^{k}+i y^{k}}$, $\mathrm{1\leq k\leq n}$. 
@@ -299,6 +302,16 @@ In particular, if $\mathrm{\mu}$ is invariant under $\phi$, it follows:
 \mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\mu\left(\Yt\right)dt}
 \end{equation} and hence the claim.
 \end{proof} 
+
+\subsection{Gluinig local data}
+Let $\mathrm{\M}$ be a complex manifold and choose a holomorphic atlas $\mathrm{\left\{(\varphi_{\alpha},\V_{\alpha})\right\}}$ of holomorphic charts $\mathrm{\varphi_{\alpha}:\V_{\alpha}\rightarrow \U_{\alpha}:=\varphi(\V_{\alpha})}$. Furthermore, let $\mathrm{\left\{(\sigma_{\alpha},\mu_{\alpha})\right\}}$ be a collection of tuples where each $\mathrm{\sig_{\alpha}\in\mathscr{C}^{\infty}\left(\U_{\alpha},\mathbb{R}^{n}\times\mathbb{R}^{n}\right)}$ denotes a smooth, matrix-valued function with $\mathrm{\sigma_{\alpha}(x)}$ invertible for all $\mathrm{x\in \U_{\alpha}}$ and $\mathrm{\mu_{\alpha}\in \mathscr{C}^{\infty}\left(\U_{\alpha},\mathbb{R}^{n}\right)}$. For each $\alpha$ we assume that $\mathrm{\g^{\sigma_{\alpha}}}$ turns $\mathrm{\U_{\alpha}}$ into a K\"ahler domain.
+
+Now, if $\mathrm{\Xtal}$ denotes a solution of
+\begin{equation}\label{stochdiff}
+\mathrm{d\Xtal=\sig_{\alpha}\left(\Xtal\right)d\Wt+\mu_{\alpha}\left(\Xtal\right)dt}
+\end{equation} in $\mathrm{\U_{\alpha}}$
+to leave the open set $\mathrm{\U_{\alpha}}$, the following question arises: When does $\mathrm{}$
+
 
 
 
