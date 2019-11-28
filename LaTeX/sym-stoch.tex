@@ -37,7 +37,7 @@
 \newcommand{\dZtil}{\textrm{d}{\widetilde{\bf{Z}}_{\textrm{t}}}}
 \newcommand{\dW}{{\textrm{d}}{\bf{W}}_{\textrm{t}}}
 \newcommand{\dWtil}{{\textrm{d}}\widetilde{\bf{W}}_{\textrm{t}}}
-\newcommand{\W}{{\bf{W}_{\textrm{t}}}}
+
 \newcommand{\Wtil}{{\widetilde{\bf{W}}_{\textrm{t}}}}
 \newcommand{\Ws}{{\textrm{W}_{\textrm{1,t}}}}
 \newcommand{\We}{{\textrm{W}_{\textrm{m,t}}}}
@@ -66,11 +66,15 @@
 \newcommand{\R}{\mathrm{\mathbf{R}}}
 \newcommand{\orth}{\mathrm{\mathbf{o}}}
 \newcommand{\Wt}{\mathrm{\mathbf{W}}_{t}}
+\newcommand{\Wttil}{\mathrm{\mathbf{\widetilde{W}}}_{t}}
 \newcommand{\mut}{\mathrm{\mathbf{\mu}}_{t}}
 \newcommand{\g}{\mathrm{\mathbf{g}}}
 \newcommand{\U}{{\bf{U}}}
 \newcommand{\V}{{\bf{V}}}
 \newcommand{\M}{{\bf{M}}}
+\newcommand{\W}{{\bf{W}_{\textrm{t}}}}
+\newcommand{\Ut}{\mathrm{\mathbf{U}}_{t}}
+\newcommand{\Vt}{\mathrm{\mathbf{V}}_{t}}
 
 \newcommand{\yt}{\mathrm{\mathbf{y}}_{t}}
 \newcommand{\dd}{\mathrm{d}}
@@ -110,7 +114,9 @@ Beside, we briefly examine invariance properties of differential system like und
 \tableofcontents
 
 \section{Introduction}\label{introduction}
-Throughout this article let $\mathrm{\U}$ be an open subset of $\mathrm{\mathbb{R}^{n}}$ with the standard coordinates $\mathrm{x^{i}}$, $\mathrm{1\leq i\leq n}$ induced by the ambiant space $\mathrm{\mathbb{R}^{n}}$ and consider an $\mathrm{n-}$dimensional stochastic process $\mathrm{\Xt}$ with components $\mathrm{x^{i}_{t}}$, $\mathrm{1\leq i\leq n}$ in $\mathrm{\U}$ for $\mathrm{t\in[0,S]}$ solving the following stochastic differential equation
+Throughout this article let $\mathrm{\U}$ be an open subset of $\mathrm{\mathbb{R}^{n}}$ with the standard coordinates $\mathrm{x^{i}}$, $\mathrm{1\leq i\leq n}$ induced by the ambiant space $\mathrm{\mathbb{R}^{n}}$ and fix a Brownian motion $\mathrm{\Wt=\left(W^{1}_{t},\cdots,W^{n}_{t}\right)}$ of dimension $\mathrm{n}$ with respect to a probability space $\mathrm{\left(\Sigma, \mathscr{A},\mathbb{Q}\right)}$ where we assume the $\mathrm{W^{i}_{t}}$ to be uncorrelated, i.e. $\mathrm{d[W^{i}_{t},W^{j}_{t}]}=0$ for all $\mathrm{1\leq i < j\leq n}$.
+
+Our object of interest is an $\mathrm{n-}$dimensional stochastic process $\mathrm{\Xt}$ with components $\mathrm{X^{i}_{t}}$, $\mathrm{1\leq i\leq n}$ in $\mathrm{\U}$ for $\mathrm{t\in[0,S]}$ solving the following stochastic differential equation
 \begin{equation}\label{stochdiff}
 \mathrm{d\Xt=\sig\left(\Xt\right)d\Wt+\mu\left(\Xt\right)dt}
 \end{equation}
@@ -133,12 +139,15 @@ Let $\mathrm{\Xt}$ in $\mathrm{\U}$ be as defined in section (\ref{introduction}
 
 Note that the term $\mathrm{\R}$ in equation (\ref{transformedstochdiff}) is the obstruction for the coefficients of equation (\ref{stochdiff}) to transform contravariantly with respect to the change of coordinates $\mathrm{\phi}$ on $\mathrm{\U}$. To be more precise, if $\mathrm{\R\equiv 0}$ on $\U$ the following transformation law would hold:
 \begin{equation}\label{contravarianceofdrift}
-\mathrm{dY^{i}_{t}=\frac{\partial \phi^{i}}{\partial x^{j}}dX^{i}_{t}}
-\end{equation} Before we proceed to specify the conditions, which have to be imposed on the map $\mathrm{\phi}$ and the coordinates $\mathrm{x^{i}}$, $\mathrm{1 \leq i\leq n}$ on $\U$ so that the $\mathrm{dY^{i}_{t}}$ transform like the coefficients of a tensor of rank $\mathrm{1}$, we have to introduce and recall some definitions:
+\mathrm{d\Yt=\frac{d\phi}{dx}\left(\Xt\right)\left[\sig\left(\Xt\right)d\Wt+\left(\phi_{*}\mu\right)\left(\Yt\right)dt\right]}
+\end{equation} where $\mathrm{\phi_{*}:T\U\rightarrow T\U}$ denotes the \textit{push forward} associated to $\mathrm{\phi}$ which is defined by 
+\begin{equation}
+\mathrm{(\phi_{*}\mu)(x):=\frac{d\phi}{dx}(\phi^{-1}(x))\mu\left(\phi^{-1}(x)\right)}
+\end{equation} for all $\mathrm{x\in \U}$. Before we proceed to specify the conditions, which have to be imposed on the map $\mathrm{\phi}$ and the coordinates $\mathrm{x^{i}}$, $\mathrm{1 \leq i\leq n}$ on $\U$ so that the $\mathrm{dY^{i}_{t}}$ transform like the coefficients of a tensor of rank $\mathrm{1}$, we have to introduce and recall some definitions:
 
 \begin{defi}\label{definitionMetric} Let $\sig$ be a defined as above, i.e. $\mathrm{\sig\in \mathscr{C}^{\infty}\left(\U, \mathbb{R}^{n}\times \mathbb{R}^{n}\right)}$ with $\sig(x)$ invertible for all $\mathrm{x\in U}$, then define a Riemannian metric $\mathrm{\g}$ on $\mathrm{\U}$ by setting
 \begin{equation}
-\g:= \left(\sigma^{\Tra}\right)^{-1}\sigma^{-1}
+\g^{\sigma}:= \left(\sigma^{\Tra}\right)^{-1}\sigma^{-1}
 \end{equation}
 \end{defi} Note that by assumption, $\mathrm{\sig}$ is invertible on $\mathrm{\U}$ and hence $\mathrm{\g}$ is well defined. 
 Now, recall the following definitions from Riemannian geometry.
@@ -162,7 +171,7 @@ We are now able to state the under which assumption we have $\mathrm{\R\equiv 0}
 
 \begin{lemm}[Contravariance of drift]\label{lemmacontravariance} Let $\mathrm{\Xt}$ be a process in $\mathrm{\U}$ solving equation (\ref{stochdiff}), then the image $\Yt =\phi\circ \Xt$ under a diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$ solves (\ref{contravarianceofdrift}) if the following two conditions hold:
 \begin{enumerate}
-\item The local coordinates $\mathrm{x^{i}}$ are harmonic with respect to $\mathrm{\g}$, i.e. $\mathrm{g^{ij}\Gamma^{k}_{ij}=0}$ for all $\mathrm{1 \leq i,j\leq n}$.
+\item The local coordinates $\mathrm{x^{i}}$ are harmonic with respect to $\mathrm{\g^{\sigma}}$, i.e. $\mathrm{g^{ij}\Gamma^{k}_{ij}=0}$ for all $\mathrm{1 \leq i,j\leq n}$.
 \item The map $\mathrm{\phi}$ is harmonic, i.e. each component $\mathrm{\phi^{i}}$ is again a harmonic function with respect to $\mathrm{x^{i}}$, $\mathrm{1 \leq i\leq n}$.
 \end{enumerate}
 \end{lemm}
@@ -181,23 +190,23 @@ We are now able to state the under which assumption we have $\mathrm{\R\equiv 0}
 \end{equation} However, equation (\ref{vanishing}) is an immediate consequence of $\mathrm{g^{ij}=\left(\g^{-1}\right)_{ij}}$ and definition \ref{definitionMetric}.
 \end{proof}
 
-\section{Invariance of the volatility structure}
+\section{Invariance of the volatility structure}\label{invofvolastructure}
 As we have seen in the preceding section \ref{contravariancedrift}, the volatility structure $\mathrm{\sig}$ on $\mathrm{\U}$ gives rise to Riemannian metric $\mathrm{\g}$.
-In this section, we will find a necessary conditions for $\mathrm{\phi}$ in terms of $\mathrm{\g}$ so that the transformation $\mathrm{\Yt=\phi\circ \Xt}$ of $\mathrm{\Xt}$ solves the original equation (\ref{stochdiff}) modulo a drift term so that
-\begin{equation}
-\mathrm{d\Yt=\sig\left(\Yt\right)d\Wt+\alpha(\Yt)dt}
-\end{equation}
+In this section, we will find a necessary condition for $\mathrm{\phi}$ in terms of $\mathrm{\g}$ so that the transformation $\mathrm{\Yt=\phi\circ \Xt}$ of $\mathrm{\Xt}$ is solves the original equation (\ref{stochdiff}) module a drift term. To be more precise, we will prove that if $\mathrm{\phi}$ is compatible with the metric $\mathrm{\g}$, there exists an $\mathrm{n-}$dimensional Brownian motion $\mathrm{\Wttil}$ which itself is a version of $\mathrm{\Wt}$, i.e. $\mathrm{\Wtil\sim\Wt}$ for all $\mathrm{t\leq 0}$ so that 
+\begin{equation}\label{invvola}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\alpha(\Yt)dt}
+\end{equation} holds. Before we proceed to establish a geometric sufficient condition for equation (\ref{invvola}) to be valid, we prove the following helpful lemma.
 
-\begin{lemm} Let $\mathrm{\Xt}$ and $\mathrm{\Yt}$ be to stochastic processes on $\mathrm{\U}$ solving 
+\begin{lemm}\label{lemmavolainv} Let $\mathrm{\Xt}$ be to stochastic processes on $\mathrm{\U}$ solving 
 \begin{equation}
-\mathrm{d\Xt =\sigma(\Xt)d\Wt}\,\,\,\,and\,\,\,\,\mathrm{d\Yt=\rho(\Yt)d\Wt}
-\end{equation} where $\mathrm{\sig, \rho\in\mathscr{C}^{\infty}\left(\U,\mathbb{R}^{n}\times\mathbb{R}^{n}\right)}$ are smooth, matrix valued functions on $\mathrm{U}$ with $\mathrm{\sigma(x}$ and $\mathrm{\rho(x)}$ invertible for all $\mathrm{x\in \U}$ and assume that 
+\mathrm{d\Xt =\sigma(\Xt)d\Wt+\alpha(\Xt)dt}
+\end{equation} where $\mathrm{\sig\in\mathscr{C}^{\infty}\left(\U,\mathbb{R}^{n}\times\mathbb{R}^{n}\right)}$ is a  smooth, matrix valued function on $\mathrm{\U}$ with $\mathrm{\sigma(x)}$ invertible for all $\mathrm{x\in \U}$ and let $\rho$ be a second matrix valued function unction sharing the same properties as $\mathrm{\sigma}$ such that 
 \begin{equation}\label{transposeequal}
 \mathrm{\sigma\sigma^{\Tra}=\rho\rho^{\Tra}}
-\end{equation} on $\mathrm{\U}$, then 
+\end{equation} on $\mathrm{\U}$. Then, it is
 \begin{equation}
-\mathrm{d\Xt =\rho(\Xt)d\Wt}\,\,\,\,and\,\,\,\,\mathrm{d\Yt=\sigma(\Yt)d\Wt}
-\end{equation}
+\mathrm{d\Xt =\rho(\Xt)d\Wttil+\alpha(\Xt)}
+\end{equation} for $\mathrm{\Wttil\sim\Wt}$.
 \end{lemm}
 \begin{proof} Observe that by (\ref{transposeequal}), we conclude
 \begin{equation}
@@ -205,74 +214,92 @@ In this section, we will find a necessary conditions for $\mathrm{\phi}$ in term
 \end{equation} so $\mathrm{\sigma^{-1}\rho}$ is orthogonal. Hence, for each $\mathrm{x\in \U}$, there exists $\mathrm{\orth\in O\left(\mathbb{R}^{n}\right)}$ so that
 \begin{equation}
 \sigma(x)=\orth(x)\rho(x)
-\end{equation} Since $\mathrm{\orth(x)\Wt}$ and $\Wt$ share the same distribution, it follows that 
+\end{equation} Since $\mathrm{\orth(x)\Wt\sim\Wt}$ for all $\mathrm{0 \leq t}$, it follows that
 \begin{equation}
-\mathrm{d\Xt =\sigma(\Xt)d\Wt=\rho(\Xt)\orth(\Xt)d\Wt=\rho(\Xt)d\Wt}
-\end{equation} and vice versa.
+\mathrm{d\Xt =\sigma(\Xt)d\Wt+\alpha(\Xt)=\rho(\Xt)\orth(\Xt)d\Wt+\alpha(\Xt)=\rho(\Xt)d\Ut+\alpha(\Xt)}
+\end{equation} with $\mathrm{\Ut:=\orth(t)\Wt}$ and similar for $\mathrm{d\Yt}$.
 \end{proof}
 
-\begin{lemm}[Invariance modulo drift]\label{lemmainvariance} Let $\mathrm{\Xt}$ be a process in $\mathrm{\U}$ solving equation (\ref{stochdiff}) and let $\mathrm{\Yt=\phi\circ\Xt}$ be its transformation under a diffeomorphism $\phi\in \mathscr{C}^{\infty}\left(\U,\U\right)$.
-If $\mathrm{\phi}$ is a metric map, i.e. 
+Recall that a diffeomorphism $\mathrm{\varphi}$ of $\mathrm{\U}$ is called metric if it satisfies the following compatibility condition:
+
+\begin{defi}\label{metric} A diffeomorphism $\mathrm{\varphi}$ of $\mathrm{\U}$ is called metric if
 \begin{equation}\label{metric}
 \mathrm{\g_{\vert \phi(x)}\left(\frac{d\phi}{dx}(x)\mathfrak{v},\frac{d\phi}{dx}(x)\mathfrak{w}\right)=\g_{\vert x}\left(\mathfrak{v},\mathfrak{w}\right)}
-\end{equation} for all $\mathrm{x\in \U}$ and all $\mathrm{\mathfrak{v, w}\in T_{x}\U}$, then $\mathrm{\Yt}$ solves equation (\ref{stochdiff}) modulo a drift term:
+\end{equation} for all $\mathrm{x\in \U}$ and all $\mathrm{\mathfrak{v, w}\in T_{x}\U}$.
+\end{defi} 
+
+\begin{lemm}[Invariance modulo drift]\label{lemmainvariance} Let $\mathrm{\Xt}$ be a process in $\mathrm{\U}$ solving equation (\ref{stochdiff}) and let $\mathrm{\Yt=\phi\circ\Xt}$ be its transformation under a metric diffeomorphism, then there exists $\mathrm{\Wtil}$ with $\mathrm{\Wtil\sim\Wt}$ so that  $\mathrm{\Yt}$ solves
 \begin{equation}
-\mathrm{d\Yt=\sig\left(\Yt\right)d\Wt+\alpha(\Yt)dt}
-\end{equation}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\alpha(\Yt)dt}
+\end{equation} for $\mathrm{\alpha}$ apropriately.
 \end{lemm}
 \begin{proof} First of all note, that condition (\ref{metric}) is equivalent to the matrix equation 
 \begin{equation}
-\mathrm{\frac{d\phi}{dx}^{\Tra}(x)\cdot \g_{\vert \phi(x)}\cdot\frac{d\phi}{dx}(x)=\g_{\vert x}}
-\end{equation} which, using the definition of $\mathrm{\g}$, translate immediately to 
+\mathrm{\frac{d\phi}{dx}^{\Tra}(x)\cdot \g^{\sigma}_{\vert \phi(x)}\cdot\frac{d\phi}{dx}(x)=\g^{\sigma}_{\vert x}}
+\end{equation} which, using the definition of $\mathrm{\g^{\sigma}}$, translate immediately to 
 \begin{equation}\label{matrixequation}
 \mathrm{\frac{d\phi}{dx}^{\Tra}(x)\cdot\left(\sigma(\phi(x))\sigma^{\Tra}(\phi(x))\right)^{-1}\cdot\frac{d\phi}{dx}(x)=\left(\sigma(x)\sigma^{\Tra}(x)\right)^{-1}}
 \end{equation} By multiplying (\ref{matrixequation}) from the left with the inverse of $\mathrm{\frac{d\phi}{dx}^{\Tra}(x)}$ and from the right with the inverse of $\mathrm{\frac{d\phi}{dx}(x)}$  respectively, we infer 
 \begin{equation}
 \mathrm{\left(\sigma(\phi(x))\sigma^{\Tra}(\phi(x))\right)^{-1}=\left(\frac{d\phi}{dx}^{\Tra}(x)\right)^{-1}\left(\sigma(x)\sigma^{\Tra}(x)\right)^{-1}\left(\frac{d\phi}{dx}(x)\right)^{-1}}
 \end{equation} which in turn by inversion is equivalent to 
-\begin{equation}
+\begin{equation}\label{helperequation}
 \mathrm{\sigma(\phi(x))\sigma^{\Tra}(\phi(x))=\frac{d\phi}{dx}(x)\sigma(x)\sigma^{\Tra}(x)\frac{d\phi}{dx}^{\Tra}(x)}
 \end{equation}
-Now, as 
+Now, define
+\begin{equation}
+\mathrm{\rho(x)=\frac{d\phi}{dx}(\phi^{-1}(x))\sigma(\phi^{-1}(x))}
+\end{equation} on $\mathrm{\U}$, then equation (\ref{helperequation}) we deduce
+\begin{equation}\label{rhosig}
+\mathrm{\rho\rho^{\Tra}=\sigma\sigma^{\Tra}}
+\end{equation} Using $\rho$, equation
 \begin{equation}\label{transformedstochdiff}
-\mathrm{d\Yt=\frac{d\phi}{dx}\left(\Xt\right)\sig\left(\Xt\right)d\Wt+\alpha(\Xt)dt}
-\end{equation} by equation (\ref{transformedstochdiff}), the proof is complete as soon as we have shown that the quadratic variation $\mathrm{[\Y]=[\Yt,\Yt]}$ of $\mathrm{\Yt}$ given by
+\mathrm{d\Yt=\frac{d\phi}{dx}\left(\Xt\right)\sig\left(\Xt\right)d\Wt+\alpha(\Yt)dt}
+\end{equation} becomes
 \begin{equation}
-\end{equation}
-
-
-
-Using this equality and the property $d[\W,\W]=\left(\delta_{ij}\right)_{\textrm{1\leq,i,j\leq m}}\dt$, we compute
-\begin{equation}
-\begin{split}
-d[\Ztil,\Ztil] &= {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\dW \cdot  \dW^{\Tra}\sig(\Z)^{\Tra}{\textrm{d\Phi}}\left(\Z\right)^{\Tra}\\
-&= {\textrm{d\Phi}}\left(\Z\right)\sig(\Z)\sig(\Z)^{\Tra}{\textrm{d\Phi}}\left(\Z\right)^{\Tra}\dt\\
-&=\sigma(\Phi\left(\Z\right))\sigma^{\Tra}(\Phi\left(\Z\right))\dt\\
-&=\sig(\Ztil) \sig^{\Tra}(\Ztil)\dt\\
-\end{split}
-\end{equation} where we have used the equation \ref{eq:0c} in the third step.
-
+\mathrm{d\Yt=\rho(\Yt)d\Wt+\alpha(\Yt)dt}
+\end{equation} Applying lemma \ref{lemmavolainv}, which is possible because of (\ref{rhosig}), then completes the proof.
 \end{proof}
 
+\section{Local K\"ahler spaces and their transformation properties}
+In this section, we will consider a special configuration of our starting data $\mathrm{(\U,\Xt,\phi)}$ so that the stochastic differential equation of the transformed process $\mathrm{\Yt=\phi\circ \Xt}$ automatically results in a very pleasant from where basically the vola structure is stabilized in the sense of section \ref{invofvolastructure} whereas the drift is transformed like a vectorfield as described in section \ref{lemmacontravariance}. 
 
+As a starting point for this, let now $\mathrm{\U \subset \mathbb{C}^{n}}$ with holomorphic standard coordinates $\mathrm{z^{k}=x^{k}+i y^{k}}$, $\mathrm{1\leq k\leq n}$. 
 
+For further abbreviation, we define:
+\begin{defi}\label{compatibledata} Let $\mathrm{\Xt}$ be a stochastic process in $\mathrm{\U\subset \mathbb{C}^{n}}$ where \begin{equation}\label{stochdiff}
+\mathrm{d\Xt=\sig\left(\Xt\right)d\Wt+\mu\left(\Xt\right)dt}
+\end{equation} and let $\mathrm{\phi:\U\rightarrow\U}$ be a biholomorphic map.
+If 
+\begin{enumerate}
+\item $\mathrm{\left(\U,\g^{\sigma}\right)}$ is a K\"ahler domain and 
+\item if $\mathrm{\phi}$ is metric with respect to $\mathrm{\g^{\sigma}}$,
+\end{enumerate} then we say that the tuple $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$.
+\end{defi}
 
+\begin{theo}\label{transformationtheo} If $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$, it follows
+\begin{equation}\label{stochdiff}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+(\phi_{*}\mu)\left(\Yt\right)dt}
+\end{equation} for $\mathrm{\Wtil\sim\Wt}$.
+\end{theo}
+\begin{proof} By lemma \ref{lemmacontravariance} and lemma \ref{lemmainvariance} the claim follows as soon we have verified that the real coordinates $\mathrm{x^{i}, y^{i}}$, $\mathrm{1\leq i, j\leq n}$ of $\mathrm{\U\subset\mathbb{C}^{n}=\mathbb{R}^{2n}}$ are harmonic with respect to $\mathrm{\g^{\sigma}}$. 
+\end{proof}
 
+In particular, if $\mathrm{\mu}$ is invariant under $\phi$, it follows:
 
-\begin{exem}[Standard complex space] Let $\mathrm{U\subset\mathbb{C}^{n}}$ and $\mathrm{\sigma^{ij}=\delta^{ij}}$ so that $\mathrm{g}$ is given by the flat Euclidean metric. By function theroy, it is known that the real part $\mathrm{x^{k}=\frak{Re} z^{k}}$ as well as the imaginary part $\mathrm{y^{k}=\frak{Im} z^{k}}$ of the complex standard coordinates f $\mathrm{z^{k}= x^{k}+\sqrt{-1}y^{k}}$ are harmonic function with respect to the standard metric structure. Furthermore, any holomorphic function $\mathrm{f}$ on $\mathrm{U}$ are harmonic. Hence by lemma, every
-
-Consider the system 
+\begin{coro}Let $\mathrm{(\U,\Xt,\phi)}$ be a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$ so that $\mathrm{\phi_{*}\mu=\mu}$, then
+\begin{equation}\label{stochdiff}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\mu\left(\Yt\right)dt}
+\end{equation} for $\mathrm{\Wtil\sim\Wt}$. In particular, the tansformation $\Yt$ is modification of $\Xt$, i.e.
 \begin{equation}
-\begin{split}
-\mathrm{dU}&=\\
-\end{split}
-\end{equation}
-defined on 
-\end{exem}
+\mathrm{\mathbb{P}(\Xt =\Yt)=1}
+\end{equation} for all $\mathrm{t\leq 0}$.
+\end{coro}
+\begin{proof} Since invariance of $\mathrm{\mu}$ is equivalent to $\mathrm{\phi_{*}\mu =\mu}$ by definition, theorem \ref{transformationtheo} yields \begin{equation}\label{stochdiff}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\mu\left(\Yt\right)dt}
+\end{equation} and hence the claim.
+\end{proof} 
 
-
-\begin{exem}[Local K\"ahlerain space] Let $\mathrm{U\subset\mathbb{C}^{n}}$ and  
-\end{exem}
 
 
 
@@ -288,44 +315,14 @@ Recall that each vector $\ksi$ of the Lie algebra ${\mathrm{Lie}}(\G)=\mathfrak{
 \Fi_{\xi}\textrm{(\te, \x)=\eksp(\te \ksi).\x}
 \end{equation} which is a solution of the differential equation $\dot{\Phi}\textrm{(\te,\x)=}\Xksi\textrm{(\Phi(\te,\x))}$. Here, $\Xksi$ denotes the smooth vector field generated by the one-parameter flow $\Phi$. To abbreviate the notation, we will frequently just set $\Xksi = \Ksibf$.
 
-
-
-\begin{theo}[Transfomration Law] Let $(\M, g)$ and $\G$ be as above and consider the following system of stochastic differnetial equations on $\M=\U$
-\begin{equation}
-\dZ = \sig(\Z) \dW +\Ksibf(\Z) \dt,
-\end{equation} then the transformed solution $\Ztil\:=\Fi_{\eta}\textrm{(t,\cdot)}\circ \Z$
- solves the transformed system given by 
-\begin{equation}
-\dZtil = \sig(\Ztil) \dWtil +\left[\Etabf(\Z)+\left(\Ad_{\eta}\Ksibf\right)(\Z)\right] \dt,
-\end{equation} with $\Wtil$ following the same distribution as $\W$.
+\begin{theo} If $\mathrm{(\U,\Xt,\Phi^{\xi}_{t})}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$ for all $\mathrm{t\leq 0}$, then the transformed process $\mathrm{\Yt=\Phi^{\xi}_{t}\circ \Xt}$ solves t
+\begin{equation}\label{stochdiff}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\left[(Ad_{exp(t\xi)}\eta)\left(\Yt\right)+\xi(\Yt)\right]dt}
+\end{equation} for $\mathrm{\Wtil\sim\Wt}$.
 \end{theo}
-\begin{proof} First of all, by the multi-dimensional Lemma of $\textsc{Itô}$ we deduce that 
-\begin{equation}\label{eq:1}
-\begin{split}
-\dZtil &=\dFietadx(t, \Z)\left( \sig(\Z) \dW +\Ksibf(\Z) \right) \\
-& + \left[\dFietadt(t, \Z)+\frac{1}{2} \dW^{T}\sig(\Z)^{T}\Hess(\Fi_{\eta})\sig(\Z) \dW\right]\dt\\
-\end{split}
-\end{equation} As $\Pi_{\eta}$ is assumed to be harmonic, $\Hess =0$. As the vector field generated by $\eta$ evaluated at point $\Z$ is given by
-\begin{equation}
-\dFietadt(t, \Z) = \eta({\Phi}_{\eta}(\te,\Z))= \eta(\te,\Ztil)
-\end{equation} per definition, the second line of equation \ref{eq:1} reduces to $ \eta(\te,\Ztil)\dt$ and hence, it follows
-\begin{equation}\label{eq:2}
-\dZtil =\dFietadx(t, \Z)\left( \sig(\Z) \dW +\Ksibf(\Z) \right) +\eta(\te,\Ztil)\dt\\
-\end{equation}
-Now as $\mathrm{\Phi_{\eta}(t,\cdot)}$ is assumed to be a Riemannian isometry with respect to $\mathrm{g}$, it follows by lemma \ref{lemma0} that 
-\begin{equation}
-\dFietadx(t, \Z)\ \sig(\Z) \dW=\sigma(\Ztil)\dW
-\end{equation} and hence equation becomes 
-\begin{equation}\label{eq:2}
-\dZtil =\sigma(\Ztil)\dW+\Ksibf(\Z) \right) +\eta(\te,\Ztil)\dt
-\end{equation}
-
- the derivative of the flow $\textrm{\Phi}(t,\dot)$ with redspect to $\textrm{t}$, the above equations reduces to the following form:
-
-  or written down in local coordinates  $\mathrm{(x_1,\dots,x_m)}$
+\begin{proof} By lemma \ref{lemmacontravariance} and lemma \ref{lemmainvariance} the claim follows as soon we have verified that the real coordinates $\mathrm{x^{i}, y^{i}}$, $\mathrm{1\leq i, j\leq n}$ of $\mathrm{\U\subset\mathbb{C}^{n}=\mathbb{R}^{2n}}$ are harmonic with respect to $\mathrm{\g^{\sigma}}$. 
 \end{proof}
 
-In particular, for vector fields $d$
 
 
 The file sent by the author will be adapted to the style of the journal where it will be published by the editorial board of the \SmF. It is therefore {\em important} that the \LaTeXe\ file is prepared in a very standard way, in particular by a {\em systematic} use of theorem- and proof-like environments (see \T\ref{sec:presentationthm}), of \verb|\label| and \verb|\ref| commands for referring to the corresponding numbers, and of \verb|\cite| for bibliographical references. Moreover, ``home'' macros must be clearly written in the preamble. {\em No} ``home'' macro will be used in the title, the address, the abstracts (French and English), the keywords.
