@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2018.3.18)  28 NOV 2019 22:20
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2018.3.18)  30 NOV 2019 09:26
  restricted system commands enabled.
  file:line:error style messages enabled.
 **sym-stoch.tex
@@ -36,7 +36,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.170 seconds
+luaotfload | main : initialization completed in 0.154 seconds
 Babel <3.10> and hyphenation patterns for 1 language(s) loaded.
 (./smfart.cls
 Document Class: smfart 2015/09/02 v1.5c Classe LaTeX pour les articles publies p
@@ -402,33 +402,45 @@ LaTeX Warning: Label `stochdiff' multiply defined.
 
 LaTeX Warning: Label `stochdiff' multiply defined.
 
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
 )
 \openout1 = sym-stoch.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Info: Redefining \dots on input line 98.
-LaTeX Info: Redefining \up on input line 98.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Info: Redefining \dots on input line 99.
+LaTeX Info: Redefining \up on input line 99.
 Inserting `frenchb.french_punctuation' at position 1 in `kerning'.
 
 Package frenchb.ldf Warning: Add \usepackage{fontspec} to the
 (frenchb.ldf)                preamble of your document, reported on input line 9
-8.
+9.
 
 \c@smfthm=\count118
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 113.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 114.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
@@ -437,77 +449,80 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 29.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 119.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 120.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 119.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 120.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 119.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 120.
  [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4]
-LaTeX Font Info:    Try loading font information for U+euf on input line 229.
+LaTeX Font Info:    Try loading font information for U+euf on input line 230.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [5] [6]
-[7] [8] [9] [10] [11] [12]
-Underfull \hbox (badness 3536) in paragraph at lines 704--708
+[7] [8] [9] [10] [11] [12] [13]
+Underfull \hbox (badness 3536) in paragraph at lines 769--773
 \T1/lmr/bx/n/10 10.1.Theorem styles. [][] \T1/lmr/m/n/10 Three styles of the-o-
 rems are de-fined: \T1/lmtt/m/n/10 plain\T1/lmr/m/n/10 ,
  []
 
+[14]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 737.
-[13] [14] [15]
-Underfull \hbox (badness 1383) in paragraph at lines 912--916
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 802.
+ [15] [16]
+Underfull \hbox (badness 1383) in paragraph at lines 977--981
 []\T1/lmr/m/it/9 Ba-bel, a mul-ti-lin-gual pack-age for use with L[]T[]X's stan
 -dard doc-u-ment classes,
  []
 
 
-Underfull \hbox (badness 2469) in paragraph at lines 912--916
+Underfull \hbox (badness 2469) in paragraph at lines 977--981
 \T1/lmr/m/sc/9 J. Braams, $\T1/lmtt/m/n/9 http://www.loria.fr/tex/ctan-[]doc/ma
 cros/latex/packages/babel/
  []
 
 
-Underfull \hbox (badness 2617) in paragraph at lines 923--926
+Underfull \hbox (badness 2617) in paragraph at lines 988--991
 []\T1/lmr/m/it/9 The \T1/lmtt/m/it/9 graphics \T1/lmr/m/it/9 pack-age, \T1/lmr/
 m/sc/9 D. Carlisle, S. Rahtz, $\T1/lmtt/m/n/9 http://www.loria.fr/tex/
  []
 
 
-Underfull \hbox (badness 2617) in paragraph at lines 928--931
+Underfull \hbox (badness 2617) in paragraph at lines 993--996
 []\T1/lmr/m/it/9 The \T1/lmtt/m/it/9 graphicx \T1/lmr/m/it/9 pack-age, \T1/lmr/
 m/sc/9 D. Carlisle, S. Rahtz, $\T1/lmtt/m/n/9 http://www.loria.fr/tex/
  []
 
+[17]
 \tf@toc=\write3
 
 \openout3 = sym-stoch.toc
-[16] (./sym-stoch.aux)
+ [18] (./sym-stoch.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 )
 
 Here is how much of LuaTeX's memory you used:
- 3660 strings out of 494481
+ 3663 strings out of 494481
  125034,128383 words of node,token memory allocated
- 1791 words of node memory still in use:
-   8 hlist, 2 vlist, 2 rule, 8 glue, 3 kern, 1 penalty, 26 sub_mlist, 12 glyph, 
-437 attribute, 60 glue_spec, 110 attribute_list, 1 write nodes
-   avail lists: 2:1680,3:183,4:13,5:151,6:2409,7:710,8:77,9:365,10:10,11:188
- 7537 multiletter control sequences out of 65536+600000
+ 2105 words of node memory still in use:
+   8 hlist, 2 vlist, 2 rule, 8 glue, 3 kern, 1 penalty, 34 sub_mlist, 12 glyph, 
+553 attribute, 60 glue_spec, 139 attribute_list, 1 write nodes
+   avail lists: 1:1,2:1986,3:196,4:12,5:152,6:2797,7:739,8:77,9:405,10:10,11:197
+
+ 7540 multiletter control sequences out of 65536+600000
  117 fonts using 7661919 bytes
  30i,9n,32p,801b,383s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/tex
@@ -551,10 +566,10 @@ blic/lm/lmtt8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmtt
 9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></us
 r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><
 /usr/local/texlive/2017/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on sym-stoch.pdf (16 pages, 696870 bytes).
+Output written on sym-stoch.pdf (18 pages, 704805 bytes).
 
-PDF statistics: 230 PDF objects out of 1000 (max. 8388607)
- 167 compressed objects within 2 object streams
+PDF statistics: 236 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
