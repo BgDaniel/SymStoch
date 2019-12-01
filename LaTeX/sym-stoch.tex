@@ -55,7 +55,6 @@
 \newcommand{\Etabf}{{\bf{\eta}}}
 \newcommand{\dFietadx}{\frac{\textrm{d} \Phi_{\eta}}{\textrm{dx}}}
 \newcommand{\dFietadt}{\frac{\textrm{d} \Phi_{\eta}}{\textrm{dt}}}
-\newcommand{\Hess}{{\bf{Hess}}}
 \newcommand{\Ad}{{\textrm{Ad}}}
 \newcommand{\Tra}{{\mathsf{T}}}
 \newcommand{\de}{{\textrm{d}}}
@@ -63,6 +62,8 @@
 \newcommand{\Xt}{\mathrm{\mathbf{X}}_{t}}
 \newcommand{\Xvec}{\mathrm{\mathbf{X}}}
 \newcommand{\Xtal}{\mathrm{\mathbf{X}}_{\alpha,t}}
+\newcommand{\Xtbe}{\mathrm{\mathbf{X}}_{\beta,t}}
+\newcommand{\Xtbetal}{\mathrm{\mathbf{X}}_{\beta\alpha,t}}
 \newcommand{\Yt}{\mathrm{\mathbf{Y}}_{t}}
 \newcommand{\Y}{\mathrm{\mathbf{Y}}}
 \newcommand{\R}{\mathrm{\mathbf{R}}}
@@ -77,6 +78,8 @@
 \newcommand{\W}{{\bf{W}_{\textrm{t}}}}
 \newcommand{\Ut}{\mathrm{\mathbf{U}}_{t}}
 \newcommand{\Vt}{\mathrm{\mathbf{V}}_{t}}
+\newcommand{\grad}{{\bf{grad}}}
+\newcommand{\Hess}{{\bf{Hess}}}
 
 \newcommand{\yt}{\mathrm{\mathbf{y}}_{t}}
 \newcommand{\dd}{\mathrm{d}}
@@ -145,7 +148,7 @@ Note that the term $\mathrm{\R}$ in equation (\ref{transformedstochdiff}) is the
 \mathrm{d\Yt=\frac{d\phi}{dx}\left(\Xt\right)\left[\sig\left(\Xt\right)d\Wt+\left(\phi_{*}\mu\right)\left(\Yt\right)dt\right]}
 \end{equation} where $\mathrm{\phi_{*}:T\U\rightarrow T\U}$ denotes the \textit{push forward} associated to $\mathrm{\phi}$ which is defined by 
 \begin{equation}
-\mathrm{(\phi_{*}\mu)(x):=\frac{d\phi}{dx}(\phi^{-1}(x))\mu\left(\phi^{-1}(x)\right)}
+\mathrm{(\phi_{*}\mu)(x):=\frac{d\phi}{dx}_{\vert \phi^{-1}(x)}\mu\left(\phi^{-1}(x)\right)}
 \end{equation} for all $\mathrm{x\in \U}$. Before we proceed to specify the conditions, which have to be imposed on the map $\mathrm{\phi}$ and the coordinates $\mathrm{x^{i}}$, $\mathrm{1 \leq i\leq n}$ on $\U$ so that the $\mathrm{dY^{i}_{t}}$ transform like the coefficients of a tensor of rank $\mathrm{1}$, we have to introduce and recall some definitions:
 
 \begin{defi}\label{definitionMetric} Let $\sig$ be a defined as above, i.e. $\mathrm{\sig\in \mathscr{C}^{\infty}\left(\U, \mathbb{R}^{n}\times \mathbb{R}^{n}\right)}$ with $\sig(x)$ invertible for all $\mathrm{x\in U}$, then define a Riemannian metric $\mathrm{\g}$ on $\mathrm{\U}$ by setting
@@ -265,10 +268,48 @@ Now, define
 \end{proof}
 
 \section{Local K\"ahler spaces and their transformation properties}
-\subsection{The transformation law}
-In this section, we will consider a special configuration of our starting data $\mathrm{(\U,\Xt,\phi)}$ so that the stochastic differential equation of the transformed process $\mathrm{\Yt=\phi\circ \Xt}$ automatically results in a very pleasant from where basically the vola structure is stabilized in the sense of section \ref{invofvolastructure} whereas the drift is transformed like a vectorfield as described in section \ref{lemmacontravariance}. 
+
+In this section, we will consider a special configuration of our starting data $\mathrm{(\U,\Xt,\phi)}$ so that the stochastic differential equation of the transformed process $\mathrm{\Yt=\phi\circ \Xt}$ automatically results in a very pleasant from where basically the vola structure is stabilized in the sense of section \ref{invofvolastructure} whereas the drift is transformed like a vectorfield as described in section \ref{lemmacontravariance}. It turns out that the natural transformation laws are valid, if the pair $\mathrm{(\U, \g^{\sigma})}$ induced by $\mathrm{(\U,\Xt,\phi)}$ is a K\"ahler manifold.
+
+Before we proceed to formulate the exact result, we will first recall some definitions about K\"ahler manifolds.
+
+\subsection{K\"ahler manifolds}
+Let $\mathrm{\M}$ be a complex manifold and $\mathrm{\g}$ a Riemannian metric.
+
 
 As a starting point for this, let now $\mathrm{\U \subset \mathbb{C}^{n}}$ with holomorphic standard coordinates $\mathrm{z^{k}=x^{k}+i y^{k}}$, $\mathrm{1\leq k\leq n}$. 
+
+\begin{lemm}\label{harmonicity} Let $\mathrm{f}$ be a holormphic function defined on a K\"ahler domain $\mathrm{(\U,\g)}$, then $\mathrm{{\mathfrak{Re}}\,f}$ and $\mathrm{\mathfrak{Im}\, f}$ are harmonic functions.
+\end{lemm}
+\begin{proof} First of all note that if $\mathrm{v,w\in T_{p}\U}$ and $\mathrm{}$
+
+
+Let $\mathrm{p\in \U}$. As $\mathrm{(\U,\g)}$ is assumed to be K\"ahler, there exists an orthogonal base of $\mathrm{T_{p}\U}$ given by $\mathrm{\left\{X_{i},Y_{i}\right\}}$ where $\mathrm{Y_{i}=J\,X_{i}}$ for all $\mathrm{1\leq i\leq n}$. With respect to this base, it the Laplacian of $\mathrm{u:={\mathfrak{Re}}\,f}$ takes the following form 
+\begin{equation}
+\mathrm{\triangle^{\g}u=\sum_{i=1}^{n}\g\left(\nabla_{X_{i}}\grad\,u,X_{i}\right)+\g\left(\nabla_{J\,X_{i}}\grad\,u,J\,X_{i}\right)} 
+\end{equation} Since $\mathrm{\g}$ is $\mathrm{J-}$invariant, we deduce 
+\begin{equation}\label{harm1}
+\begin{split}
+\mathrm{\triangle^{\g}u}&=\mathrm{\sum_{i=1}^{n}\g\left(J\,\nabla_{X_{i}}\grad\,u,J\,X_{i}\right)+\g\left(J\,\nabla_{J\,X_{i}}\grad\,u,J^{2}\,X_{i}\right)}\\
+\mathrm{\triangle^{\g}u}&=\mathrm{\sum_{i=1}^{n}\g\left(J\,\nabla_{X_{i}}\grad\,u,J\,X_{i}\right)-\g\left(J\,\nabla_{J\,X_{i}}\grad\,u,X_{i}\right)}\\
+\end{split}
+\end{equation} where we used $\mathrm{J^{2}=-\mathbf{Id}}$.
+Since $\mathrm{J}$ commutes with the Levi-Civita connection which follows from the assumption that $\mathrm{(\U,\g)}$ is a K\"ahler domain, equation (\ref{harm1}) yields
+\begin{equation}\label{harm2}
+\begin{split}
+\mathrm{\triangle^{\g}u}&=\mathrm{\sum_{i=1}^{n}\g\left(\nabla_{X_{i}}J\,\grad\,u,J\,X_{i}\right)-\g\left(\nabla_{J\,X_{i}}J\,\grad\,u,X_{i}\right)}\\
+\end{split}
+\end{equation} As $\mathrm{f}$ is holomorphic, we have $\mathrm{J\,\grad \,u = v:= \mathfrak{Im}\,f}$ and hence 
+\begin{equation}\label{harm3}
+\mathrm{\triangle^{\g}u=\sum_{i=1}^{n}\g\left(\nabla_{X_{i}}\grad\,v,J\,X_{i}\right)-\g\left(\nabla_{J\,X_{i}}\grad\,v,X_{i}\right)}\\
+\end{equation} Now, recall that in general, we have
+\begin{equation}
+\mathrm{\Hess_{\vert p}(f)(v,w):=\g_{\vert p}\left(\nabla_{A}\,\grad \,f,B\right)=\g_{\vert p}\left(\nabla_{B}\,\grad \,f,A\right)}
+\end{equation} for all $\mathrm{A, B\in T_{p}\U}$, and therefore equation (\ref{harm1}) turns into
+\begin{equation}
+\mathrm{\triangle^{\g}u=\sum_{i=1}^{n}\g\left(\nabla_{J\,X_{i}}\grad\,u,X_{i}\right)-\g\left(\nabla_{J\,X_{i}}\grad\,u,X_{i}\right)=0}\\
+\end{equation} 
+\end{proof}
 
 For further abbreviation, we define:
 \begin{defi}\label{compatibledata} Let $\mathrm{\Xt}$ be a stochastic process in $\mathrm{\U\subset \mathbb{C}^{n}}$ where \begin{equation}\label{stochdiff}
@@ -281,12 +322,15 @@ If
 \end{enumerate} then we say that the tuple $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$.
 \end{defi}
 
+
+\subsection{The transformation law}
+
 \begin{theo}\label{transformationtheo} If $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$, it follows
 \begin{equation}\label{stochdiff}
 \mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+(\phi_{*}\mu)\left(\Yt\right)dt}
 \end{equation} for $\mathrm{\Wtil\sim\Wt}$.
 \end{theo}
-\begin{proof} By lemma \ref{lemmacontravariance} and lemma \ref{lemmainvariance} the claim follows as soon we have verified that the real coordinates $\mathrm{x^{i}, y^{i}}$, $\mathrm{1\leq i, j\leq n}$ of $\mathrm{\U\subset\mathbb{C}^{n}=\mathbb{R}^{2n}}$ are harmonic with respect to $\mathrm{\g^{\sigma}}$. 
+\begin{proof} By lemma \ref{lemmacontravariance} and lemma \ref{lemmainvariance} the claim follows as soon we have verified that the coordinates $\mathrm{\mathfrak{Re}\,z^{i}=x^{i}, \mathfrak{Im}\,z^{i}=y^{i}}$, $\mathrm{1\leq i, j\leq n}$ of $\mathrm{\U\subset\mathbb{C}^{n}=\mathbb{R}^{2n}}$ as well as the components $\mathrm{\mathfrak{Re}\,\phi^{i}, \mathfrak{Im}\,\phi^{i}}$ of $\mathrm{\phi=\left(\phi^{1},\dots,\phi^{n}\right)}$ are harmonic with respect to $\mathrm{\g^{\sigma}}$. However, this is direct consequence of lemma \ref{harmonicity} and the fact that $\mathrm{z^{i}}$ and $\mathrm{\phi^{i}}$ are holomorphic.
 \end{proof}
 
 In particular, if $\mathrm{\mu}$ is invariant under $\phi$, it follows:
@@ -306,20 +350,26 @@ In particular, if $\mathrm{\mu}$ is invariant under $\phi$, it follows:
 
 \subsection{Gluinig local data}
 Let $\mathrm{\M}$ be a complex manifold and choose a holomorphic atlas $\mathrm{\left\{(\varphi_{\alpha},\V_{\alpha})\right\}}$ of holomorphic charts $\mathrm{\varphi_{\alpha}:\V_{\alpha}\rightarrow \U_{\alpha}:=\varphi(\V_{\alpha})}$. Furthermore, let $\mathrm{\left\{(\sigma_{\alpha},\mu_{\alpha})\right\}}$ be a collection of tuples where each $\mathrm{\sig_{\alpha}\in\mathscr{C}^{\infty}\left(\U_{\alpha},\mathbb{R}^{n}\times\mathbb{R}^{n}\right)}$ denotes a smooth, matrix-valued function with $\mathrm{\sigma_{\alpha}(x)}$ invertible for all $\mathrm{x\in \U_{\alpha}}$ and $\mathrm{\mu_{\alpha}\in \mathscr{C}^{\infty}\left(\U_{\alpha},\mathbb{R}^{n}\right)}$. For each $\alpha$ we assume that $\mathrm{\g^{\sigma_{\alpha}}}$ turns $\mathrm{\U_{\alpha}}$ into a K\"ahler domain.
-
-
-
-
-
-
-
-
-
 Now, if $\mathrm{\Xtal}$ denotes a solution of
 \begin{equation}\label{stochdiff}
 \mathrm{d\Xtal=\sig_{\alpha}\left(\Xtal\right)d\Wt+\mu_{\alpha}\left(\Xtal\right)dt}
-\end{equation} in $\mathrm{\U_{\alpha}}$
-to leave the open set $\mathrm{\U_{\alpha}}$, the following question arises: When does $\mathrm{}$
+\end{equation} in $\mathrm{\U_{\alpha}}$, then by a slight extension of theorem \ref{compatibledata} the transformation 
+\begin{equation}
+\mathrm{\Xtbetal:=\left(\varphi_{\beta}\circ\varphi^{-1}_{\alpha}\right)(\Xtal)}
+\end{equation} where $\mathrm{\varphi_{\beta}\circ\varphi^{-1}_{\alpha}:\varphi_{\alpha}(\V_{\alpha}\cap\V_{\beta})\rightarrow\varphi_{\beta}(\V_{\alpha}\cap\V_{\beta})}$ solves 
+\begin{equation}\label{stochdiff}
+\mathrm{d\Xtbe =\sig_{\beta}\left(\Xtbe\right)d\Wttil+\mu_{\beta}\left(\Xtbe\right)dt}
+\end{equation} if 
+
+\begin{enumerate}
+\item the local data $\mathrm{\{\left(\U_{\alpha},\g^{\sigma_{\alpha}}\right)\}}$ could be patch together to a K\"ahler manifold via the holomorphic change of coordinates induced by $\mathrm{\varphi_{\beta}\circ\varphi^{-1}_{\alpha}}$ 
+\item and if $\mathrm{\mu_{\beta}= \left(\varphi_{\beta}\circ\varphi^{-1}_{\alpha}\right)_{*}\mu_{\alpha}}$.
+\end{enumerate}
+
+\begin{exem}[Random walk on sphere] Consider 
+\end{exem}
+
+ 
 
 
 
@@ -333,7 +383,7 @@ In this section, we will examine the transformation properties of equation (ref{
 Before we start our considerations, recall that each vector $\mathrm{\xi}$ of the Lie algebra ${\mathrm{Lie}(\G)=\mathfrak{g}}$ generates a smooth flow $\mathrm{\Phi^{\xi}:\mathbb{R}\times\U\rightarrow\U}$
 defined by 
 \begin{equation}
-\mathrm{\Phi^{\xi}}(t,x)=exp(t \xi).x
+\mathrm{\Phi^{\xi}(t,x)=exp(t \xi).x}
 \end{equation} where $\mathrm{exp:\mathfrak{g}\rightarrow \G}$ denotes the exponential map of $\mathrm{\G}$. Moreover, each $\mathrm{\eta\in\mathfrak{g}}$ gives rise to a smooth vector field $\mathrm{\Xvec_{\xi}}$  on $\mathrm{\U}$ by 
 \begin{equation}
 \mathrm{\Xvec_{\xi}(x)=\frac{d}{dt}_{\vert t=0}\Phi^{\eta}(t,x)=\frac{d}{dt}_{\vert t=0}exp(t \xi).x}
@@ -345,7 +395,7 @@ $\mathrm{Ad:\G\times\mathfrak{g}\times\mathfrak{g}}$, i.e.
 \mathrm{Ad(g,\xi)=Ad_{g}\xi:=g^{-1}\xi g}
 \end{equation}
 The adjoint action of the group $\mathrm{\G}$ is known to be compatible with the push forward of its vector fields in the sense as stated in the following lemma.
-\begin{lemm}\label{adointaction} Let $\mathrm{\G}$ be a Lie group acting on a smooth manifold $\mathrm{\M}$ and let $\mathrm{\Xvec_{eta}=\eta}$ be the vector field on $\mathrm{\M}$ associated to $\mathrm{\eta\in\mathfrak{g}}$, then 
+\begin{lemm}\label{adjointaction} Let $\mathrm{\G}$ be a Lie group acting on a smooth manifold $\mathrm{\M}$ and let $\mathrm{\Xvec_{\eta}=\eta}$ be the vector field on $\mathrm{\M}$ associated to $\mathrm{\eta\in\mathfrak{g}}$, then 
 \begin{equation}
 \mathrm{\left(\left(\Phi^{\xi}_{t}\right)_{*}\Xvec_{\eta}\right)(x)=Ad_{exp(t \xi)}\eta(x)}
 \end{equation} for all $\mathrm{x\in\M}$ and $\mathrm{\xi\in\mathfrak{g}}$.
@@ -373,14 +423,20 @@ If
 \end{theo}
 \begin{proof} Similar to theorem (\ref{transformationtheo}), the proof follows mainly by lemma \ref{lemmacontravariance} and lemma \ref{lemmainvariance}. For this note that by $\textsc{Itô}$'s lemma, the transformation $\mathrm{\Yt:=\phi\circ\Xt}$ on $\U$ solves
 \begin{equation}
-\mathrm{d\Yt=\frac{d\Phi^{\xi}}{dx}\left(\Xt\right)\left[\sig\left(\Xt\right)d\Wt+\eta\left(\Xt\right)+\frac{\partial\Phi^{\xi}}{\partial t}(\Xt)\right]dt+\R\left(\Phi^{\xi}, \sig\right)(\Xt)dt}
+\mathrm{d\Yt=\frac{d\Phi^{\xi}}{dx}\left(\Xt\right)\left[\sig\left(\Xt\right)d\Wt+\eta\left(\Xt\right)\right]dt+\frac{\partial\Phi^{\xi}}{\partial t}(\Xt)dt+\R\left(\Phi^{\xi}, \sig\right)(\Xt)dt}
 \end{equation}  As the standard real coordinates $\mathrm{x^{i}, y^{i}}$, $\mathrm{1\leq i, j\leq n}$ of $\mathrm{\U\subset\mathbb{C}^{n}=\mathbb{R}^{2n}}$ are harmonic and since each transformation $\mathrm{\Phi^{\xi}_{t}}$ of $\mathrm{\U}$ is holomorphic and inparticular harmonic as well, it follows by lemma \ref{lemmacontravariance} in conjunction with lemma \ref{lemmainvariance} that 
 \begin{equation}
-\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\left[\left(\left(\Phi^{\xi}_{t}\right)_{*}\eta\right)(\Xt)+\frac{d\Phi^{\xi}}{dx}\frac{\partial\Phi^{\xi}}{\partial t}(\Xt)\right]dt}
-\end{equation} for $\mathrm{\Wtil\sim\Wt}$ and all $s \geq 0$. Using lemma \ref{adointaction} and the fact that
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\left[\left(\left(\Phi^{\xi}_{t}\right)_{*}\eta\right)(\Yt)+\frac{\partial\Phi^{\xi}}{\partial t}(\Xt)\right]dt}
+\end{equation} for $\mathrm{\Wtil\sim\Wt}$ and all $s \geq 0$. Using lemma \ref{adjointaction}, this can be transformed into
 \begin{equation}
-\mathrm{\frac{d\Phi^{\xi}}{dx}\frac{\partial\Phi^{\xi}}{\partial t}(\Xt)=\frac{d\Phi^{\xi}}{dx}\xi(\Xt)=\xi(\Yt)}
-\end{equation} then proves the claim.
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\left[\left(Ad_{exp\left(t \xi\right)}\eta\right)(\Yt)+\frac{\partial\Phi^{\xi}}{\partial t}(\Xt)\right]dt}
+\end{equation} As
+\begin{equation}
+\mathrm{\frac{\partial\Phi^{\xi}}{\partial t}(\Xt)=\frac{\partial \Phi^{\xi}}{\partial s}_{\vert s = 0}\Phi\left(t,\Xt\right)= \xi\left(\Yt\right)}
+\end{equation} this is equivalent to 
+\begin{equation}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\left[\left(Ad_{exp\left(t \xi\right)}\eta\right)(\Yt)+\xi(\Yt)\right]dt}
+\end{equation}
 \end{proof}
 
 
