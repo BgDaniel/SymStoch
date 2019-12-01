@@ -349,7 +349,7 @@ In particular, if $\mathrm{\mu}$ is invariant under $\phi$, it follows:
 \end{proof} 
 
 \subsection{Gluinig local data}
-Let $\mathrm{\M}$ be a complex manifold and choose a holomorphic atlas $\mathrm{\left\{(\varphi_{\alpha},\V_{\alpha})\right\}}$ of holomorphic charts $\mathrm{\varphi_{\alpha}:\V_{\alpha}\rightarrow \U_{\alpha}:=\varphi(\V_{\alpha})}$. Furthermore, let $\mathrm{\left\{(\sigma_{\alpha},\mu_{\alpha})\right\}}$ be a collection of tuples where each $\mathrm{\sig_{\alpha}\in\mathscr{C}^{\infty}\left(\U_{\alpha},\mathbb{R}^{n}\times\mathbb{R}^{n}\right)}$ denotes a smooth, matrix-valued function with $\mathrm{\sigma_{\alpha}(x)}$ invertible for all $\mathrm{x\in \U_{\alpha}}$ and $\mathrm{\mu_{\alpha}\in \mathscr{C}^{\infty}\left(\U_{\alpha},\mathbb{R}^{n}\right)}$. For each $\alpha$ we assume that $\mathrm{\g^{\sigma_{\alpha}}}$ turns $\mathrm{\U_{\alpha}}$ into a K\"ahler domain.
+Let $\mathrm{\M}$ be a complex manifold and choose a holomorphic atlas $\mathrm{\left\{(\varphi_{\alpha},\V_{\alpha})\right\}}$ of holomorphic charts $\mathrm{\varphi_{\alpha}:\V_{\alpha}\rightarrow \U_{\alpha}:=\varphi(\V_{\alpha})}$. Furthermore, let $\mathrm{\left\{(\sigma_{\alpha},\mu_{\alpha})\right\}_{\alpha}}$ be a collection of tuples where each $\mathrm{\sig_{\alpha}\in\mathscr{C}^{\infty}\left(\U_{\alpha},\mathbb{R}^{n}\times\mathbb{R}^{n}\right)}$ denotes a smooth, matrix-valued function with $\mathrm{\sigma_{\alpha}(x)}$ invertible for all $\mathrm{x\in \U_{\alpha}}$ and $\mathrm{\mu_{\alpha}\in \mathscr{C}^{\infty}\left(\U_{\alpha},\mathbb{R}^{n}\right)}$. For each $\alpha$ we assume that $\mathrm{\g^{\sigma_{\alpha}}}$ turns $\mathrm{\U_{\alpha}}$ into a K\"ahler domain.
 Now, if $\mathrm{\Xtal}$ denotes a solution of
 \begin{equation}\label{stochdiff}
 \mathrm{d\Xtal=\sig_{\alpha}\left(\Xtal\right)d\Wt+\mu_{\alpha}\left(\Xtal\right)dt}
@@ -362,11 +362,21 @@ Now, if $\mathrm{\Xtal}$ denotes a solution of
 \end{equation} if 
 
 \begin{enumerate}
-\item the local data $\mathrm{\{\left(\U_{\alpha},\g^{\sigma_{\alpha}}\right)\}}$ could be patch together to a K\"ahler manifold via the holomorphic change of coordinates induced by $\mathrm{\varphi_{\beta}\circ\varphi^{-1}_{\alpha}}$ 
+\item the local data $\mathrm{\{\left(\U_{\alpha},\g^{\sigma_{\alpha}}\right)\}_{\alpha}}$ could be patch together to a K\"ahler manifold via the holomorphic change of coordinates induced by $\mathrm{\varphi_{\beta}\circ\varphi^{-1}_{\alpha}}$ 
 \item and if $\mathrm{\mu_{\beta}= \left(\varphi_{\beta}\circ\varphi^{-1}_{\alpha}\right)_{*}\mu_{\alpha}}$.
 \end{enumerate}
 
-\begin{exem}[Random walk on sphere] Consider 
+\begin{exem}[Random walk on sphere] Let $\mathrm{\U_{0}=\U_{1}=\mathbb{C}}$ and let $\mathrm{z=x+iy}$ be the holomorphic coordinate on $\mathrm{\U_{0}}$ and $\mathrm{w=u+iv=}$ on $\mathrm{U_{1}}$. Furthermore, fix $\mathrm{\varphi_{10}\left(z\right)=w=\frac{1}{z}}$ and consider the local data $\mathrm{\left\{(\sigma_{\alpha},\mu_{\alpha})\right\}_{\alpha=0,1}}$ given by
+\begin{equation}
+\mathrm{\sigma_{0}\left(z\right)=\left(1+\vert z\vert^2\right)dz\,d\overline{z},\,\,\,\,\mu_{0}(z)=0\,\,\,\, and\,\,\,\, \sigma_{1}\left(w\right)=\left(1+\vert w\vert^2\right)dw\,d\overline{w},\,\,\,\, \mu_{1}(w)=0}
+\end{equation} The corresponding local stochastic differential equation $\mathrm{d\Z=d\Xt+i\Yt}$ on $\mathrm{\U_{0}}$ is given by 
+\begin{equation}
+\begin{split}
+\mathrm{d\mathbf{X}_{t}}&=\mathrm{\left(1+\mathbf{X}_{t}^{2}+\mathbf{Y}_{t}^{2}\right)dW^{0}_{t}}\\
+\mathrm{d\mathbf{Y}_{t}}&=\mathrm{\left(1+\mathbf{X}_{t}^{2}+\mathbf{Y}_{t}^{2}\right)dW^{1}_{t}}\\
+\end{split}
+\end{equation} on 
+
 \end{exem}
 
  
