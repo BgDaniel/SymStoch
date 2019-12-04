@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2018.3.18)  1 DEC 2019 23:42
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=lualatex 2018.3.18)  4 DEC 2019 21:58
  restricted system commands enabled.
  file:line:error style messages enabled.
 **sym-stoch.tex
@@ -36,7 +36,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.161 seconds
+luaotfload | main : initialization completed in 0.149 seconds
 Babel <3.10> and hyphenation patterns for 1 language(s) loaded.
 (./smfart.cls
 Document Class: smfart 2015/09/02 v1.5c Classe LaTeX pour les articles publies p
@@ -380,293 +380,134 @@ Package: smfthm 1999/03/05 v1.0.h Environnements predefinis de theoremes
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
 )
-(./sym-stoch.aux)
+(./sym-stoch.aux
+
+LaTeX Warning: Label `metric' multiply defined.
+
+
+LaTeX Warning: Label `transformedstochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+
+LaTeX Warning: Label `stochdiff' multiply defined.
+
+)
 \openout1 = sym-stoch.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Info: Redefining \dots on input line 102.
-LaTeX Info: Redefining \up on input line 102.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Info: Redefining \dots on input line 105.
+LaTeX Info: Redefining \up on input line 105.
 Inserting `frenchb.french_punctuation' at position 1 in `kerning'.
 
 Package frenchb.ldf Warning: Add \usepackage{fontspec} to the
 (frenchb.ldf)                preamble of your document, reported on input line 1
-02.
+05.
 
 \c@smfthm=\count118
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 117.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 120.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-
-LaTeX Warning: Reference `formula_in_abstract' on page 1 undefined on input line
- 117.
-
 (./sym-stoch.toc
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 30.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 31.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 123.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 126.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 123.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 126.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 123.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 126.
  [1
 
-{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+ [4]
+LaTeX Font Info:    Try loading font information for U+euf on input line 236.
 
-LaTeX Warning: Reference `stochdiff' on page 2 undefined on input line 128.
-
-
-LaTeX Warning: Reference `introduction' on page 2 undefined on input line 135.
-
-
-LaTeX Warning: Reference `transformedstochdiff' on page 2 undefined on input lin
-e 146.
-
-
-LaTeX Warning: Reference `stochdiff' on page 2 undefined on input line 146.
-
-[2]
-
-LaTeX Warning: Reference `Christoffel symbols' on page 3 undefined on input line
- 165.
-
-
-LaTeX Warning: Reference `Christoffel symbols' on page 3 undefined on input line
- 170.
-
-
-LaTeX Warning: Reference `contravarianceofdrift' on page 3 undefined on input li
-ne 176.
-
-
-LaTeX Warning: Reference `stochdiff' on page 3 undefined on input line 178.
-
-
-LaTeX Warning: Reference `contravarianceofdrift' on page 3 undefined on input li
-ne 178.
-
-[3]
-
-LaTeX Warning: Reference `vanishing' on page 4 undefined on input line 196.
-
-
-LaTeX Warning: Reference `definitionMetric' on page 4 undefined on input line 19
-6.
-
-
-LaTeX Warning: Reference `contravariancedrift' on page 4 undefined on input line
- 200.
-
-
-LaTeX Warning: Reference `stochdiff' on page 4 undefined on input line 201.
-
-
-LaTeX Warning: Reference `invvola' on page 4 undefined on input line 204.
-
-
-LaTeX Warning: Reference `transposeequal' on page 4 undefined on input line 217.
-
-
-[4]
-LaTeX Font Info:    Try loading font information for U+euf on input line 233.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/ueuf.fd
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-
-LaTeX Warning: Reference `stochdiff' on page 5 undefined on input line 237.
-
-
-LaTeX Warning: Reference `metric' on page 5 undefined on input line 242.
-
-
-LaTeX Warning: Reference `matrixequation' on page 5 undefined on input line 248.
-
-
-
-LaTeX Warning: Reference `helperequation' on page 5 undefined on input line 258.
-
-
-[5]
-
-LaTeX Warning: Reference `lemmavolainv' on page 6 undefined on input line 267.
-
-
-LaTeX Warning: Reference `rhosig' on page 6 undefined on input line 267.
-
-
-LaTeX Warning: Reference `invofvolastructure' on page 6 undefined on input line 
-272.
-
-
-LaTeX Warning: Reference `lemmacontravariance' on page 6 undefined on input line
- 272.
-
-
-LaTeX Warning: Reference `harm1' on page 6 undefined on input line 297.
-
-[6]
-
-LaTeX Warning: Reference `harm1' on page 7 undefined on input line 308.
-
-
-LaTeX Warning: Reference `lemmacontravariance' on page 7 undefined on input line
- 333.
-
-
-LaTeX Warning: Reference `lemmainvariance' on page 7 undefined on input line 333
-.
-
-
-LaTeX Warning: Reference `harmonicity' on page 7 undefined on input line 333.
-
-
-LaTeX Warning: Reference `transformationtheo' on page 7 undefined on input line 
-346.
-
+) [5] [6]
 [7]
+Underfull \hbox (badness 1320) in paragraph at lines 387--388
+\T1/lmr/bx/it/10 The-o-rem 4.5 \T1/lmr/bx/n/10 (Trans-for-ma-tion law of den-si
+-ties). [] \T1/lmr/m/it/10 If $[]$ is a
+ []
 
-LaTeX Warning: Reference `compatibledata' on page 8 undefined on input line 356.
-
-
-[8]
-
-LaTeX Warning: Reference `compatibledata' on page 9 undefined on input line 414.
-
-
-
-LaTeX Warning: Reference `transformationtheo' on page 9 undefined on input line 
-434.
-
-
-LaTeX Warning: Reference `lemmacontravariance' on page 9 undefined on input line
- 434.
-
-
-LaTeX Warning: Reference `lemmainvariance' on page 9 undefined on input line 434
-.
-
-
-LaTeX Warning: Reference `lemmacontravariance' on page 9 undefined on input line
- 437.
-
-
-LaTeX Warning: Reference `lemmainvariance' on page 9 undefined on input line 437
-.
-
-[9]
-
-LaTeX Warning: Reference `adjointaction' on page 10 undefined on input line 440.
-
-
-
-LaTeX Warning: Reference `transformationtheo' on page 10 undefined on input line
- 465.
-
-
-LaTeX Warning: Reference `sec:presentationthm' on page 10 undefined on input lin
-e 473.
-
-[10] [11]
-
-LaTeX Warning: Citation `amslatex' on page 12 undefined on input line 607.
-
-
-LaTeX Warning: Reference `sec:smfthm' on page 12 undefined on input line 633.
-
-[12]
-
-LaTeX Warning: Reference `sec:smfthm' on page 13 undefined on input line 659.
-
-
-LaTeX Warning: Citation `epsfig' on page 13 undefined on input line 663.
-
-
-LaTeX Warning: Citation `graphics' on page 13 undefined on input line 664.
-
-
-LaTeX Warning: Citation `graphicx' on page 13 undefined on input line 664.
-
-
-LaTeX Warning: Citation `babel' on page 13 undefined on input line 665.
-
-
-LaTeX Warning: Citation `xypic' on page 13 undefined on input line 667.
-
-
-LaTeX Warning: Citation `lamport94' on page 13 undefined on input line 668.
-
-
-LaTeX Warning: Citation `hypatia' on page 13 undefined on input line 668.
-
-[13] [14]
-
-LaTeX Warning: Reference `sec:struct' on page 15 undefined on input line 786.
-
-
-LaTeX Warning: Citation `lamport94' on page 15 undefined on input line 820.
-
-
-LaTeX Warning: Citation `hypatia' on page 15 undefined on input line 821.
-
-[15]
-
-LaTeX Warning: Citation `amslatex' on page 16 undefined on input line 831.
-
-
-Underfull \hbox (badness 3536) in paragraph at lines 836--840
-\T1/lmr/bx/n/10 10.1.Theorem styles. [][] \T1/lmr/m/n/10 Three styles of the-o-
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+Underfull \hbox (badness 3536) in paragraph at lines 922--926
+\T1/lmr/bx/n/10 11.1.Theorem styles. [][] \T1/lmr/m/n/10 Three styles of the-o-
 rems are de-fined: \T1/lmtt/m/n/10 plain\T1/lmr/m/n/10 ,
  []
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 869.
-[16] [17]
-
-LaTeX Warning: Reference `subsec:thm' on page 18 undefined on input line 959.
-
-[18]
-Underfull \hbox (badness 1248) in paragraph at lines 1044--1048
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 955.
+[18] [19] [20]
+Underfull \hbox (badness 1383) in paragraph at lines 1130--1134
 []\T1/lmr/m/it/9 Ba-bel, a mul-ti-lin-gual pack-age for use with L[]T[]X's stan
 -dard doc-u-ment classes,
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 1044--1048
+Underfull \hbox (badness 2469) in paragraph at lines 1130--1134
 \T1/lmr/m/sc/9 J. Braams, $\T1/lmtt/m/n/9 http://www.loria.fr/tex/ctan-[]doc/ma
 cros/latex/packages/babel/
  []
 
 
-Underfull \hbox (badness 2368) in paragraph at lines 1055--1058
+Underfull \hbox (badness 2617) in paragraph at lines 1141--1144
 []\T1/lmr/m/it/9 The \T1/lmtt/m/it/9 graphics \T1/lmr/m/it/9 pack-age, \T1/lmr/
 m/sc/9 D. Carlisle, S. Rahtz, $\T1/lmtt/m/n/9 http://www.loria.fr/tex/
  []
 
 
-Underfull \hbox (badness 2368) in paragraph at lines 1060--1063
+Underfull \hbox (badness 2617) in paragraph at lines 1146--1149
 []\T1/lmr/m/it/9 The \T1/lmtt/m/it/9 graphicx \T1/lmr/m/it/9 pack-age, \T1/lmr/
 m/sc/9 D. Carlisle, S. Rahtz, $\T1/lmtt/m/n/9 http://www.loria.fr/tex/
  []
@@ -674,25 +515,22 @@ m/sc/9 D. Carlisle, S. Rahtz, $\T1/lmtt/m/n/9 http://www.loria.fr/tex/
 \tf@toc=\write3
 
 \openout3 = sym-stoch.toc
-[19] (./sym-stoch.aux)
+[21] (./sym-stoch.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 )
 
 Here is how much of LuaTeX's memory you used:
- 3670 strings out of 494481
+ 3676 strings out of 494481
  125034,128383 words of node,token memory allocated
- 3605 words of node memory still in use:
+ 3975 words of node memory still in use:
    45 hlist, 11 vlist, 4 rule, 8 math, 32 glue, 11 kern, 1 penalty, 40 sub_mlist
-, 50 glyph, 777 attribute, 60 glue_spec, 195 attribute_list, 1 write nodes
-   avail lists: 2:1796,3:183,4:13,5:145,6:2356,7:678,8:77,9:384,10:10,11:190
- 7547 multiletter control sequences out of 65536+600000
+, 50 glyph, 925 attribute, 60 glue_spec, 232 attribute_list, 1 write nodes
+   avail lists: 2:1796,3:183,4:13,5:191,6:2371,7:678,8:77,9:496,10:10,11:188
+ 7553 multiletter control sequences out of 65536+600000
  117 fonts using 7661919 bytes
- 30i,18n,32p,810b,383s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 30i,19n,32p,810b,383s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/tex
 live/2017/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2017/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/tex
@@ -736,10 +574,10 @@ texlive/2017/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/201
 /usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
 cal/texlive/2017/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on sym-stoch.pdf (19 pages, 734052 bytes).
+Output written on sym-stoch.pdf (21 pages, 746756 bytes).
 
-PDF statistics: 247 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
+PDF statistics: 254 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

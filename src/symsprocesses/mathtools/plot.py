@@ -146,3 +146,16 @@ class ReflectionPlot:
 
     def show(self):
         plt.show()
+
+def plot_paths2d(paths, x0, x1, y0, y1, process, max_number):
+    plt.xlim(x0, x1)
+    plt.ylim(y0, y1)
+
+    nb_simu = process.NbSimus
+    nb_time = process.NbSteps
+
+    for simu in range(0, min(nb_simu, max_number)):
+        plt.plot(paths[0,simu,:], paths[1,simu,:], linewidth=1)
+    
+    plt.show()
+

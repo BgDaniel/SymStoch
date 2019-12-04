@@ -7,33 +7,34 @@
 \contentsline {section}{\tocsection {}{4}{Local K\"ahler spaces and their transformation properties}}{6}
 \contentsline {subsection}{\tocsubsection {}{4.1}{K\"ahler manifolds}}{6}
 \contentsline {subsection}{\tocsubsection {}{4.2}{The transformation law}}{7}
-\contentsline {subsection}{\tocsubsection {}{4.3}{Gluinig local data}}{8}
-\contentsline {section}{\tocsection {}{5}{Symmetries under group actions}}{8}
-\contentsline {subsection}{\tocsubsection {}{5.1}{Horizontal and vertical spacing}}{11}
-\contentsline {subsection}{\tocsubsection {}{5.2}{Punctuation marks}}{11}
-\contentsline {subsection}{\tocsubsection {}{5.3}{Titles}}{11}
-\contentsline {subsection}{\tocsubsection {}{5.4}{Language}}{11}
-\contentsline {subsection}{\tocsubsection {}{5.5}{Numbering}}{12}
-\contentsline {subsection}{\tocsubsection {}{5.6}{The mathematical mode}}{12}
-\contentsline {subsection}{\tocsubsection {}{5.7}{The bibliography}}{12}
-\contentsline {section}{\tocsection {}{6}{The environment}}{12}
-\contentsline {section}{\tocsection {}{7}{Structure of the document}}{13}
-\contentsline {subsection}{\tocsubsection {}{}{Remarks}}{14}
-\contentsline {section}{\tocsection {}{8}{Class options}}{14}
-\contentsline {subsection}{\tocsubsection {}{8.1}{Usual options}}{15}
-\contentsline {subsection}{\tocsubsection {}{8.2}{Language of the text}}{15}
-\contentsline {subsection}{\tocsubsection {}{8.3}{Remark}}{15}
-\contentsline {section}{\tocsection {}{9}{Sectioning commands}}{15}
-\contentsline {section}{\tocsection {}{10}{Presentation of theorems}}{16}
-\contentsline {subsection}{\tocsubsection {}{10.1}{Theorem styles}}{16}
-\contentsline {subsection}{\tocsubsection {}{10.2}{Proof environment}}{16}
-\contentsline {section}{\tocsection {}{11}{The \texttt {smfthm.sty} package}}{16}
-\contentsline {subsection}{\tocsubsection {}{11.1}{Theoremlike environments}}{16}
-\contentsline {subsection}{\tocsubsection {}{11.2}{Fixing the choice of the numbering}}{17}
-\contentsline {subsection}{\tocsubsection {}{11.3}{Generic statement}}{17}
-\contentsline {subsection}{\tocsubsection {}{11.4}{Other statements}}{18}
-\contentsline {section}{\tocsection {}{12}{Adapting a manuscript from another dialect}}{18}
-\contentsline {subsection}{\tocsubsection {}{12.1}{From another \LaTeXe \ class}}{18}
-\contentsline {subsection}{\tocsubsection {}{12.2}{From \LaTeX 2.09}}{18}
-\contentsline {subsection}{\tocsubsection {}{12.3}{From {P\smaller [3]LAIN} T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {}}}{18}
-\contentsline {section}{\tocsection {}{}{L\MakeLowercase {iterature and sources}}}{19}
+\contentsline {subsection}{\tocsubsection {}{4.3}{Gluinig local data}}{10}
+\contentsline {section}{\tocsection {}{5}{Symmetries under group actions}}{10}
+\contentsline {section}{\tocsection {}{6}{The generalized reflection principle}}{12}
+\contentsline {subsection}{\tocsubsection {}{6.1}{Horizontal and vertical spacing}}{13}
+\contentsline {subsection}{\tocsubsection {}{6.2}{Punctuation marks}}{13}
+\contentsline {subsection}{\tocsubsection {}{6.3}{Titles}}{14}
+\contentsline {subsection}{\tocsubsection {}{6.4}{Language}}{14}
+\contentsline {subsection}{\tocsubsection {}{6.5}{Numbering}}{14}
+\contentsline {subsection}{\tocsubsection {}{6.6}{The mathematical mode}}{14}
+\contentsline {subsection}{\tocsubsection {}{6.7}{The bibliography}}{14}
+\contentsline {section}{\tocsection {}{7}{The environment}}{15}
+\contentsline {section}{\tocsection {}{8}{Structure of the document}}{15}
+\contentsline {subsection}{\tocsubsection {}{}{Remarks}}{16}
+\contentsline {section}{\tocsection {}{9}{Class options}}{17}
+\contentsline {subsection}{\tocsubsection {}{9.1}{Usual options}}{17}
+\contentsline {subsection}{\tocsubsection {}{9.2}{Language of the text}}{17}
+\contentsline {subsection}{\tocsubsection {}{9.3}{Remark}}{17}
+\contentsline {section}{\tocsection {}{10}{Sectioning commands}}{17}
+\contentsline {section}{\tocsection {}{11}{Presentation of theorems}}{18}
+\contentsline {subsection}{\tocsubsection {}{11.1}{Theorem styles}}{18}
+\contentsline {subsection}{\tocsubsection {}{11.2}{Proof environment}}{18}
+\contentsline {section}{\tocsection {}{12}{The \texttt {smfthm.sty} package}}{18}
+\contentsline {subsection}{\tocsubsection {}{12.1}{Theoremlike environments}}{19}
+\contentsline {subsection}{\tocsubsection {}{12.2}{Fixing the choice of the numbering}}{19}
+\contentsline {subsection}{\tocsubsection {}{12.3}{Generic statement}}{19}
+\contentsline {subsection}{\tocsubsection {}{12.4}{Other statements}}{20}
+\contentsline {section}{\tocsection {}{13}{Adapting a manuscript from another dialect}}{20}
+\contentsline {subsection}{\tocsubsection {}{13.1}{From another \LaTeXe \ class}}{20}
+\contentsline {subsection}{\tocsubsection {}{13.2}{From \LaTeX 2.09}}{20}
+\contentsline {subsection}{\tocsubsection {}{13.3}{From {P\smaller [3]LAIN} T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {}}}{20}
+\contentsline {section}{\tocsection {}{}{L\MakeLowercase {iterature and sources}}}{21}
