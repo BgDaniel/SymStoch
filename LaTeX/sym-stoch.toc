@@ -1,13 +1,13 @@
-\select@language {english}
-\select@language {english}
-\select@language {english}
+\babel@toc {english}{}
+\babel@toc {english}{}
+\babel@toc {english}{}
 \contentsline {section}{\tocsection {}{1}{Introduction}}{2}
 \contentsline {section}{\tocsection {}{2}{Contravariance of the drift}}{2}
 \contentsline {section}{\tocsection {}{3}{Invariance of the volatility structure}}{4}
 \contentsline {section}{\tocsection {}{4}{Local K\"ahler spaces and their transformation properties}}{6}
 \contentsline {subsection}{\tocsubsection {}{4.1}{K\"ahler manifolds}}{6}
 \contentsline {subsection}{\tocsubsection {}{4.2}{The transformation law}}{7}
-\contentsline {subsection}{\tocsubsection {}{4.3}{Gluinig local data}}{10}
+\contentsline {subsection}{\tocsubsection {}{4.3}{Gluinig local data}}{9}
 \contentsline {section}{\tocsection {}{5}{Symmetries under group actions}}{10}
 \contentsline {section}{\tocsection {}{6}{The generalized reflection principle}}{12}
 \contentsline {subsection}{\tocsubsection {}{6.1}{Horizontal and vertical spacing}}{13}

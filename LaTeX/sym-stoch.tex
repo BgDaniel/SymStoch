@@ -32,7 +32,6 @@
 \newcommand{\arr}{\!\rightarrow\!}
 \newcommand{\tim}{\!\times\!}
 \newcommand{\dZ}{{\textrm{d}}\bf{Z}_{\textrm{t}}}
-\newcommand{\Z}{{\bf{Z}_{\textrm{t}}}}
 \newcommand{\Ztil}{{\widetilde{\bf{Z}}_{\textrm{t}}}}
 \newcommand{\dZtil}{\textrm{d}{\widetilde{\bf{Z}}_{\textrm{t}}}}
 \newcommand{\dW}{{\textrm{d}}{\bf{W}}_{\textrm{t}}}
@@ -68,6 +67,8 @@
 \newcommand{\Xtbetal}{\mathrm{\mathbf{X}}_{\beta\alpha,t}}
 \newcommand{\Yt}{\mathrm{\mathbf{Y}}_{t}}
 \newcommand{\Y}{\mathrm{\mathbf{Y}}}
+\newcommand{\Z}{\mathrm{\mathbf{Z}}}
+\newcommand{\C}{\mathrm{\mathbf{C}}}
 \newcommand{\R}{\mathrm{\mathbf{R}}}
 \newcommand{\orth}{\mathrm{\mathbf{o}}}
 \newcommand{\Wt}{\mathrm{\mathbf{W}}_{t}}
@@ -341,7 +342,9 @@ In particular, if $\mathrm{\mu}$ is invariant under $\phi$, it follows:
 \begin{coro}[Invariant processes] Let $\mathrm{(\U,\Xt,\phi)}$ be a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$ so that $\mathrm{\phi_{*}\mu=\mu}$, then
 \begin{equation}\label{stochdiff}
 \mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\mu\left(\Yt\right)dt}
-\end{equation} for $\mathrm{\Wtil\sim\Wt}$. In particular, the tansformation $\Yt$ is modification of $\Xt$, i.e.
+\end{equation} for $\mathrm{\Wtil\sim\Wt}$.
+
+In particular, if $\mathrm{\phi(\X_{0})=\X_{0}}$, the transformation $\Yt$ is modification of $\Xt$, i.e.
 \begin{equation}
 \mathrm{\mathbb{P}(\Xt =\Yt)=1}
 \end{equation} for all $\mathrm{t\leq 0}$.
@@ -361,12 +364,12 @@ for $\mathrm{\A\in\mathscr{A}}$ where $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\si
 \end{equation} or equivalently 
 \begin{equation}
 \mathrm{-\frac{\partial \nu_{\X}}{\partial t}+\frac{1}{2}\left(\g^{\sigma}\right)^{ij}\frac{\partial^{2}\nu_{\X}}{\partial x^{i}\partial x^{j}}+\mu^{i}\frac{\partial \nu_{\X}}{\partial x^{i}}=0}
-\end{equation} using definition \ref{definitionMetric}. Note that by equation (\ref{speciallaplace}) of lemma \ref{lemmacontravariance} we even have 
+\end{equation} by definition \ref{definitionMetric}. Note that by equation (\ref{speciallaplace}) of lemma \ref{lemmacontravariance} we even have 
 \begin{equation}
 \mathrm{\left(\g^{\sigma}\right)^{ij}\frac{\partial^{2}\nu_{\X}}{\partial x^{i}\partial x^{j}}=\triangle^{\g}\nu_{\xi}}
-\end{equation} Using the notation $\mathrm{X_{\nu}=\mu=\mu^{i}\frac{\partial}{\partial x^{i}}}$, equation (\ref{feynmankac}) turns into 
+\end{equation} Using the notation $\mathrm{\mu=\mu^{i}\frac{\partial}{\partial x^{i}}}$, equation (\ref{feynmankac}) turns into 
 \begin{equation}
-\mathrm{-\frac{\partial \nu_{\X}}{\partial t}+\frac{1}{2}\triangle^{\g}\nu_{\X}+X_{\mu}\nu_{\Y}=0}
+\mathrm{-\frac{\partial \nu_{\X}}{\partial t}+\frac{1}{2}\triangle^{\g}\nu_{\X}+\mu\,\nu_{\Y}=0}
 \end{equation}
 
 Now if $\mathrm{\nu_{\Y}}$ denotes the density distribution function of the transformed process $\mathrm{\Yt =\phi\circ \Xt}$, one can ask for the corresponding {\scshape{Feynman-Kac}} formula. Note, that by the transformation law for integrals under diffeomorphism such as $\mathrm{\phi}$, it follows that 
@@ -384,9 +387,9 @@ Now if $\mathrm{\nu_{\Y}}$ denotes the density distribution function of the tran
 \mathrm{\nu_{\Y}=\nu_{\X}\circ \phi^{-1}}
 \end{equation}
 
-\begin{theo}[Transformation law of densities]\label{transformationtheodens} If $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$, then the distribution function $\mathrm{\nu_{\Y}}$ of the transformation $\mathrm{\Yt}$ solves the original {\scshape{Feynman-Kac}} formula (of $\mathrm{\Xt}$)
+\begin{theo}[Transformation law of densities]\label{transformdensities} If $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$, then the distribution function $\mathrm{\nu_{\Y}}$ of the transformation $\mathrm{\Yt}$ solves the following version of the {\scshape{Feynman-Kac}} formula:
 \begin{equation}
-\mathrm{-\frac{\partial \nu_{\Y}}{\partial t}+\frac{1}{2}\triangle^{\g}\nu_{\Y}+\left(\phi^{-1}\right)_{*}\left(\mu^{i}\frac{\partial }{\partial x^{i}}\right)\nu_{\Y}=0}
+\mathrm{-\frac{\partial \nu_{\Y}}{\partial t}+\frac{1}{2}\triangle^{\g}\nu_{\Y}+\left(\phi_{*}X_{\mu}\right)\nu_{\Y}=0}
 \end{equation}
 \end{theo}
 \begin{proof} First of all note, that the claim already follows by theorem \ref{transformationtheo}. An alternative argument however can be provided by running along the following lines.
@@ -395,46 +398,29 @@ First of all, note that we have
 \begin{equation}
 \mathrm{\frac{\partial \nu_{\Y}}{\partial t}(t,x)=\left(\frac{\partial \nu_{\X}}{\partial t}\right)\left(t, \phi^{-1}(x)\right)=\frac{\partial \nu_{\X}}{\partial t}\circ \phi^{-1}\left(t,x\right)}
 \end{equation} 
-Furthermore, we have
+Furthermore, as
 \begin{equation}
-\mathrm{\left(\phi^{-1}\right)_{*}\left(\mu^{i}\frac{\partial }{\partial x^{i}}\right)\nu_{\Y}=}
-\end{equation} by definition
-
-
-
+\mathrm{\left(\phi_{*}X_{\mu}\right)\left(f\circ\phi^{-1}\right)(x)=\left(X_{\mu}f\right)\left(\phi^{-1}(x)\right)}
+\end{equation} for $\mathrm{x\in\U}$ and all smooth functions $\mathrm{f\in\mathscr{C}^{\infty}\left(\U,\mathbb{R}\right)}$ on $\mathrm{\U}$, we infer that 
 \begin{equation}
-\mathrm{\mu^{i}(x)\frac{\partial}{\partial x^{i}}_{\vert x}\nu_{\Y}(t,x)=\left(\frac{d\phi^{-1}}{dx}\left(x\right)\mu^{i}(x)\frac{\partial}{\partial x^{i}}_{\vert x}\right)\nu_{X}(t,\phi^{-1}(x))}
-\end{equation} by the chain rule. As $\mathrm{\phi_{*}\mu = \mu}$ which is equivalent to
-\begin{equation}
-\mathrm{\frac{d\phi^{-1}}{dx}\left(x\right)\mu^{i}(x)\frac{\partial}{\partial x^{i}}_{\vert x}=\mu^{i}\left(\phi^{-1}(x)\right)\frac{\partial}{\partial x^{i}}_{\vert \phi^{-1}(x)}}
-\end{equation} for all $\mathrm{x\in\U}$ by definition, it follows
-\begin{equation}
-\mathrm{\mu^{i}(x)\frac{\partial}{\partial x^{i}}_{\vert x}\nu_{\Y}(t,x)=\left(\mu^{i}\left(\phi^{-1}(x)\right)\frac{\partial}{\partial x^{i}}_{\vert \phi^{-1}(x)}\right)\nu_{X}(t,\phi^{-1}(x))}
-\end{equation} or briefly 
-\begin{equation}
-\mathrm{\mu^{i}\frac{\partial}{\partial x^{i}}\nu_{\Y}=\left(\mu^{i}\frac{\partial}{\partial x^{i}}\nu_{\X}\right)\circ \phi^{-1}}
+\mathrm{\left(\phi_{*}X_{\mu}\right)\nu_{\Y}=\left(X_{\mu}\nu_{\X}\right)\circ\phi^{-1}}
 \end{equation} In particular, the theorem is proven as soon as we have shown that 
 \begin{equation}\label{invarianceoflaplacian}
 \mathrm{\triangle^{\g}\nu_{\Y}=\triangle^{g}\nu_{\X}\circ \phi^{-1}}
-\end{equation} because the it would follow that
+\end{equation} because then it would follow that
 \begin{equation}
 \mathrm{0=\left(-\frac{\partial \nu_{\X}}{\partial t}+\frac{1}{2}\triangle^{\g}\nu_{\X}+\mu^{i}\frac{\partial \nu_{\X}}{\partial x^{i}}\right)\circ\phi^{-1}=-\frac{\partial \nu_{\Y}}{\partial t}+\frac{1}{2}\triangle^{\g}\nu_{\Y}+\mu^{i}\frac{\partial \nu_{\Y}}{\partial x^{i}}}
-\end{equation} 
+\end{equation} However, equation \ref{invarianceoflaplacian} is a direct consequence of the fact that the Laplace-Beltrami operator is invariant under metric transfomrations such as $\mathrm{\phi}$
 \end{proof}
 
-In particular, if $\mathrm{\mu}$ commutates with $\mathrm{\phi}$, i.e. $\mathrm{\phi_{*}\mu=\mu}$, we deduces:
+In particular, if $\mathrm{\mu}$ commutates with $\mathrm{\phi}$, i.e. $\mathrm{\phi_{*}\mu=\mu}$, we deduce:
 
 \begin{coro}[Invariant processes] If $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$, then the distribution function $\mathrm{\nu_{\Y}}$ of the transformation $\mathrm{\Yt}$ solves the original {\scshape{Feynman-Kac}} formula (of $\mathrm{\Xt}$)
 \begin{equation}
-\mathrm{-\frac{\partial \nu_{\Y}}{\partial t}+\frac{1}{2}\triangle^{\g}\nu_{\Y}+\mu^{i}\frac{\partial \nu_{\Y}}{\partial x^{i}}=0}
+\mathrm{-\frac{\partial \nu_{\Y}}{\partial t}+\frac{1}{2}\triangle^{\g}\nu_{\Y}+X_{\mu}\nu_{\Y}=0}
 \end{equation} 
-
-Moreover, if $\mathrm{\phi(\X_{0})=\X_{0}}$, the transformation $\Yt$ is modification of $\Xt$, i.e.
-\begin{equation}
-\mathrm{\mathbb{P}(\Xt =\Yt)=1}
-\end{equation} for all $\mathrm{t\leq 0}$.
 \end{coro}
-\begin{proof} d
+\begin{proof} The proof is a direct application of theorem \ref{transformdensities}.
 \end{proof}
 
 \subsection{Gluinig local data}
@@ -552,7 +538,24 @@ In particular, if $\mathrm{\Phi^{\xi_{t}}=\phi}$
 \section{The generalized reflection principle}
 As before, let $\mathrm{(\U,\Xt,\phi)}$ be a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$ where $\mathrm{\Xt}$ is a solution of equation (\ref{stochdiff}).
 
-In this section, we will furthermore assume that $\mathrm{\phi}$ acts as an idempotent transformation on $\mathrm{\U}$, i.e. $\mathrm{\phi^{2}=\phi}$.
+In this section, we will furthermore assume that $\mathrm{\phi}$ acts as a reflection on $\mathrm{\U}$, i.e. $\mathrm{\phi^{2}=\phi}$. Now, let 
+\begin{equation}
+\mathrm{\C({\phi}) :=\left\{x\in\U:\, \phi(x)=x\right\}\subset \U}
+\end{equation} be the reflection center of $\mathrm{\phi}$. Throughout this section, we will assume that $\mathrm{\C({\phi})}$ separates $\mathrm{\U}$ into two connected, disjoint sets $\mathrm{\U_{0}}$ and $\mathrm{\U_{1}}$ such that 
+\begin{equation}
+\mathrm{\U= \U_{0}\cup \C({\phi}) \cup \U_{1}}
+\end{equation}
+Having introduced the above partition $\mathrm{\left\{\U_{0,1}, \C({\phi})\right\}}$ of $\mathrm{\U}$, we define the refelcted process $\mathrm{\X^{\phi}}$ of $\mathrm{\X}$ in $\mathrm{\U}$ by setting
+$$\mathrm{\X^{\phi}_t:=\left\{ \begin{array}{ll} \mathrm{\X_{t}} &\textrm{for }\mathrm{t\leq \tau^{\phi}}\\  \mathrm{\phi\left(\X_{t}\right)}&\textrm{for }\mathrm{t>\tau^{\phi}}\\ \end{array} \right.}$$
+
+\begin{theo} Let $\mathrm{\left\{\U_{0,1}, \C({\phi})\right\}}$ be a disjoint partition of $\mathrm{\U}$ into connected subsets $\mathrm{\U_{0}}$, $\mathrm{\U_{1}}$ and consider a stochastic process $\mathrm{\Xt}$ solving 
+\begin{equation}
+\mathrm{d\Xt=\sig\left(\Xt\right)d\Wt}
+\end{equation} with the initial value condition $\mathrm{\X_{0}\in U_{0}}$, then if $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$, it follows
+\begin{equation}
+\mathrm{\mathbb{P}\left(\tau^{\phi}\leq t\right) = 2\mathbb{P}\left(\Xt \in\U_{1} \right)}
+\end{equation}
+\end{theo}
 
 
 
