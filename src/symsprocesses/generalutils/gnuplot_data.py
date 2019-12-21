@@ -1,6 +1,6 @@
 import numpy as np
 
-def arrange_data(file_path, **kwargs):
+def save_data(file_path, **kwargs):
     header = '#'
     
     for key, value in kwargs.items():
