@@ -5,7 +5,7 @@ from hypgeo.geometry import *
 from h_processes import *
 
 '''set up simulation config'''
-simuConfig = SimulationConfig(15.0, 100, 15, False)
+simuConfig = SimulationConfig(15.0, 15000, 5000, False)
 half_circle = HalfCircle(1.0, 0.0)
 
 S_0s = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5]
