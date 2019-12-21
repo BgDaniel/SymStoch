@@ -47,32 +47,42 @@ class ProcessHPlus(MultiDimensionItoProcess):
 
         return paths_reflected
 
-    def calc_absorption(self, half_circle, paths):
+    def touch_dist(self, half_circle, paths):
         nb_simus = self._simuConfig.NumberSimus
         nb_times = self._simuConfig.TimeSteps
-        has_entered = np.full(nb_simus, False)
-        dist_has_entered = np.full(nb_times, .0)
-        dist_is_in = np.full(nb_times, .0)
+        has_touched = np.full(nb_simus, False)
         half_space = HalfSpace(half_circle)
+        touch_dist = np.full(nb_times, .0)
+
+        for i in range(0, nb_simus):
+            for t in range(0, nb_times):                
+                if has_touched[i]:
+                    touch_dist[t] += 1
+                else:                                        
+                    if half_space.position(paths[:,i,t]) == Position.IN:
+                        has_touched[i] = True
+                        touch_dist[t] += 1
+
+        for t in range(0, nb_times):      
+            touch_dist[t] = float(touch_dist[t]) / float(nb_simus)
+
+        return touch_dist
+
+    def entered_dist(self, half_circle, paths):
+        nb_simus = self._simuConfig.NumberSimus
+        nb_times = self._simuConfig.TimeSteps
+        half_space = HalfSpace(half_circle)
+        entered_dist = np.full(nb_times, .0)
 
         for i in range(0, nb_simus):
             for t in range(0, nb_times):
-                pos = half_space.position(paths[:,i,t])
-                if has_entered[i]:
-                    dist_has_entered[t] += 1
-                else:                    
-                    if pos == Position.IN:
-                        has_entered[i] = True
-                        dist_has_entered[t] += 1
-
-                if pos == Position.IN:
-                    dist_is_in[t] += 1
+                if half_space.position(paths[:,i,t]) == Position.IN:
+                    entered_dist[t] += 1
 
         for t in range(0, nb_times):      
-            dist_is_in[t] = float(dist_is_in[t]) / float(nb_simus)
-            dist_has_entered[t] = float(dist_has_entered[t]) / float(nb_simus)
+            entered_dist[t] = float(entered_dist[t]) / float(nb_simus)
 
-        return dist_is_in, dist_has_entered
+        return entered_dist
     
 
   
