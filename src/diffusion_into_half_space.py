@@ -2,9 +2,10 @@ from symsprocesses.process_factory import *
 from symsprocesses.process_h_plus import *
 from hypgeo.transformations import refl
 from hypgeo.geometry import *
+from symsprocesses.generalutils.gnuplot_data import *
 
 '''set up simulation config'''
-simuConfig = SimulationConfig(25.0, 100, 50, False)
+simuConfig = SimulationConfig(15.0, 10000, 1500, False)
 
 '''define process parameters'''
 S_0 = 1.0
@@ -29,9 +30,10 @@ paths = process.generatePaths()
 '''define half circle'''
 half_circle = HalfCircle(1.0, 2.5)
 
-'''calculate distribution'''
-dist_is_in, dist_has_entered = process.calc_absorption(half_circle, paths)
+'''calculate distributions'''
+entered_dist = process.entered_dist(half_circle, paths)
+touch_dist = process.touch_dist(half_circle, paths)
+
+arrange_data('in_half_space.data', entered=entered_dist, touched=touch_dist)
 
 
-np.savetxt('in_half_space.csv'.format(), dist_is_in, fmt='%.4f', delimiter=';')
-np.savetxt('touching_half_circle.csv'.format(), dist_has_entered, fmt='%.4f', delimiter=';')
