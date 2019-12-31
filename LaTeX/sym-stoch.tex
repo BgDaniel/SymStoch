@@ -326,6 +326,28 @@ If
 \end{enumerate} then we say that the tuple $\mathrm{(\U,\Xt,\phi)}$ is a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$.
 \end{defi}
 
+We proceed by introducing some examples of local K\"ahler spaces with natural, associated transformations compatible with their K\"ahler structure.
+
+\begin{exem}[Upper Half Plane]\label{upperHalfPlane} Let $\mathrm{\mathbb{H}:=\left\{z:\,\frak{Im}\,z=y >0\right\}\subset \mathbb{C}^{2}}$ where $\mathrm{z=x+\sqrt{-1}y}$ and let $\mathrm{\Xt}$ be the process in $\mathrm{\mathbb{H}}$ defined by the system of equations 
+\begin{equation}
+\begin{split}
+\mathrm{dX_{t}}&=\mathrm{Y_{t}dW^{0}_{t}+\mu^{0}\left({\mathbf{Z}}_{t}\right)dt}\\
+\mathrm{dY_{t}}&=\mathrm{Y_{t}dW^{1}_{t}+\mu^{1}\left({\mathbf{Z}}_{t}\right)dt}
+\end{split}
+\end{equation} or equivalently $\mathrm{d\mathbf{Z}_{t}=\sig\left(\mathbf{Z}_{t}\right)d\Wt+\mu\left(\mathbf{Z}_{t}\right)dt}$ with 
+\begin{equation}
+\mathrm{\sigma(z)=y\left( \begin{array}{ccc}
+1 & 0  \\                                           
+ 0 & 1 \\                                              
+\end{array}\right)}
+\end{equation} so that the induced Riemannian metric $\mathrm{\g^{\sigma}}$ on $\mathrm{\mathbb{H}}$ is given by the ${\textsc{Poincare}}$ metric 
+\begin{equation}
+\mathrm{g=y^{-2}\left(dx^{2}+dy^{2}\right)}
+\end{equation} It is known that the upper half plane model given by $\mathrm{\left(\mathbb{H}, \g^{\sigma}\right)}$ is a  K\"ahler manifold with harmonic coordinates given by $\mathrm{x,\,y}$. In particular, the last statement can be verfied directly by having a look at the explicit formulas of $\mathrm{\Gamma^{k}_{ij}}$ which are given by
+\begin{equation}
+\mathrm{\Gamma^{1}_{11}=\Gamma^{1}_{22}=0,\,\,\,\,\,\,-\Gamma^{1}_{12}=-\Gamma^{1}_{21}=-\Gamma^{2}_{22}=\Gamma^{2}_{11}=\frac{1}{y}}\\
+\end{equation} This in turn yields $\mathrm{\Delta^{\g}=y^2\left(\frac{\partial^2}{\partial x^{2}}+\frac{\partial^2}{\partial y^{2}}\right)}$.
+\end{exem}
 
 \subsection{The transformation law}
 
@@ -534,6 +556,30 @@ In particular, if $\mathrm{\Phi^{\xi_{t}}=\phi}$
 \mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\mu\left(\Yt\right)dt}
 \end{equation} and hence the claim.
 \end{proof} 
+
+\begin{coro}[Generating drifts] Let $\mathrm{\Xt}$ be a driftless process
+\begin{equation}
+\mathrm{d\Xt=\sig\left(\Xt\right)d\Wt}
+\end{equation} and assume $\mathrm{(\U,\Xt,\G)}$ to be a $\mathrm{\sigma}$\textit{-compatible group of transformations} of $\mathrm{\Xt}$, then
+\begin{equation}\label{stochdiff}
+\mathrm{d\Yt=\sig\left(\Yt\right)d\Wttil+\xi(\Yt)\dt}
+\end{equation} for $\mathrm{\Wtil\sim\Wt}$.
+\end{coro}
+\begin{proof} The claim is a direct consequence of the aforementioned theorem.
+\end{proof} 
+
+\begin{exem}[Periodic Process on the Upper Half Plane]\label{upperHalfPlanePeriodic} Let $\mathrm{\left(\mathbb{H}, \g=y^{-2}\left(dx^2+dy^2\right)\right)}$ by the Upper Half Plane Model as introduced in example (\ref{upperHalfPlane}). Recall that a the projective special linear group of dimension $\mathrm{2}$ over the real numbers
+\begin{equation}
+\mathrm{PSL\left(2,\mathbb{R}\right):=\left\{\left( \begin{array}{ccc}
+\alpha & \beta  \\                                           
+ \gamma & \delta \\                                              
+\end{array}\right):\,\alpha\delta-\beta\gamma=1\right\}\Big\slash\left\{\pm \mathbb{E}\right\}}
+\end{equation} acts on $\mathbb{H}$ by holomorphic isometries with respect to $\mathrm{\g}$ by 
+\begin{equation}
+\mathrm{g.z=\frac{\alpha z + \beta}{\gamma z +\delta}}
+\end{equation} 
+
+\end{exem}
 
 \section{The generalized reflection principle}
 As before, let $\mathrm{(\U,\Xt,\phi)}$ be a $\mathrm{\sigma}$\textit{-compatible transformation} of $\mathrm{\Xt}$ where $\mathrm{\Xt}$ is a solution of equation (\ref{stochdiff}).
@@ -1044,18 +1090,7 @@ The {\tt enonce} environment uses the {\it plain} theorem style, but one can cha
 
 Finally, there exists a corresponding \verb|enonce*| environment.
 
-\subsection{Other statements}
-The author may introduce other kinds of theoremlike environments as explained in \T\ref{subsec:thm}. Notice, however, that in order to introduce environments numbered as the ones of {\tt smfthm.sty}, one uses {\tt enonce}:
-
-\verb|\newenvironment{scholie}{\begin{enonce}{Scholie}}{\end{enonce}}|
-
-\noindent which should be entered \emph{after} \verb|\begin{document}|.
-
-
-\section{Adapting a manuscript from another dialect}\label{sec:compatible}
-If you already have typed your manuscript  in \textsc{Plain} \TeX,
-or in \LaTeX 2.09, or in \LaTeXe, but with another class,
-and if you want to adapt it to the SMF classes, this paragraph
+he SMF classes, this paragraph
 will give you some hints.
 
 \subsection{From another \LaTeXe\ class}
@@ -1073,31 +1108,7 @@ You'll need to enter another abstract
 (\texttt{altabstract}) and another title (\texttt{alttitle}), 
 in French if your text is in English and in English otherwise.
 
-The inverse transformation (SMF $\rightarrow$ AMS) can be done in a similar way.
 
-\medskip
-If it is a standard class (\texttt{article} ou \texttt{book}),
-things are a bit more complicated. Be careful to type the abstracts
-{\em before} the \verb|\maketitle|; some mathematical formulas might
-not work properly, but the AMS packages offer such a variety of
-uses, that it should not be very difficult to do.
-
-\subsection{From \LaTeX2.09}
-In this case, you'll have to make the adjustments described
-in the previous paragraph, and also those needed by the
-\LaTeX2.09--\LaTeXe\ mutation.
-A priori, it should mostly concern the font faces commands
-and the conforming to 
-the {\em New Font Selection Scheme} (NFSS).
-
-\subsection{From {P\smaller[3]LAIN} \TeX}
-In this case, you have to take up your manuscript again,
-and replace title, theorems, sectioning and bibliographical commands, by the adequate ones, refering to the \LaTeXe\ user's guide and the recommendations above. We bring your attention
-to the automatic numbering of paragraphs and theoremlike environments: it might differ from the original one. Pay similar attention to your references.
-The macros \textsc{Plain} \TeX{} uses to change the typefaces
-are most often ineffective in \LaTeXe, so you'll have to adapt
-them too. Concerning mathematics, few changes are needed, except
-for aligned equations and matrices.
 
 
 
